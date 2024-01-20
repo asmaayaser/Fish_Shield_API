@@ -1,4 +1,6 @@
 
+using Fish_Shield_API.ServiceExtensions;
+
 namespace Fish_Shield_API
 {
     public class Program
@@ -14,6 +16,11 @@ namespace Fish_Shield_API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            // Adding Custom Services
+            builder.Services.ConfigureCORS();
+            builder.Services.ConfigureIISIntegration();
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -25,6 +32,9 @@ namespace Fish_Shield_API
 
             app.UseHttpsRedirection();
 
+            app.UseCors("CORSPolicy");
+
+            app.UseAuthentication();
             app.UseAuthorization();
 
 

@@ -11,7 +11,7 @@ using Repositories.Context;
 
 namespace Fish_Shield_API.Migrations
 {
-    [DbContext(typeof(Context))]
+    [DbContext(typeof(RepositoryContext))]
     [Migration("20240121011432_intial")]
     partial class intial
     {

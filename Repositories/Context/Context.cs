@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Repositories.Context
 {
-    public class Context:IdentityDbContext<AppUser>
+    public class RepositoryContext:IdentityDbContext<AppUser>
     {
-        public Context(DbContextOptions options) : base(options) { }
+        public RepositoryContext(DbContextOptions options) : base(options) { }
 
 
         public virtual DbSet<FishDisease> FishDiseases { get; set; }

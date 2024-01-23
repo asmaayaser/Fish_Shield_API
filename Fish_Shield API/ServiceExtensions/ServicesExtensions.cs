@@ -4,7 +4,11 @@ using CORE.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Repositories;
 using Repositories.Context;
+using Repositories.Contracts;
+using Services;
+using Services.Contracts;
 
 namespace Fish_Shield_API.ServiceExtensions
 {
@@ -20,6 +24,7 @@ namespace Fish_Shield_API.ServiceExtensions
             options.AddPolicy("CORSPolicy", pol =>
             {
                 pol.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                
             });
         });
 
@@ -40,8 +45,9 @@ namespace Fish_Shield_API.ServiceExtensions
         public static void ConfigureLogging(this IServiceCollection services)
             => services.AddSingleton<ILoggerManager,LoggerManager>();
 
+
         public static void ConfigureDBContext(this IServiceCollection services,IConfiguration configuration)
-            => services.AddDbContext<Context>(options =>
+            => services.AddDbContext<RepositoryContext>(options =>
             {
                 options.UseSqlServer(configuration.GetConnectionString("SqlConnection"), options =>
                 {
@@ -50,7 +56,12 @@ namespace Fish_Shield_API.ServiceExtensions
             });
 
         public static void ConfigureIdentity(this IServiceCollection services)
-            => services.AddIdentity<AppUser,IdentityRole>().AddEntityFrameworkStores<Context>();
+            => services.AddIdentity<AppUser,IdentityRole>().AddEntityFrameworkStores<RepositoryContext>();
 
+        public static void ConfigureRepositoryManager(this IServiceCollection services)
+            => services.AddScoped<IRepositoryManager, RepositoryManager>();
+
+        public static void ConfigureServiceManager(this IServiceCollection services)
+            =>services.AddScoped<IServiceManager,ServiceManager>();
     }
 }

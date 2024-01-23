@@ -10,7 +10,7 @@ using Repositories.Context;
 
 namespace Fish_Shield_API.Migrations
 {
-    [DbContext(typeof(Context))]
+    [DbContext(typeof(RepositoryContext))]
     partial class ContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

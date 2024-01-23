@@ -1,8 +1,10 @@
 
 using CORE.Models;
+using Fish_Shield_API.ErrorHandlerMiddleWare;
 using Fish_Shield_API.ServiceExtensions;
 using Microsoft.AspNetCore.Identity;
 using NLog;
+using Presentation;
 using Repositories.Context;
 
 namespace Fish_Shield_API
@@ -15,7 +17,10 @@ namespace Fish_Shield_API
 
             // Add services to the container.
             LogManager.Setup().LoadConfigurationFromFile(string.Concat(Directory.GetCurrentDirectory(), "/Nlog.config"));
-            builder.Services.AddControllers();
+            builder.Services.AddControllers().AddApplicationPart(typeof(AssemblyReference).Assembly);
+            builder.Services.AddAutoMapper(typeof(Program));
+              
+               
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -26,6 +31,8 @@ namespace Fish_Shield_API
             builder.Services.ConfigureLogging();
             builder.Services.ConfigureDBContext(builder.Configuration);
             builder.Services.ConfigureIdentity();
+            builder.Services.ConfigureRepositoryManager();
+            builder.Services.ConfigureServiceManager();
 
            
             var app = builder.Build();
@@ -33,12 +40,17 @@ namespace Fish_Shield_API
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                app.ConfigureExceptionHandler();
+               // app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI();
-            }else 
+            }
+            else
+            {
+                //Glogal Middleware Can Catch All Exceptions Throwed
+                app.ConfigureExceptionHandler();
                 app.UseHsts();
-
+            }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();

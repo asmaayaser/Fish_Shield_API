@@ -17,7 +17,12 @@ namespace Fish_Shield_API
 
             // Add services to the container.
             LogManager.Setup().LoadConfigurationFromFile(string.Concat(Directory.GetCurrentDirectory(), "/Nlog.config"));
-            builder.Services.AddControllers().AddApplicationPart(typeof(AssemblyReference).Assembly);
+            builder.Services.AddControllers(config =>
+            {
+                config.RespectBrowserAcceptHeader = true;
+                config.ReturnHttpNotAcceptable = true;
+            }).AddXmlDataContractSerializerFormatters()
+                .AddApplicationPart(typeof(AssemblyReference).Assembly);
             builder.Services.AddAutoMapper(typeof(Program));
               
                

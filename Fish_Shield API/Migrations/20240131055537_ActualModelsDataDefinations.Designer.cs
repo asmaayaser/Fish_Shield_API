@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repositories.Context;
 
@@ -11,9 +12,11 @@ using Repositories.Context;
 namespace Fish_Shield_API.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20240131055537_ActualModelsDataDefinations")]
+    partial class ActualModelsDataDefinations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -233,19 +236,19 @@ namespace Fish_Shield_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "aaf8dd2f-c8d3-4ae8-a8f2-808bb921a7bd",
+                            Id = "28217bec-f5e3-422f-a233-724dfdbcb3e1",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "65a2c11a-1eee-408c-8e7f-8a3e82ee4939",
+                            Id = "036d65be-957c-4367-95f0-b4af86e5916b",
                             Name = "FarmOwner",
                             NormalizedName = "FARMOWNER"
                         },
                         new
                         {
-                            Id = "050796a3-1358-4616-a7b6-aa2c7c82a75b",
+                            Id = "84b82910-9e8f-49bf-8bbe-254734e5a39d",
                             Name = "Doctor",
                             NormalizedName = "DOCTOR"
                         });
@@ -366,16 +369,16 @@ namespace Fish_Shield_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "fc47d30b-c8ce-44d5-a974-8c7824ca21a7",
+                            Id = "ab882416-f28d-49e7-932a-4025fb6a1cf8",
                             AccessFailedCount = 0,
                             BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "1168dd44-d798-46d3-bfe0-14faf33008d1",
+                            ConcurrencyStamp = "fa942f5f-64a1-4b44-a1da-0faf7abb7bfe",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "admin",
                             PersonalPhoto = "H:\\Git hub Projects\\Graduation Project\\Fish_Shield API",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3746794a-a9a1-4734-a097-91a9e7e9e0fa",
+                            SecurityStamp = "6894a84c-ff76-4697-a797-577fea06ed87",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });

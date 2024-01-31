@@ -39,7 +39,7 @@ namespace Repositories.Context
             builder.Entity<Admin>(conf =>
             {
                 conf.HasBaseType(typeof(AppUser));
-                conf.HasData(new Admin() { UserName= "admin",PasswordHash="admin" });
+                conf.HasData(new Admin() { UserName= "admin",PasswordHash="admin",PersonalPhoto=Directory.GetCurrentDirectory() });
             });
             builder.Entity<IdentityRole>(conf =>
             {

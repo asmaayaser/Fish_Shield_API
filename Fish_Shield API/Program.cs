@@ -35,6 +35,7 @@ namespace Fish_Shield_API
             builder.Services.ConfigureIISIntegration();
             builder.Services.ConfigureLogging();
             builder.Services.ConfigureDBContext(builder.Configuration);
+            builder.Services.AddAuthentication();
             builder.Services.ConfigureIdentity();
             builder.Services.ConfigureRepositoryManager();
             builder.Services.ConfigureServiceManager();

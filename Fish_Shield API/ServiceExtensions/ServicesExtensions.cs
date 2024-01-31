@@ -2,6 +2,7 @@
 using CORE.LoggerService;
 using CORE.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Repositories;
@@ -53,10 +54,11 @@ namespace Fish_Shield_API.ServiceExtensions
                 {
                     options.MigrationsAssembly("Fish_Shield API");
                 });
+               
             });
 
         public static void ConfigureIdentity(this IServiceCollection services)
-            => services.AddIdentity<AppUser,IdentityRole>().AddEntityFrameworkStores<RepositoryContext>();
+            => services.AddIdentity<AppUser,IdentityRole>().AddEntityFrameworkStores<RepositoryContext>().AddDefaultTokenProviders();
 
         public static void ConfigureRepositoryManager(this IServiceCollection services)
             => services.AddScoped<IRepositoryManager, RepositoryManager>();

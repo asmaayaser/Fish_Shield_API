@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Services.DTO
 {
-    public /*abstract*/ record DiseaseForManipulationDto
+    public  record DiseaseForManipulationDto
     {
         [StringLength(50)]
         public string Name { get; set; }
@@ -18,5 +18,9 @@ namespace Services.DTO
     }
 
     public record DiseaseForCreationDto:DiseaseForManipulationDto { }
-    public record DiseaseForUpdatingDto : DiseaseForManipulationDto { }
+    public record DiseaseForUpdatingDto : DiseaseForManipulationDto {
+     
+    }
+
+    public record Test(int id ,string name);
 }

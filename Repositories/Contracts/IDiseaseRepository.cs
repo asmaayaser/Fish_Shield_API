@@ -8,7 +8,7 @@ namespace Repositories.Contracts
 {
     public interface IDiseaseRepository
     {
-       IEnumerable<FishDisease> GetAll(bool track);
+        IEnumerable<FishDisease> GetAll(bool track);
         FishDisease GetDisease(int id,bool track);
     }
 }

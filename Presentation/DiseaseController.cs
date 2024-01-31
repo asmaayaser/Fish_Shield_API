@@ -14,7 +14,6 @@ namespace Presentation
     public class DiseaseController : ControllerBase
     {
         private readonly IServiceManager service;
-
         public DiseaseController(IServiceManager service)
         {
             this.service = service;

@@ -14,7 +14,7 @@ namespace CORE.Exceptions
 
     public class DiseaseNotFoundException : NotFoundException
     {
-        public DiseaseNotFoundException(int Id) : base($"Not Disease with this ID {Id} Founded in Our Database")
+        public DiseaseNotFoundException(int Id) : base($"No Disease with this ID {Id} Founded in Our Database")
         {
         }
     }

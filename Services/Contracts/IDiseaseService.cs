@@ -10,8 +10,9 @@ namespace Services.Contracts
 {
     public interface IDiseaseService
     {
-        IEnumerable<DiseaseForManipulationDto> GetALLDisease(bool track);
-        DiseaseForManipulationDto GetDisease(int id,bool track); 
+        IEnumerable<DiseaseDto> GetALLDisease(bool track);
+        DiseaseDto GetDisease(int id,bool track); 
+        DiseaseDto Create(DiseaseForCreationDto dto);
     }
 
 }

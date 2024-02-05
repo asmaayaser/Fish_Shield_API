@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CORE.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,18 +10,48 @@ namespace Services.DTO
 {
     public  record DiseaseForManipulationDto
     {
+       
         [StringLength(50)]
-        public string Name { get; set; }
+        public string Name { get; init; }
         [StringLength(50)]
-        public string Type { get; set; }
+        public string Type { get; init; }
 
-        public string RecomActions { get; set; }
+        [StringLength(100)]
+        public string PhotoPath { get; init; }
+        [StringLength(500)]
+        public string Description { get; init; }
+      
+        public ICollection<string> RecommandationActions { get; init; }
+      
+        public ICollection<string> CausativeAgents { get; init; }
+       
+        public ICollection<string> ClinicalSigns { get; init; }
+      
+        public ICollection<string> Diagnosis { get; init; }
+       
+
+        public ICollection<string> Treatment { get; init; }
+      
+        public ICollection<string> PreventionAndControlls { get; init; }
+       
+        public ICollection<string> ImpactOnAquacultures { get; init; }
+
     }
 
-    public record DiseaseForCreationDto:DiseaseForManipulationDto { }
-    public record DiseaseForUpdatingDto : DiseaseForManipulationDto {
-     
+    public record DiseaseForCreationDto:DiseaseForManipulationDto;
+    public record DiseaseForUpdatingDto : DiseaseDto;
+    public record DiseaseDto:DiseaseForManipulationDto {
+        public int ID { get; init; }
     }
 
-    public record Test(int id ,string name);
+
+
+
+
+
+
+
+
+
+
 }

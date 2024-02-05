@@ -10,5 +10,6 @@ namespace Repositories.Contracts
     {
         IEnumerable<FishDisease> GetAll(bool track);
         FishDisease GetDisease(int id,bool track);
+        void Create(FishDisease entity);
     }
 }

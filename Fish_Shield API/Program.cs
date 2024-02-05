@@ -1,11 +1,10 @@
-
-using CORE.Models;
 using Fish_Shield_API.ErrorHandlerMiddleWare;
 using Fish_Shield_API.ServiceExtensions;
-using Microsoft.AspNetCore.Identity;
 using NLog;
 using Presentation;
-using Repositories.Context;
+using Presentation.ValidationFilter;
+using Services;
+using Services.Contracts;
 
 namespace Fish_Shield_API
 {
@@ -39,7 +38,8 @@ namespace Fish_Shield_API
             builder.Services.ConfigureIdentity();
             builder.Services.ConfigureRepositoryManager();
             builder.Services.ConfigureServiceManager();
-
+            builder.Services.AddScoped<ValidationFilterAttribute>();
+            builder.Services.AddScoped<IFileService, FileService>();
            
             var app = builder.Build();
 

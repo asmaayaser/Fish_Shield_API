@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Presentation.ValidationFilter;
 using Services.Contracts;
+using Services.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +30,7 @@ namespace Presentation
             return Ok(res);
         }
 
-        [HttpGet("{id:int}")]
+        [HttpGet("{id:int}",Name ="GetById")]
         public IActionResult Get(int id)
         {
            var Res= service.diseaseService.GetDisease(track: false, id: id);
@@ -38,7 +40,14 @@ namespace Presentation
         #endregion
 
         #region Post
+        [HttpPost]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        public IActionResult Post(DiseaseForCreationDto dto)
+        {
+            var Result = service.diseaseService.Create(dto);
 
+            return CreatedAtRoute("GetById", new { id = Result.ID }, Result);
+        }
 
         #endregion
         #region Put

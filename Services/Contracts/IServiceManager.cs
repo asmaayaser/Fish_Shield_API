@@ -10,5 +10,8 @@ namespace Services.Contracts
     {
         IDiseaseService diseaseService { get; }
         IDetectDiseaseService detectDiseaseService { get; }
+        IAdminService adminService { get; }
+        IDoctorService doctorService { get; }
+        IFarmOwnerService farmOwnerService { get; }
     }
 }

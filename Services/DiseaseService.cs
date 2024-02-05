@@ -25,24 +25,46 @@ namespace Services
             this.mapper = mapper;
         }
 
-        public IEnumerable<DiseaseForManipulationDto> GetALLDisease(bool track)
+        public DiseaseDto Create(DiseaseForCreationDto dto)
         {
-            var all = manager.Diseases.GetAll(track);
+            var Entity = mapper.Map<FishDisease>(dto);
+            manager.Diseases.Create(Entity);
+            manager.Save();
 
-            var Res= mapper.Map<IEnumerable<DiseaseForManipulationDto>>(all);
+            var Res=mapper.Map<DiseaseDto>(Entity);
             return Res;
         }
 
-        public DiseaseForManipulationDto GetDisease(int id, bool track)
+
+        //public DiseaseForUpdatingDto Create(DiseaseForCreationDto dto)
+        //{
+        //    var FSD = mapper.Map<FishDisease>(dto);
+        //    manager.Diseases.Create(FSD);
+        //    manager.Save();
+        //    var Res=  mapper.Map<DiseaseForUpdatingDto>(FSD);
+        //    return Res;
+        //}
+
+        public IEnumerable<DiseaseDto> GetALLDisease(bool track)
+        {
+            var all = manager.Diseases.GetAll(track);
+
+            var Res= mapper.Map<IEnumerable<DiseaseDto>>(all);
+            return Res;
+        }
+
+        public DiseaseDto GetDisease(int id, bool track)
         {
             var FDisease= manager.Diseases.GetDisease(id, track);
             
             if(FDisease is null )
               throw new DiseaseNotFoundException(id);
 
-            var DiseaseDTO = mapper.Map<DiseaseForManipulationDto>(FDisease);
+            var DiseaseDTO = mapper.Map<DiseaseDto>(FDisease);
 
             return DiseaseDTO;
         }
+
+        
     }
 }

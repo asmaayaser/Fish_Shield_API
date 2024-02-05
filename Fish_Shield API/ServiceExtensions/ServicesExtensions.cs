@@ -58,7 +58,11 @@ namespace Fish_Shield_API.ServiceExtensions
             });
 
         public static void ConfigureIdentity(this IServiceCollection services)
-            => services.AddIdentity<AppUser,IdentityRole>().AddEntityFrameworkStores<RepositoryContext>().AddDefaultTokenProviders();
+            => services.AddIdentity<AppUser, IdentityRole>(opt =>
+            {
+                opt.User.RequireUniqueEmail=true;
+            }).AddEntityFrameworkStores<RepositoryContext>()
+            .AddDefaultTokenProviders();
 
         public static void ConfigureRepositoryManager(this IServiceCollection services)
             => services.AddScoped<IRepositoryManager, RepositoryManager>();

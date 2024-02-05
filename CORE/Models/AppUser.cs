@@ -12,7 +12,7 @@ namespace CORE.Models
     public abstract class AppUser:IdentityUser
     {
         [StringLength(100)]
-        public string PersonalPhoto { get; set; }
+        public string? PersonalPhoto { get; set; }
         public string? Address { get; set; }
         public DateTime BirthDate { get; set; }
         public  int Age { get; }
@@ -28,10 +28,12 @@ namespace CORE.Models
     }
     public class Doctor:AppUser
     {
+   
         public string? MoreInfo { get; set; }
     }
     public class Admin :AppUser
     {
-       // public DateTime? EmploymentDate { get; set; }
+       
+        // public DateTime? EmploymentDate { get; set; }
     }
 }

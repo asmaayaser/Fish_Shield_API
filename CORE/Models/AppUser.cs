@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,24 +11,40 @@ namespace CORE.Models
 {
     public class AppUser:IdentityUser
     {
+        [Required]
+        public required string Email {  get; set; }
+
+        [Required]
+        public required string Password { get; set; }
+
+        //[Required]
+        //[Compare("Password")]
+        //public string Confirm_Password { get; set; }
         public string? Address { get; set; }
-        public DateTime BirthDate { get; set; }
-        public int Age { get; }
-        public AppUser()
-        {
-            Age = DateTime.Now.Year-BirthDate.Year;
-        }
+
+        public int Mobile {  get; set; }
     }
     public class FarmOwner:AppUser
     {
-        public string? FarmAddress { get; set; }
+
     }
-    public class Doctor:AppUser
+    public class Expert : AppUser
     {
-        public string? MoreInfo { get; set; }
+        public int Age { get; set; }
+        public DateTime BirthDate { get; set; }
+        public string? Professional_Info { get; set; }
+        public byte[]? Picture { get; set; }
+
+        public Expert()
+        {
+            Age = DateTime.Now.Year - BirthDate.Year;
+        }
     }
     public class Admin :AppUser
     {
+
         public DateTime? EmploymentDate { get; set; }
+
+
     }
 }

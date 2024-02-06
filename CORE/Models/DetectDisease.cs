@@ -17,6 +17,5 @@ namespace CORE.Models
          public string NameOfDisFromAIModel { get; set; }
          public FishDisease? Disease { get; set; }
          public Expert? Expert { get; set; }
-         public  FarmOwner Owner { get; set; }
     }
 }

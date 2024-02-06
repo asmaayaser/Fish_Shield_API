@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CORE.Models
 {
-    public class AppUser:IdentityUser
+    public abstract class AppUser:IdentityUser
     {
         [Required]
         public required string Email {  get; set; }

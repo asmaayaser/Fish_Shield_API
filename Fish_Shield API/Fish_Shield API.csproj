@@ -27,4 +27,9 @@
     <ProjectReference Include="..\Presentation\Presentation.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\Detects\" />
+    <Folder Include="wwwroot\Images\Personal\" />
+  </ItemGroup>
+
 </Project>

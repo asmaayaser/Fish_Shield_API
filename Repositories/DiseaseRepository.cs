@@ -42,6 +42,13 @@ namespace Repositories
             .Include(d => d.RecommandationActions)
             .Include(d => d.Treatment).SingleOrDefault();
 
-       
+        public FishDisease GetDiseaseByName(string name,bool track)
+         => base.FindByCondition(d => d.Name.Trim().ToLower().Equals(name.Trim().ToLower()), track).Include(d => d.ImpactOnAquacultures)
+            .Include(d => d.PreventionAndControlls)
+            .Include(d => d.CausativeAgents)
+            .Include(d => d.ClinicalSigns)
+            .Include(d => d.Diagnosis)
+            .Include(d => d.RecommandationActions)
+            .Include(d => d.Treatment).SingleOrDefault();
     }
 }

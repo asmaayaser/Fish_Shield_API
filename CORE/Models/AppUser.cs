@@ -16,6 +16,9 @@ namespace CORE.Models
         public string? Address { get; set; }
         public DateTime BirthDate { get; set; }
         public  int Age { get; }
+
+        public string? RefreshToken { get; set; }
+        public DateTime RefreshTokenExpiryTime { get; set; }
         public AppUser()
         {
             Age = DateTime.Now.Year-BirthDate.Year;

@@ -14,6 +14,7 @@ namespace Presentation
 {
     [Route("api/Disease")]
     [ApiController]
+   
     public class DiseaseController : ControllerBase
     {
         private readonly IServiceManager service;
@@ -40,11 +41,12 @@ namespace Presentation
         #endregion
 
         #region Post
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        public IActionResult Post(DiseaseForCreationDto dto)
+        public async Task<IActionResult> Post([FromForm]DiseaseForCreationDto dto)
         {
-            var Result = service.diseaseService.Create(dto);
+            var Result =await service.diseaseService.Create(dto);
 
             return CreatedAtRoute("GetById", new { id = Result.ID }, Result);
         }

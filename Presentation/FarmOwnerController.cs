@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CORE.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ValidationFilter;
 using Services.Contracts;
@@ -11,15 +13,16 @@ using System.Threading.Tasks;
 
 namespace Presentation
 {
-    [Route("api/farmOwner")]
+    [Route("api/Accounts/farmOwner")]
     [ApiController]
-    public class FarmOwnerController:ControllerBase
+    public class FarmOwnerController:AccountController
     {
         private readonly IServiceManager service;
 
-        public FarmOwnerController(IServiceManager service)
+        public FarmOwnerController(IServiceManager service, SignInManager<AppUser> signInManager) : base(service, signInManager)
         {
             this.service = service;
+            service.SetFarmOwnerStrategy();
         }
         #region Get
 
@@ -29,7 +32,10 @@ namespace Presentation
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> Register([FromForm] FarmOwnerForRegistrationDto farmOwner)
         {
-          var Result= await service.farmOwnerService.Register(farmOwner);
+          
+          
+           var Result = await service.AuthenticationService.Registration(farmOwner);
+         // var Result= await service.farmOwnerService.Register(farmOwner);
           if (!Result.Succeeded)
           {
                 foreach (var Error in Result.Errors)
@@ -40,6 +46,7 @@ namespace Presentation
             return StatusCode(StatusCodes.Status201Created);
 
         }
+        
         #endregion
         #region Put
 

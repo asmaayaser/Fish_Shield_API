@@ -79,6 +79,12 @@ namespace Fish_Shield_API.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RefreshTokenExpiryTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -143,7 +149,7 @@ namespace Fish_Shield_API.Migrations
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("DiseaseID")
+                    b.Property<int?>("DiseaseId")
                         .HasColumnType("int");
 
                     b.Property<string>("DoctorId")
@@ -158,11 +164,12 @@ namespace Fish_Shield_API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("OwnerId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DiseaseID");
+                    b.HasIndex("DiseaseId");
 
                     b.HasIndex("DoctorId");
 
@@ -184,6 +191,34 @@ namespace Fish_Shield_API.Migrations
                     b.ToTable("Diagnosis");
                 });
 
+            modelBuilder.Entity("CORE.Models.FeedBack", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FeedBacks");
+                });
+
             modelBuilder.Entity("CORE.Models.FishDisease", b =>
                 {
                     b.Property<int>("ID")
@@ -203,7 +238,6 @@ namespace Fish_Shield_API.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("PhotoPath")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -298,19 +332,19 @@ namespace Fish_Shield_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a40c2d38-b141-4401-9bc2-10eafe6bf920",
+                            Id = "a83675cc-4a42-45b4-be70-5d7c9ae83a55",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "9677fa28-84d9-4ffe-939e-ef85dffbd018",
+                            Id = "1b1274c1-9e6c-4ac6-b13b-4c72c96324b1",
                             Name = "FarmOwner",
                             NormalizedName = "FARMOWNER"
                         },
                         new
                         {
-                            Id = "59225f65-f91a-4541-9c1c-7e0ff718515f",
+                            Id = "d95a563a-a9ff-437d-b90c-d73f5ea3c7fe",
                             Name = "Doctor",
                             NormalizedName = "DOCTOR"
                         });
@@ -431,15 +465,16 @@ namespace Fish_Shield_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8cc1ff82-305c-4fe9-9b16-f3b0c17f8e07",
+                            Id = "8bd343fd-438c-4ca9-b49f-28a4501cc39a",
                             AccessFailedCount = 0,
                             BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "7263deae-4d6d-4a0a-b9ee-880a9c119bc4",
+                            ConcurrencyStamp = "b2f3e73f-4304-4744-96ea-5519415eb557",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "admin",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7b5af523-3cb2-4e54-8781-b0c7c22a1c97",
+                            RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SecurityStamp = "cf5ead63-f75e-467d-83e0-794a0dced4cc",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -492,7 +527,7 @@ namespace Fish_Shield_API.Migrations
                 {
                     b.HasOne("CORE.Models.FishDisease", "Disease")
                         .WithMany()
-                        .HasForeignKey("DiseaseID");
+                        .HasForeignKey("DiseaseId");
 
                     b.HasOne("CORE.Models.Doctor", "Doctor")
                         .WithMany()
@@ -500,7 +535,9 @@ namespace Fish_Shield_API.Migrations
 
                     b.HasOne("CORE.Models.FarmOwner", "Owner")
                         .WithMany()
-                        .HasForeignKey("OwnerId");
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Disease");
 

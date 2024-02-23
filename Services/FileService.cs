@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class FileService : IFileService
+    public class IOService : IIOService
     {
         private readonly IWebHostEnvironment webHostEnvironment;
 
-        public FileService(IWebHostEnvironment webHostEnvironment)
+        public IOService(IWebHostEnvironment webHostEnvironment)
         {
             this.webHostEnvironment = webHostEnvironment;
         }
@@ -37,6 +37,7 @@ namespace Services
             try
             {
                 Directory.CreateDirectory(path);
+
             } catch { 
                 return false ;
             }

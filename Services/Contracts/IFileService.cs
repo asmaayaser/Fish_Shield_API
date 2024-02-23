@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Services.Contracts
 {
-    public interface IFileService
+    public interface IIOService
     {
         Task<string> uploadImage(string FolderNameStructureInWWWROOT, IFormFile Image, string ImageNewName);
         Task<bool> CreateDirectory(string FolderNameStructureInWWWROOT, string DirName);

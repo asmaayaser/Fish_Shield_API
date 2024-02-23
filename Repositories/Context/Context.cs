@@ -12,6 +12,7 @@ namespace Repositories.Context
 {
     public class RepositoryContext:IdentityDbContext<AppUser>
     {
+       
         public RepositoryContext(DbContextOptions options) : base(options) { }
 
 
@@ -20,7 +21,9 @@ namespace Repositories.Context
         public virtual DbSet<FarmOwner> FarmOwners { get; set; }
         public virtual DbSet<Doctor> Doctors { get; set; }
         public virtual DbSet<DetectDisease> Detects { get; set; }
-       
+        public virtual DbSet<FeedBack> FeedBacks { get; set; }
+
+
 
 
 

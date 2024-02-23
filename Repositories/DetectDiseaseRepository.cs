@@ -13,5 +13,13 @@ namespace Repositories
         public DetectDiseaseRepository(RepositoryContext context) : base(context)
         {
         }
+
+        public DetectDisease Create(string farmOwnerId, DetectDisease detect)
+        {
+            detect.OwnerId = farmOwnerId;
+            base.Add(detect);
+            return detect;
+        }
+        
     }
 }

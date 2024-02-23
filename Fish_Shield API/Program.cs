@@ -5,6 +5,10 @@ using Presentation;
 using Presentation.ValidationFilter;
 using Services;
 using Services.Contracts;
+using Microsoft.AspNetCore.SignalR;
+
+using Microsoft.AspNetCore.Builder;
+using Services.DTO;
 
 namespace Fish_Shield_API
 {
@@ -12,19 +16,22 @@ namespace Fish_Shield_API
     {
         public static void Main(string[] args)
         {
+          
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
             LogManager.Setup().LoadConfigurationFromFile(string.Concat(Directory.GetCurrentDirectory(), "/Nlog.config"));
+
             builder.Services.AddControllers(config =>
             {
                 config.RespectBrowserAcceptHeader = true;
                 config.ReturnHttpNotAcceptable = true;
             }).AddXmlDataContractSerializerFormatters()
                 .AddApplicationPart(typeof(AssemblyReference).Assembly);
+
             builder.Services.AddAutoMapper(typeof(Program));
-              
-               
+            builder.Services.AddSignalR();
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -34,20 +41,26 @@ namespace Fish_Shield_API
             builder.Services.ConfigureIISIntegration();
             builder.Services.ConfigureLogging();
             builder.Services.ConfigureDBContext(builder.Configuration);
-            builder.Services.AddAuthentication();
+            builder.Services.AddAuthentication().AddGoogle(options=>
+            {
+                options.ClientId = builder.Configuration["External_Login_Providers:Google:Client_Id"]??"";
+                options.ClientSecret = builder.Configuration["External_Login_Providers:Google:Client_Secret"]??"";
+            });
+            
             builder.Services.ConfigureIdentity();
+            builder.Services.ConfigureJWT(builder.Configuration);
             builder.Services.ConfigureRepositoryManager();
             builder.Services.ConfigureServiceManager();
             builder.Services.AddScoped<ValidationFilterAttribute>();
-            builder.Services.AddScoped<IFileService, FileService>();
-           
+            builder.Services.AddScoped<IIOService, IOService>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.ConfigureExceptionHandler();
-               // app.UseDeveloperExceptionPage();
+                // app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
@@ -64,10 +77,10 @@ namespace Fish_Shield_API
 
             app.UseAuthentication();
             app.UseAuthorization();
-
+            
 
             app.MapControllers();
-
+            app.MapHub<ChatHub>("/chatHub");
             app.Run();
         }
     }

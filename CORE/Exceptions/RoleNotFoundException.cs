@@ -8,7 +8,7 @@ namespace Services
     {
        
 
-        public RoleNotFoundException(string Role) : base($"Role {Role} not  Available in this Current time")
+        public RoleNotFoundException() : base($"Role  not  Available in this Current time")
         {
         }
 

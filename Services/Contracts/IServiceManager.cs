@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Repositories.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,17 @@ namespace Services.Contracts
     {
         IDiseaseService diseaseService { get; }
         IDetectDiseaseService detectDiseaseService { get; }
-        IAdminService adminService { get; }
-        IDoctorService doctorService { get; }
-        IFarmOwnerService farmOwnerService { get; }
+        #region obseleted
+        //IAdminService adminService { get; }
+        //IDoctorService doctorService { get; }
+        //IFarmOwnerService farmOwnerService { get; }
+
+        #endregion
+        IAuthentication AuthenticationService {  get; }
+        IFeedbackService feedbackService { get; }
+
+        void SetFarmOwnerStrategy();
+        void SetAdminStrategy();
+        void SetDoctorStrategy();
     }
 }

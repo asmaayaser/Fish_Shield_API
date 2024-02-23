@@ -29,16 +29,25 @@ namespace Fish_Shield_API.MapperProfile
                 .ForMember(d => d.Treatment, opt => opt.MapFrom(src => src.Treatment.Select(s => new Treatment { TreatmentDesc = s }).ToList()))
                 .ForMember(d => d.Diagnosis, opt => opt.MapFrom(src => src.Diagnosis.Select(s => new Diagnosis { Diagones = s }).ToList()))
                 .ForMember(d => d.PreventionAndControlls, opt => opt.MapFrom(src => src.PreventionAndControlls.Select(s => new PreventionAndControll { Prevention = s }).ToList()))
-                .ForMember(d => d.RecommandationActions, opt => opt.MapFrom(src => src.RecommandationActions.Select(s => new RecommandationActions { Action = s }).ToList()));
+                .ForMember(d => d.RecommandationActions, opt => opt.MapFrom(src => src.RecommandationActions.Select(s => new RecommandationActions { Action = s }).ToList()))
+                .ForMember(d=>d.PhotoPath,opt=>opt.Ignore());
 
 
-
+            CreateMap<DetectDisease, DetectDto>();
 
 
 
             CreateMap<FarmOwnerForRegistrationDto, FarmOwner>();
             CreateMap<DoctorForRegistrationDto, Doctor>().ForMember(d=>d.PersonalPhoto,s=>s.Ignore());
             CreateMap<AdminForRegistrationDto, Admin>().ForMember(d => d.PersonalPhoto, s => s.Ignore());
+
+            CreateMap<Doctor, DoctorForReturnDto>();
+            CreateMap<Admin,AdminForReturnDto>();
+            CreateMap<FarmOwner, FarmOwnerForReturnDto>();
+
+            CreateMap<FeedbackForCreationDto, FeedBack>();
+            CreateMap<FeedBack,FeedbackForReturnDto>();
+            
         }
     }
 

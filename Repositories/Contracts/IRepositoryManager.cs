@@ -9,7 +9,10 @@ namespace Repositories.Contracts
     {
         IDetectDiseaseRepository DetectDisease { get; }
         IDiseaseRepository Diseases { get; }
-
-        void Save();
+        IDoctorRepository Doctors { get; }
+        IAdminRepository Admins { get; }
+        IFarmOwnerRepository farmOwner { get; }
+        IFeedbackRepository feedbackRepository { get; }
+        Task SaveAsync();
     }
 }

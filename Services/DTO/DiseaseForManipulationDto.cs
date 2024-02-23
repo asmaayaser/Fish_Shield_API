@@ -1,4 +1,5 @@
 ﻿using CORE.Models;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -16,8 +17,7 @@ namespace Services.DTO
         [StringLength(50)]
         public string Type { get; init; }
 
-        [StringLength(100)]
-        public string PhotoPath { get; init; }
+       
         [StringLength(500)]
         public string Description { get; init; }
       
@@ -38,11 +38,16 @@ namespace Services.DTO
 
     }
 
-    public record DiseaseForCreationDto:DiseaseForManipulationDto;
-    public record DiseaseForUpdatingDto : DiseaseDto;
+    public record DiseaseForCreationDto : DiseaseForManipulationDto { 
+        public IFormFile PhotoPath { get; init; }
+    }
+
     public record DiseaseDto:DiseaseForManipulationDto {
         public int ID { get; init; }
+        public string PhotoPath { get; init; }
     }
+    public record DiseaseForUpdatingDto : DiseaseDto;
+
 
 
 

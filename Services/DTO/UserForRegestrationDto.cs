@@ -25,7 +25,7 @@ namespace Services.DTO
         public string ConfirmPass {  get; init; }
         [StringLength(11)]
         public string PhoneNumber { get; init; }
-        public string Role { get; init; }
+       // public string? Role { get; set; }
 
 
     }
@@ -53,5 +53,6 @@ namespace Services.DTO
 
         public string Address { get; init; }
     }
+  
 }
 

@@ -16,6 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -26,9 +28,15 @@
   <ItemGroup>
     <ProjectReference Include="..\Presentation\Presentation.csproj" />
   </ItemGroup>
-
+	<ItemGroup Label="MLModelFromBackend">
+		<None Include="MLModelFromBackend.mlnet">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\Images\Detects\" />
+    <Folder Include="wwwroot\Images\Detects\15e4c2cb-9f13-4e14-abaa-3e88e3ca3869\" />
+    <Folder Include="wwwroot\Images\Diseases\" />
     <Folder Include="wwwroot\Images\Personal\" />
   </ItemGroup>
 

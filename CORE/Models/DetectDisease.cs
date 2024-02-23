@@ -12,10 +12,17 @@ namespace CORE.Models
     {
          public int Id { get; set; }
          public string  FishPhoto { get; set; }
-         public  FarmOwner Owner { get; set; }
+        
+         public string OwnerId { get; set; }
+         public FarmOwner Owner { get; set; }
+
          public string NameOfDisFromAIModel { get; set; }
-         public FishDisease? Disease { get; set; }
-         public Doctor? Doctor { get; set; }
+
+        public int? DiseaseId { get; set; }
+        public FishDisease? Disease { get; set; }
+
+        public string? DoctorId { get; set; }
+        public Doctor? Doctor { get; set; }
         public DateTime DateTime { get; set; } = DateTime.Now;
 
     }

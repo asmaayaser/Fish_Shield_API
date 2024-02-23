@@ -1,30 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Repositories.Context;
+﻿using Repositories.Context;
 using Repositories.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Repositories
 {
     public sealed class RepositoryManager : IRepositoryManager
     {
     
-        private readonly Lazy<IDetectDiseaseRepository> _detectDiseaseRepository;
         
-         // same Function as using Lazy Class
-        //public  IDetectDiseaseRepository _detectorRepository { 
-        //    get {
-        //    if (_detectorRepository == null)
-        //            _detectorRepository=new DetectDiseaseRepository(context);
-
-        //        return _detectorRepository;
-        //    }
-        //    set {
-        //    } 
-        //}
+        private readonly Lazy<IDetectDiseaseRepository> _detectDiseaseRepository;
         private readonly Lazy<IDiseaseRepository> _diseaseRepository;
+        private readonly Lazy<IDoctorRepository> _doctorRepository;
+        private readonly Lazy<IAdminRepository> _adminRepository;
+        private readonly Lazy<IFarmOwnerRepository> _farmOwnerRepository;
+        private readonly Lazy<IFeedbackRepository> _feedbackRepository;
         private readonly RepositoryContext context;
 
         public RepositoryManager(RepositoryContext context)
@@ -33,6 +21,10 @@ namespace Repositories
 
             _detectDiseaseRepository= new Lazy<IDetectDiseaseRepository>(()=>new DetectDiseaseRepository(context));
             _diseaseRepository= new Lazy<IDiseaseRepository>(() =>new DiseaseRepository(context));
+            _doctorRepository=new Lazy<IDoctorRepository>(()=>new DoctorRepository(context));
+            _adminRepository = new Lazy<IAdminRepository>(() => new AdminRepository(context));
+            _farmOwnerRepository=new Lazy<IFarmOwnerRepository>(()=>new FarmOwnerRepository(context));
+            _feedbackRepository=new Lazy<IFeedbackRepository>(()=>new FeedbackRepository(context));
             this.context = context;
         }
 
@@ -42,8 +34,13 @@ namespace Repositories
 
         public IDetectDiseaseRepository DetectDisease =>_detectDiseaseRepository.Value;
         public IDiseaseRepository Diseases => _diseaseRepository.Value;
-        
-        public void Save()=>context.SaveChanges();
+        public IDoctorRepository Doctors => _doctorRepository.Value;
+        public IAdminRepository Admins => _adminRepository.Value;
+        public IFarmOwnerRepository farmOwner => _farmOwnerRepository.Value;
+        public IFeedbackRepository feedbackRepository =>_feedbackRepository.Value;
+
+
+        public async Task SaveAsync()=>await context.SaveChangesAsync();
         
     }
 }

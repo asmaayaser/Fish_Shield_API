@@ -1,20 +1,24 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CORE.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Serialization;
 using Presentation.ValidationFilter;
 using Services.Contracts;
 using Services.DTO;
 
 namespace Presentation
 {
-    [Route("api/admin")]
+    [Route("api/Accounts/Admin")]
     [ApiController]
-    public class AdminController : ControllerBase
+    public class AdminController : AccountController
     {
         private readonly IServiceManager service;
 
-        public AdminController(IServiceManager service)
+        public AdminController(IServiceManager service,SignInManager<AppUser> signInManager):base(service,signInManager) 
         {
             this.service = service;
+            service.SetAdminStrategy();
         }
 
         #region Get
@@ -26,7 +30,7 @@ namespace Presentation
         public async Task<IActionResult> Register([FromForm] AdminForRegistrationDto dto)
         {
 
-            var Result = await service.adminService.Register(dto);
+            var Result = await service.AuthenticationService.Registration(dto);
             if (!Result.Succeeded)
             {
                 foreach (var Error in Result.Errors)
@@ -36,6 +40,8 @@ namespace Presentation
             }
             return StatusCode(StatusCodes.Status201Created);
         }
+
+       
         #endregion
         #region Put
 

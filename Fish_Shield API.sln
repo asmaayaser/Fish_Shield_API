@@ -5,13 +5,13 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fish_Shield API", "Fish_Shield API\Fish_Shield API.csproj", "{CD02B5AD-9AB1-4FAA-89C4-2A834E1DA333}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CORE", "CORE\CORE.csproj", "{A20358E8-C5D4-48C4-9E6B-6A832C2D81DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CORE", "CORE\CORE.csproj", "{A20358E8-C5D4-48C4-9E6B-6A832C2D81DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{7BDD3B67-4553-4857-8CD9-24799472CDF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repositories\Repositories.csproj", "{7BDD3B67-4553-4857-8CD9-24799472CDF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{700B4650-FD7C-475A-AEFE-3613DF50F540}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{700B4650-FD7C-475A-AEFE-3613DF50F540}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{70E4BEDF-58CC-41E2-A2BE-41C7E0659629}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation", "Presentation\Presentation.csproj", "{70E4BEDF-58CC-41E2-A2BE-41C7E0659629}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

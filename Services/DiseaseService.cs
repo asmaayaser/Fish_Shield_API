@@ -2,14 +2,10 @@
 using CORE.Contracts;
 using CORE.Exceptions;
 using CORE.Models;
+using Microsoft.AspNetCore.Http;
 using Repositories.Contracts;
 using Services.Contracts;
 using Services.DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Services
 {
@@ -18,32 +14,32 @@ namespace Services
         private readonly IRepositoryManager manager;
         private readonly ILoggerManager logger;
         private readonly IMapper mapper;
+        private readonly IIOService ioService;
+        private readonly IHttpContextAccessor httpContextAccessor;
 
-        public DiseaseService(IRepositoryManager manager,ILoggerManager logger,IMapper mapper) {
+        public DiseaseService(IRepositoryManager manager,ILoggerManager logger,IMapper mapper,IIOService ioService,IHttpContextAccessor httpContextAccessor) {
             this.manager = manager;
             this.logger = logger;
             this.mapper = mapper;
+            this.ioService = ioService;
+            this.httpContextAccessor = httpContextAccessor;
         }
 
-        public DiseaseDto Create(DiseaseForCreationDto dto)
+        public async Task<DiseaseDto> Create(DiseaseForCreationDto dto)
         {
             var Entity = mapper.Map<FishDisease>(dto);
             manager.Diseases.Create(Entity);
-            manager.Save();
-
+           await manager.SaveAsync();
+           var RelativePath= await ioService.uploadImage("Images/Diseases",dto.PhotoPath ,$"{Entity.ID}");
+            var PathToStoredInDB = $"{httpContextAccessor.HttpContext.Request.Scheme}://{httpContextAccessor.HttpContext.Request.Host}{RelativePath}";
+            Entity.PhotoPath = PathToStoredInDB;
+           await manager.SaveAsync();
             var Res=mapper.Map<DiseaseDto>(Entity);
             return Res;
         }
 
 
-        //public DiseaseForUpdatingDto Create(DiseaseForCreationDto dto)
-        //{
-        //    var FSD = mapper.Map<FishDisease>(dto);
-        //    manager.Diseases.Create(FSD);
-        //    manager.Save();
-        //    var Res=  mapper.Map<DiseaseForUpdatingDto>(FSD);
-        //    return Res;
-        //}
+        
 
         public IEnumerable<DiseaseDto> GetALLDisease(bool track)
         {

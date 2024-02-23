@@ -17,7 +17,7 @@ namespace CORE.Models
         public string Type { get; set; }
         
         [StringLength(100)]
-        public string PhotoPath { get; set; }
+        public string? PhotoPath { get; set; }
         [StringLength(500)]
         public string Description { get; set; }
         //public string RecomAction { get; set; }

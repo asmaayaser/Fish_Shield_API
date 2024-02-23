@@ -12,7 +12,7 @@ namespace Services.Contracts
     {
         IEnumerable<DiseaseDto> GetALLDisease(bool track);
         DiseaseDto GetDisease(int id,bool track); 
-        DiseaseDto Create(DiseaseForCreationDto dto);
+        Task<DiseaseDto> Create(DiseaseForCreationDto dto);
     }
 
 }

@@ -60,19 +60,6 @@ namespace Services
         }
         public async Task<EquipmentDto> UpdateEquipment(EquipmentForUpdateDto dto)
         {
-            //var OldEquipment = GetEquipment(dto.ID, false);
-
-            //var Entity = mapper.Map<Equipment>(dto);
-            //manager.equipment.Update(Entity);
-            //await manager.SaveAsync();
-            //var RelativePath = await ioService.uploadImage("Images/Equipment", dto.PhotoPath, $"{Entity.ID}");
-            //var PathToStoredInDB = $"{httpContextAccessor.HttpContext.Request.Scheme}://{httpContextAccessor.HttpContext.Request.Host}{RelativePath}";
-            //Entity.PhotoPath = PathToStoredInDB;
-            //await manager.SaveAsync();
-            //var Res = mapper.Map<EquipmentDto>(Entity);
-            //return Res;
-
-
             var existingEquipment = manager.equipment.GetEquipment(dto.ID, track: false);
 
             if (existingEquipment == null)

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repositories.Context;
 
@@ -11,9 +12,11 @@ using Repositories.Context;
 namespace Fish_Shield_API.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20240225210118_equ2")]
+    partial class equ2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -368,19 +371,19 @@ namespace Fish_Shield_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "26b609cf-ccdf-439c-a19d-8aac6513d974",
+                            Id = "20109823-8105-4f04-816b-74f9402fbc25",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "c35a7ddd-608c-4707-95eb-c3f947fcfbfe",
+                            Id = "0bf1a7f6-86bd-43a2-b023-f582217487c4",
                             Name = "FarmOwner",
                             NormalizedName = "FARMOWNER"
                         },
                         new
                         {
-                            Id = "e2aa0f32-4271-44e6-9953-6fbd41b258f6",
+                            Id = "f1972cb6-9a6f-49a7-afb8-242ff139bbb9",
                             Name = "Doctor",
                             NormalizedName = "DOCTOR"
                         });
@@ -501,16 +504,16 @@ namespace Fish_Shield_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1d7f3595-f351-44d4-9e61-38446c2996cc",
+                            Id = "0c914ad6-95ea-49d5-b10c-531fe7d9f3f7",
                             AccessFailedCount = 0,
                             BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "43430b46-cfe8-4b37-a4f8-ce1f6cbf9b46",
+                            ConcurrencyStamp = "484bcb7a-b282-462d-b526-7b21831e8fd9",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "admin",
                             PhoneNumberConfirmed = false,
                             RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SecurityStamp = "3dd97b55-2c55-42d7-994b-46534bf4afed",
+                            SecurityStamp = "07cce9af-1f99-4b0a-b3b9-912f6a714f2e",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });

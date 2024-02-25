@@ -22,6 +22,8 @@ namespace Repositories.Context
         public virtual DbSet<Doctor> Doctors { get; set; }
         public virtual DbSet<DetectDisease> Detects { get; set; }
         public virtual DbSet<FeedBack> FeedBacks { get; set; }
+        public virtual DbSet<Equipment> Equipments { get; set; }
+
 
 
 

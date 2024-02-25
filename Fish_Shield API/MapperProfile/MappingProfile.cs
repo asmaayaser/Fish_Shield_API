@@ -47,7 +47,19 @@ namespace Fish_Shield_API.MapperProfile
 
             CreateMap<FeedbackForCreationDto, FeedBack>();
             CreateMap<FeedBack,FeedbackForReturnDto>();
-            
+
+            CreateMap<Equipment, EquipmentDto>();
+            CreateMap<EquipmentDto, Equipment>();
+
+            CreateMap<EquipmentForCreationDto, Equipment>();
+            CreateMap<Equipment, EquipmentForCreationDto>();
+
+            CreateMap<EquipmentForUpdateDto, Equipment>();
+            CreateMap<Equipment, EquipmentForUpdateDto>();
+
+            CreateMap<EquipmentForDeleteDto, Equipment>();
+            CreateMap<Equipment, EquipmentForDeleteDto>();
+
         }
     }
 

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -38,6 +38,7 @@
     <Folder Include="wwwroot\Images\Detects\" />
     <Folder Include="wwwroot\Images\Detects\15e4c2cb-9f13-4e14-abaa-3e88e3ca3869\" />
     <Folder Include="wwwroot\Images\Diseases\" />
+    <Folder Include="wwwroot\Images\Equipment\" />
     <Folder Include="wwwroot\Images\Personal\" />
   </ItemGroup>
 	<PropertyGroup>

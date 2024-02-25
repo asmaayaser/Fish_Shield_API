@@ -21,6 +21,8 @@ namespace Services
         #endregion
         private readonly Lazy<IAuthentication> authentication;
         private readonly Lazy<IFeedbackService> feedback;
+        private readonly Lazy<IEquipmentService> equipment;
+
         private readonly IRepositoryManager manager;
 
         // set 
@@ -43,6 +45,7 @@ namespace Services
          
             authentication = new Lazy<IAuthentication>(() => new Authentication(manager,userManager,logger,mapper,configuration));
             feedback = new Lazy<IFeedbackService>(() => new FeedbackService(manager, mapper));
+            equipment = new Lazy<IEquipmentService> (() => new EquipmentService(manager, logger, mapper, ioService, httpContextAccessor));
             this.manager = manager;
             this.logger = logger;
             this.mapper = mapper;
@@ -70,6 +73,8 @@ namespace Services
         public IAuthentication AuthenticationService => authentication.Value;
 
         public IFeedbackService feedbackService => feedback.Value;
+
+        public IEquipmentService equipmentService => equipment.Value;
 
         public void SetFarmOwnerStrategy() => AuthenticationService.registration = new FarmOwnerRegistration(mapper, userManager, roleManager, ioService);
         public void SetAdminStrategy()=>AuthenticationService.registration=new AdminRegistration(mapper, userManager, roleManager, ioService,httpContextAccessor);

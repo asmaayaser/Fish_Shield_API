@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repositories.Context;
 
@@ -11,9 +12,11 @@ using Repositories.Context;
 namespace Fish_Shield_API.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20240225173652_equ1")]
+    partial class equ1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -207,14 +210,13 @@ namespace Fish_Shield_API.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<string>("FarmOwnerId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("OwnerId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("PhotoPath")
                         .HasMaxLength(100)
@@ -222,7 +224,7 @@ namespace Fish_Shield_API.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("OwnerId");
+                    b.HasIndex("FarmOwnerId");
 
                     b.ToTable("Equipments");
                 });
@@ -368,19 +370,19 @@ namespace Fish_Shield_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "26b609cf-ccdf-439c-a19d-8aac6513d974",
+                            Id = "92d95d3d-88f1-4fef-b686-2114ab54e318",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "c35a7ddd-608c-4707-95eb-c3f947fcfbfe",
+                            Id = "6c186acb-2ca4-4afc-ba8c-9e5ff6e13d38",
                             Name = "FarmOwner",
                             NormalizedName = "FARMOWNER"
                         },
                         new
                         {
-                            Id = "e2aa0f32-4271-44e6-9953-6fbd41b258f6",
+                            Id = "cb2dca60-e19e-415d-99e6-fec44021a7cb",
                             Name = "Doctor",
                             NormalizedName = "DOCTOR"
                         });
@@ -501,16 +503,16 @@ namespace Fish_Shield_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1d7f3595-f351-44d4-9e61-38446c2996cc",
+                            Id = "bed9b296-09d5-47da-afd7-95278f0f7496",
                             AccessFailedCount = 0,
                             BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "43430b46-cfe8-4b37-a4f8-ce1f6cbf9b46",
+                            ConcurrencyStamp = "9a1d3402-d54e-41b8-8ef1-74dd72af13ed",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "admin",
                             PhoneNumberConfirmed = false,
                             RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SecurityStamp = "3dd97b55-2c55-42d7-994b-46534bf4afed",
+                            SecurityStamp = "54b878c4-0a5b-4454-9e6f-62aa2fca27cc",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -595,13 +597,11 @@ namespace Fish_Shield_API.Migrations
 
             modelBuilder.Entity("CORE.Models.Equipment", b =>
                 {
-                    b.HasOne("CORE.Models.FarmOwner", "Owner")
+                    b.HasOne("CORE.Models.FarmOwner", "FarmOwner")
                         .WithMany()
-                        .HasForeignKey("OwnerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FarmOwnerId");
 
-                    b.Navigation("Owner");
+                    b.Navigation("FarmOwner");
                 });
 
             modelBuilder.Entity("CORE.Models.ImpactOnAquaculture", b =>

@@ -15,6 +15,7 @@ namespace Services.Contracts
         Task<EquipmentDto> UpdateEquipment(EquipmentForUpdateDto dto);
         Task<EquipmentDto> DeleteEquipment(EquipmentForDeleteDto dto);
         EquipmentDto GetEquipment(int id, bool track);
+        public IEnumerable<EquipmentDto> GetALLEquipmentForOwner(string OwnerId, bool track);
 
 
 

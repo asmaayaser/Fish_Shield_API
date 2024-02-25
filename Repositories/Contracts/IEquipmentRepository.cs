@@ -17,6 +17,7 @@ namespace Repositories.Contracts
         public void Delete(Equipment Equipment);
 
         public IEnumerable<Equipment> GetAll(bool track);
+        public IEnumerable<Equipment> GetAllEquForOwner(string ownerid);
 
     }
 }

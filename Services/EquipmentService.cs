@@ -88,6 +88,14 @@ namespace Services
             var Res = mapper.Map<IEnumerable<EquipmentDto>>(all);
             return Res;
         }
+        public IEnumerable<EquipmentDto> GetALLEquipmentForOwner(string OwnerId ,bool track)
+        {
+            var all = manager.equipment.GetAllEquForOwner(OwnerId);
+
+            var Res = mapper.Map<IEnumerable<EquipmentDto>>(all);
+            return Res;
+        }
+
 
         public async Task<EquipmentDto> DeleteEquipment(EquipmentForDeleteDto dto)
         {

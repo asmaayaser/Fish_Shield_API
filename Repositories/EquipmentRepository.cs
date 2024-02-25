@@ -22,6 +22,8 @@ namespace Repositories
 
         public IEnumerable<Equipment> GetAll(bool track)
             => base.FindAll(track);
+        public IEnumerable<Equipment> GetAllEquForOwner(string ownerid)
+            => base.FindByCondition(e => e.OwnerId.Equals(ownerid),false);
 
 
 

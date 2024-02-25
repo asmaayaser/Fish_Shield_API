@@ -29,6 +29,12 @@ namespace Presentation
             var res = service.equipmentService.GetALLEquipment(track: false);
             return Ok(res);
         }
+        [HttpGet("Owner")]
+        public IActionResult GetAllByOwnerID(string id)
+        {
+            var Res = service.equipmentService.GetALLEquipmentForOwner(track: false, OwnerId: id);
+            return Ok(Res);
+        }
 
         [HttpGet("{id:int}", Name = "GetById1")]
         public IActionResult Get(int id)

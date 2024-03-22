@@ -1,19 +1,21 @@
 ﻿using CORE.Models;
+using EntityFrameworkCore.EncryptColumn.Extension;
+using EntityFrameworkCore.EncryptColumn.Interfaces;
+using EntityFrameworkCore.EncryptColumn.Util;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repositories.Context
 {
     public class RepositoryContext:IdentityDbContext<AppUser>
     {
-       
-        public RepositoryContext(DbContextOptions options) : base(options) { }
+        private readonly IEncryptionProvider _encryptionProvider;
+        public RepositoryContext(DbContextOptions options) : base(options) 
+        { 
+            _encryptionProvider = new GenerateEncryptionProvider("GraduationProject123#$"); 
+                //Environment.GetEnvironmentVariable("SecretKey")
+        }
 
 
         public virtual DbSet<FishDisease> FishDiseases { get; set; }
@@ -30,7 +32,7 @@ namespace Repositories.Context
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
+          //  builder.UseEncryption(_encryptionProvider);
             builder.Entity<Treatment>(conf => {
                 conf.HasKey(t => new { t.DiseaseID, t.TreatmentDesc });
                 conf.HasOne(d=>d.FishDisease).WithMany(d=>d.Treatment).IsRequired().OnDelete(deleteBehavior:DeleteBehavior.Cascade);
@@ -70,6 +72,16 @@ namespace Repositories.Context
 
             });
 
+
+            builder.Entity<AppUser>(conf =>
+            {
+                conf.HasQueryFilter(u => !u.isDeleted);
+            });
+            builder.Entity<FeedBack>(conf =>
+            {
+                conf.HasQueryFilter(f=>!f.isDeleted);
+            });
+
             builder.Entity<FarmOwner>(conf =>
             {
                 conf.HasBaseType(typeof(AppUser));
@@ -81,7 +93,7 @@ namespace Repositories.Context
             builder.Entity<Admin>(conf =>
             {
                 conf.HasBaseType(typeof(AppUser));
-                conf.HasData(new Admin() { UserName= "admin",PasswordHash="admin" });
+                conf.HasData(new Admin() { UserName = "admin", PasswordHash = "admin", }) ;
             });
             builder.Entity<IdentityRole>(conf =>
             {
@@ -93,6 +105,7 @@ namespace Repositories.Context
                    
             });
 
+            
 
         }
 

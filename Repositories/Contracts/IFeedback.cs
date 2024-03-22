@@ -1,4 +1,5 @@
 ﻿using CORE.Models;
+using CORE.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace Repositories.Contracts
     public interface IFeedbackRepository
     {
         Task CreateFeedback(FeedBack feedBack);
-        Task<IEnumerable<FeedBack>> GetFeedBacks(bool track);
+        Task<PagedList<FeedBack>> GetFeedBacks(FeedbackParameters feedbackParameters,bool track);
+        Task DeleteFeedback(HashSet<int> ids);
     }
 }

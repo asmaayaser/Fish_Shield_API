@@ -15,16 +15,22 @@ namespace Presentation
 {
     [Route("api/Accounts/farmOwner")]
     [ApiController]
-    public class FarmOwnerController:AccountController
+    public class FarmOwnerController:ControllerBase
     {
         private readonly IServiceManager service;
 
-        public FarmOwnerController(IServiceManager service, SignInManager<AppUser> signInManager) : base(service, signInManager)
+        public FarmOwnerController(IServiceManager service)
         {
             this.service = service;
             service.SetFarmOwnerStrategy();
         }
         #region Get
+        [HttpGet]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var result= await service.AuthenticationService.GetByIdDerivedTypeAsync(id, track: false);
+            return Ok(result);
+        }
 
         #endregion
         #region post
@@ -48,6 +54,7 @@ namespace Presentation
         }
         
         #endregion
+       
         #region Put
 
         #endregion

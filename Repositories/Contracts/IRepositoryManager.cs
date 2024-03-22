@@ -13,6 +13,7 @@ namespace Repositories.Contracts
         IAdminRepository Admins { get; }
         IFarmOwnerRepository farmOwner { get; }
         IFeedbackRepository feedbackRepository { get; }
+        IAppUser AppUser { get; }
         Task SaveAsync();
     }
 }

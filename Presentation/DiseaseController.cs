@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using CORE.Shared;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Presentation.ValidationFilter;
@@ -8,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Presentation
@@ -25,10 +27,11 @@ namespace Presentation
 
         #region Get
         [HttpGet]
-        public IActionResult GetAll()
+        public IActionResult GetAll([FromQuery]FishDiseaseParameters fishDiseaseParameters)
         {
-            var res = service.diseaseService.GetALLDisease(track: false);
-            return Ok(res);
+            var res = service.diseaseService.GetALLDisease(fishDiseaseParameters,track: false);
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(res.meta));
+            return Ok(res.diseases);
         }
 
         [HttpGet("{id:int}",Name ="GetById")]

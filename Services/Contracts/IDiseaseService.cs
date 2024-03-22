@@ -1,4 +1,5 @@
 ﻿using CORE.Models;
+using CORE.Shared;
 using Services.DTO;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace Services.Contracts
 {
     public interface IDiseaseService
     {
-        IEnumerable<DiseaseDto> GetALLDisease(bool track);
+        (IEnumerable<DiseaseDto>diseases,MetaData meta) GetALLDisease(FishDiseaseParameters fishDiseaseParameters,bool track);
         DiseaseDto GetDisease(int id,bool track); 
         Task<DiseaseDto> Create(DiseaseForCreationDto dto);
     }

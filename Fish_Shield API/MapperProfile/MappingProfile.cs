@@ -44,6 +44,7 @@ namespace Fish_Shield_API.MapperProfile
             CreateMap<Doctor, DoctorForReturnDto>();
             CreateMap<Admin,AdminForReturnDto>();
             CreateMap<FarmOwner, FarmOwnerForReturnDto>();
+            CreateMap<AppUser, AppuserForReturnPartial>();
 
             CreateMap<FeedbackForCreationDto, FeedBack>();
             CreateMap<FeedBack,FeedbackForReturnDto>();

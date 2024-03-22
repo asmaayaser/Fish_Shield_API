@@ -1,7 +1,10 @@
 ﻿using CORE.Models;
+using CORE.Shared;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ValidationFilter;
 using Services.Contracts;
@@ -11,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Presentation
@@ -20,14 +24,15 @@ namespace Presentation
    public class AccountController:ControllerBase
    {
         private readonly IServiceManager service;
-        private readonly SignInManager<AppUser> signInManager;
+     
 
-        public AccountController(IServiceManager service,SignInManager<AppUser> signInManager)
+        public AccountController(IServiceManager service)
         {
             this.service = service;
-            this.signInManager = signInManager;
+          
         }
 
+        #region Post
         [HttpPost("login")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> Login([FromForm] UserForLoginDto userForLoginDto)
@@ -35,35 +40,82 @@ namespace Presentation
             if (!await service.AuthenticationService.ValidateUser(userForLoginDto))
                 return Unauthorized("User password or User name is Wrong");
 
+
             var token = await service.AuthenticationService.CreateToken(PopulateExpiration: true);
 
+            //  await service.AuthenticationService.TestEmailSending();
             return Ok(token);
         }
 
-        //[HttpGet("ExternalLogin")]
-        //public IActionResult ExternalLogin(string provider)
-        //{
-        //    var properties = new AuthenticationProperties
-        //    {
-        //        RedirectUri = "https://localhost:7289" + Url.Action(nameof(ExternalLoginCallback)),
-        //        Items ={
-        //                  { "scheme", provider },
-        //               }
-        //    };
 
-        //    return Challenge(properties, provider);
-        //}
+        [HttpPost("forgot")]
+        public async Task<IActionResult> ForgotPassword(ForgetPasswordDto model)
+        {
+            var result = await service.AuthenticationService.ForgotPasswordAsync(model);
 
-        //[HttpGet("ExternalLoginCallback")]
-        //public async Task<IActionResult> ExternalLoginCallback()
-        //{
-        //    var result = await HttpContext.AuthenticateAsync("Cookies");
-        //    var externalUserId = result.Principal.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (result)
+            {
+                return Ok("Password reset email sent successfully.");
+            }
+            else
+            {
+                return BadRequest("Failed to send password reset email.");
+            }
+        }
 
-        //    // Use externalUserId to identify the user or create a new account
+        [HttpPost("reset-password")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        public async Task<IActionResult> ResetPassword(ResetPasswordDto model)
+        {
+            var result = await service.AuthenticationService.ResetPasswordAsync(model);
 
-        //    // Redirect to your application's home page or dashboard
-        //    return Redirect("/home");
-        //}
+            if (!result.Succeeded)
+            {
+                foreach (var Error in result.Errors)
+                {
+                    ModelState.TryAddModelError(Error.Code, errorMessage: Error.Description);
+                }
+                return BadRequest(ModelState);
+            }
+
+            return Ok("Password reset successful.");
+        }
+        #endregion
+
+        #region Get
+        [HttpGet]
+        public async Task<IActionResult> GetAll([FromQuery]AppUserParameters appUserParameters)
+        {
+            var result=await service.AuthenticationService.GetAllUsers(appUserParameters,track: false);
+            Response.Headers.Add("X-Pagination",JsonSerializer.Serialize(result.meta));
+            return Ok(result.allusers);
+        }
+        #endregion
+
+        #region Delete
+        [HttpDelete]
+        public async Task<IActionResult> DeleteAllUsersWithIDs(IEnumerable<Guid> ids)
+        {
+            var idsConversion=ids.Select(i=>i.ToString()).ToList();
+            await service.AuthenticationService.DeleteUsers(idsConversion);
+            return  NoContent();
+        }
+
+        #endregion
+
+        #region Put
+        [HttpPut("EnableAndDisableAccount")]
+        public async Task<IActionResult> DisableOrEnableAccounts(List<Guid> ids)
+        {
+            var idsConversion=ids.Select(ids=>ids.ToString()).ToList();
+            await service.AuthenticationService.DisableOrEnableAccounts(idsConversion);
+            return NoContent();
+        }
+        #endregion
     }
+
+    
+
+
 }
+

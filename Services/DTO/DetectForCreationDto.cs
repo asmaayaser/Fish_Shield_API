@@ -11,19 +11,12 @@ namespace Services.DTO
    
     public record DetectDto
     {
-        
         public string FishPhoto { get; set; }
-
         public string OwnerId { get; set; }
-        public FarmOwner Owner { get; set; }
-
         public string NameOfDisFromAIModel { get; set; }
-
+        public float Score { get; set; }
         public int? DiseaseId { get; set; }
         public DiseaseDto? Disease { get; set; }
-
-        //public string? DoctorId { get; set; }
-        //public Doctor? Doctor { get; set; }
         public DateTime DateTime { get; set; }
     }
 

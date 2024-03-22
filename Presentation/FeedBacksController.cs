@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using CORE.Shared;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
 using Services.DTO;
+using System.Text.Json;
 
 namespace Presentation
 {
@@ -32,10 +34,19 @@ namespace Presentation
        
         [HttpGet]
        // [Authorize(Roles ="Admin")]
-        public async Task<IActionResult> GetAllFeeds()
+        public async Task<IActionResult> GetAllFeeds([FromQuery]FeedbackParameters feedbackParameters)
         {
-           var AllFeeds= await service.feedbackService.GetAllFeedbacks(track:false);
-           return  Ok(AllFeeds);
+           var AllFeeds= await service.feedbackService.GetAllFeedbacks(feedbackParameters,track:false);
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(AllFeeds.metaInfo));
+           return  Ok(AllFeeds.feedbacks);
+        }
+        #endregion
+        #region Delete
+        [HttpDelete]
+        public async Task<IActionResult> DeleteFeed(HashSet<int> ids)
+        {
+            await service.feedbackService.DeleteFeedBacks(ids);
+            return NoContent();
         }
         #endregion
     }

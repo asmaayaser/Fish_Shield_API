@@ -11,5 +11,7 @@ namespace Services.Contracts
     {
         Task<string> uploadImage(string FolderNameStructureInWWWROOT, IFormFile Image, string ImageNewName);
         Task<bool> CreateDirectory(string FolderNameStructureInWWWROOT, string DirName);
+        Task<bool> DeleteDirectory(string directoryName);
+        Task<bool> DeleteFile(string filename, string filePathWithExtension);
     }
 }

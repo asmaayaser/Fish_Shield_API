@@ -12,7 +12,12 @@ namespace CORE.Exceptions
         public NotFoundException(string msg):base(msg) { }
         
     }
-
+    public class NotValidTypeException : NotFoundException
+    {
+        public NotValidTypeException() : base("no type found with this filtration criteria")
+        {
+        }
+    }
     public class DiseaseNotFoundException : NotFoundException
     {
         public DiseaseNotFoundException(int Id) : base($"No Disease with this ID {Id} Founded in Our Database")

@@ -17,13 +17,13 @@ namespace CORE.Models
          public FarmOwner Owner { get; set; }
 
          public string NameOfDisFromAIModel { get; set; }
+         public float Score { get; set; }
+         public int? DiseaseId { get; set; }
+         public FishDisease? Disease { get; set; }
 
-        public int? DiseaseId { get; set; }
-        public FishDisease? Disease { get; set; }
-
-        public string? DoctorId { get; set; }
-        public Doctor? Doctor { get; set; }
-        public DateTime DateTime { get; set; } = DateTime.Now;
+         public string? DoctorId { get; set; }
+         public Doctor? Doctor { get; set; }
+         public DateTime DateTime { get; set; } = DateTime.Now;
 
     }
 }

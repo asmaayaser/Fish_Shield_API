@@ -11,18 +11,23 @@ namespace Presentation
 {
     [Route("api/Accounts/Admin")]
     [ApiController]
-    public class AdminController : AccountController
+    public class AdminController : ControllerBase
     {
         private readonly IServiceManager service;
 
-        public AdminController(IServiceManager service,SignInManager<AppUser> signInManager):base(service,signInManager) 
+        public AdminController(IServiceManager service) 
         {
             this.service = service;
             service.SetAdminStrategy();
         }
 
         #region Get
-
+        [HttpGet]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+          var adminData= await  service.AuthenticationService.GetByIdDerivedTypeAsync(id, track: false);
+          return Ok(adminData);
+        }
         #endregion
         #region post
         [HttpPost]

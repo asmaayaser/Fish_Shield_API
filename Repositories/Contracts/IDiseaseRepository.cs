@@ -1,4 +1,5 @@
 ﻿using CORE.Models;
+using CORE.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,10 @@ namespace Repositories.Contracts
 {
     public interface IDiseaseRepository
     {
-        IEnumerable<FishDisease> GetAll(bool track);
+        PagedList<FishDisease> GetAll(FishDiseaseParameters fishDiseaseParameters,bool track);
         FishDisease GetDisease(int id,bool track);
         FishDisease GetDiseaseByName(string name,bool track);
         void Create(FishDisease entity);
+        
     }
 }

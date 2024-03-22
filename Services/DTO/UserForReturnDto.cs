@@ -14,8 +14,9 @@ namespace Services.DTO
 
         public string PhoneNumber { get; init; }
 
-       
-       
+        public bool Disabled { get; init; }
+      
+
     }
     public record FarmOwnerForReturnDto : UserForReturnDto
     {
@@ -40,6 +41,16 @@ namespace Services.DTO
         public string PersonalPhoto { get; init; }
 
         public string Address { get; init; }
+    }
+
+    public record AppuserForReturnPartial
+    {
+        public string Id { get; init; }
+        public string UserName { get; init; }
+        public string Email { get; init; }
+        public string PhoneNumber { get; init; }
+        public string Discriminator { get; init; }
+        public bool Disabled { get; init; }
     }
 }
 

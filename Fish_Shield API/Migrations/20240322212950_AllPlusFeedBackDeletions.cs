@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Fish_Shield_API.Migrations
 {
     /// <inheritdoc />
-    public partial class ALLDB : Migration
+    public partial class AllPlusFeedBackDeletions : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -35,9 +35,12 @@ namespace Fish_Shield_API.Migrations
                     PersonalPhoto = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RefreshToken = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RefreshTokenExpiryTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Disabled = table.Column<bool>(type: "bit", nullable: false),
+                    isDeleted = table.Column<bool>(type: "bit", nullable: false),
                     Discriminator = table.Column<string>(type: "nvarchar(13)", maxLength: 13, nullable: false),
+                    RefreshTokenExpiryTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     MoreInfo = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FarmAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -68,7 +71,9 @@ namespace Fish_Shield_API.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Message = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false)
+                    Message = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
+                    DateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    isDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -242,6 +247,7 @@ namespace Fish_Shield_API.Migrations
                     FishPhoto = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     OwnerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     NameOfDisFromAIModel = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Score = table.Column<float>(type: "real", nullable: false),
                     DiseaseId = table.Column<int>(type: "int", nullable: true),
                     DoctorId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     DateTime = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -362,15 +368,15 @@ namespace Fish_Shield_API.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "1b1274c1-9e6c-4ac6-b13b-4c72c96324b1", null, "FarmOwner", "FARMOWNER" },
-                    { "a83675cc-4a42-45b4-be70-5d7c9ae83a55", null, "Admin", "ADMIN" },
-                    { "d95a563a-a9ff-437d-b90c-d73f5ea3c7fe", null, "Doctor", "DOCTOR" }
+                    { "64fbc3b4-885b-4e47-9529-425075f445a8", null, "Doctor", "DOCTOR" },
+                    { "7e092124-43ee-4082-9271-ce7f3214f81d", null, "FarmOwner", "FARMOWNER" },
+                    { "f2374006-bfb2-40de-b29b-8152bfbf327d", null, "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "Address", "BirthDate", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PersonalPhoto", "PhoneNumber", "PhoneNumberConfirmed", "RefreshToken", "RefreshTokenExpiryTime", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "8bd343fd-438c-4ca9-b49f-28a4501cc39a", 0, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "b2f3e73f-4304-4744-96ea-5519415eb557", "Admin", null, false, false, null, null, null, "admin", null, null, false, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "cf5ead63-f75e-467d-83e0-794a0dced4cc", false, "admin" });
+                columns: new[] { "Id", "AccessFailedCount", "Address", "BirthDate", "Code", "ConcurrencyStamp", "Disabled", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PersonalPhoto", "PhoneNumber", "PhoneNumberConfirmed", "RefreshToken", "RefreshTokenExpiryTime", "SecurityStamp", "TwoFactorEnabled", "UserName", "isDeleted" },
+                values: new object[] { "32dd9039-cb8e-4e0d-95cb-537f972403d7", 0, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "f06f3e16-60fd-4e77-97ca-e468e3216cfb", false, "Admin", null, false, false, null, null, null, "admin", null, null, false, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "ec1002ee-4c64-41a8-b1fa-f4ad2f7205c6", false, "admin", false });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -425,6 +431,11 @@ namespace Fish_Shield_API.Migrations
                 name: "IX_Detects_OwnerId",
                 table: "Detects",
                 column: "OwnerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FishDiseases_Name",
+                table: "FishDiseases",
+                column: "Name");
         }
 
         /// <inheritdoc />

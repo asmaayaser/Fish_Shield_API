@@ -6,7 +6,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Repositories.Contracts;
+using Services.Commands;
 using Services.Contracts;
+using Services.EmailService;
+using Services.Queries.GetAll;
+using Services.Queries.GetById;
 
 namespace Services
 {
@@ -14,11 +18,7 @@ namespace Services
     {
         private readonly Lazy<IDiseaseService> disease;
         private readonly Lazy<IDetectDiseaseService> detectDisease;
-        #region obseleted
-        //private readonly Lazy<IDoctorService> doctor;
-        //private readonly Lazy<IAdminService> admin;
-        //private readonly Lazy<IFarmOwnerService> farmOwner; 
-        #endregion
+       
         private readonly Lazy<IAuthentication> authentication;
         private readonly Lazy<IFeedbackService> feedback;
         private readonly IRepositoryManager manager;
@@ -32,16 +32,15 @@ namespace Services
         private readonly IHttpContextAccessor httpContextAccessor;
         private readonly IIOService ioService;
         private readonly IWebHostEnvironment webHostEnvironment;
+        private readonly IEmailSender emailSender;
 
-
-
-        public ServiceManager(IRepositoryManager manager,ILoggerManager logger,IMapper mapper,IConfiguration configuration, UserManager<AppUser> userManager,RoleManager<IdentityRole> roleManager,IHttpContextAccessor httpContextAccessor,IIOService ioService,IWebHostEnvironment webHostEnvironment)
+        public ServiceManager(IRepositoryManager manager,ILoggerManager logger,IMapper mapper,IConfiguration configuration, UserManager<AppUser> userManager,RoleManager<IdentityRole> roleManager,IHttpContextAccessor httpContextAccessor,IIOService ioService,IWebHostEnvironment webHostEnvironment,IEmailSender emailSender)
         {
            
             disease=new Lazy<IDiseaseService>(()=>new DiseaseService(manager, logger,mapper,ioService,httpContextAccessor));
-            detectDisease=new Lazy<IDetectDiseaseService>(() =>new DetectDiseaseService(manager,logger,mapper,ioService,httpContextAccessor,webHostEnvironment));
+            detectDisease=new Lazy<IDetectDiseaseService>(() =>new DetectDiseaseService(manager,logger,mapper,ioService,httpContextAccessor,webHostEnvironment,configuration));
          
-            authentication = new Lazy<IAuthentication>(() => new Authentication(manager,userManager,logger,mapper,configuration));
+            authentication = new Lazy<IAuthentication>(() => new Authentication(manager,userManager,logger,mapper,configuration,emailSender,ioService));
             feedback = new Lazy<IFeedbackService>(() => new FeedbackService(manager, mapper));
             this.manager = manager;
             this.logger = logger;
@@ -52,27 +51,28 @@ namespace Services
             this.httpContextAccessor = httpContextAccessor;
             this.ioService = ioService;
             this.webHostEnvironment = webHostEnvironment;
+            this.emailSender = emailSender;
         }
         
         public IDiseaseService diseaseService => disease.Value;
         public IDetectDiseaseService detectDiseaseService =>detectDisease.Value;
 
 
-
-        #region obseleted
-        //public IAdminService adminService => admin.Value;
-
-        //public IDoctorService doctorService => doctor.Value;
-
-        //public IFarmOwnerService farmOwnerService => farmOwner.Value; 
-        #endregion
-
         public IAuthentication AuthenticationService => authentication.Value;
 
         public IFeedbackService feedbackService => feedback.Value;
 
-        public void SetFarmOwnerStrategy() => AuthenticationService.registration = new FarmOwnerRegistration(mapper, userManager, roleManager, ioService);
-        public void SetAdminStrategy()=>AuthenticationService.registration=new AdminRegistration(mapper, userManager, roleManager, ioService,httpContextAccessor);
+        public void SetFarmOwnerStrategy()
+        {
+            AuthenticationService.registration = new FarmOwnerRegistration(mapper, userManager, roleManager, ioService);
+            AuthenticationService.getByIdDerivedTypes=new FarmOwnerGetById(manager, mapper);
+        }
+
+        public void SetAdminStrategy()
+        {
+            AuthenticationService.registration = new AdminRegistration(mapper, userManager, roleManager, ioService, httpContextAccessor);
+            AuthenticationService.getByIdDerivedTypes=new AdminGetById(manager, mapper);
+        }
         public void SetDoctorStrategy() 
         {
             AuthenticationService.registration = new DoctorRegistration(mapper, userManager, roleManager, ioService, httpContextAccessor);

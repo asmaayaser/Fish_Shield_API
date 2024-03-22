@@ -11,11 +11,11 @@ namespace Presentation
 {
     [Route("api/Accounts/doctor")]
     [ApiController]
-    public class DoctorController : AccountController
+    public class DoctorController : ControllerBase
     {
         private readonly IServiceManager service;
 
-        public DoctorController(IServiceManager service, SignInManager<AppUser> signInManager) : base(service, signInManager)
+        public DoctorController(IServiceManager service) 
         {
            this.service = service;
             service.SetDoctorStrategy();

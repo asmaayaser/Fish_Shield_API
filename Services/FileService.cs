@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Services
@@ -43,5 +44,43 @@ namespace Services
             }
             return true ;
         }
+
+        public async Task<bool> DeleteDirectory(string directoryName)
+        {
+
+            var path = $"{webHostEnvironment.WebRootPath}/images/detects/";
+            var old = $"{path}{directoryName}";
+            var @new = $"{path}{directoryName}[deleted]";
+            try
+            {
+                Directory.Move(old,@new);
+            }
+            catch
+            {
+                return false;
+            }
+            return true ;
+        }
+
+        public async Task<bool> DeleteFile(string filename, string filePathWithExtension)
+        {
+            var ext=  Path.GetExtension(filePathWithExtension);
+
+            var path = $"{webHostEnvironment.WebRootPath}/images/Personal/";
+            var old = $"{path}{filename}{ext}";
+            
+            var @new = $"{path}{filename}[deleted]{ext}";
+
+         
+            try {
+                File.Move(old,@new);
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
     }
 }

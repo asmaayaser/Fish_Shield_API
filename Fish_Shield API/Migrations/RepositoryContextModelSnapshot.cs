@@ -36,9 +36,15 @@ namespace Fish_Shield_API.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Disabled")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Discriminator")
                         .IsRequired()
@@ -94,6 +100,9 @@ namespace Fish_Shield_API.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -167,6 +176,9 @@ namespace Fish_Shield_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<float>("Score")
+                        .HasColumnType("real");
+
                     b.HasKey("Id");
 
                     b.HasIndex("DiseaseId");
@@ -199,6 +211,9 @@ namespace Fish_Shield_API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -213,6 +228,9 @@ namespace Fish_Shield_API.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -247,6 +265,8 @@ namespace Fish_Shield_API.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("Name");
 
                     b.ToTable("FishDiseases");
                 });
@@ -332,19 +352,19 @@ namespace Fish_Shield_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a83675cc-4a42-45b4-be70-5d7c9ae83a55",
+                            Id = "f2374006-bfb2-40de-b29b-8152bfbf327d",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "1b1274c1-9e6c-4ac6-b13b-4c72c96324b1",
+                            Id = "7e092124-43ee-4082-9271-ce7f3214f81d",
                             Name = "FarmOwner",
                             NormalizedName = "FARMOWNER"
                         },
                         new
                         {
-                            Id = "d95a563a-a9ff-437d-b90c-d73f5ea3c7fe",
+                            Id = "64fbc3b4-885b-4e47-9529-425075f445a8",
                             Name = "Doctor",
                             NormalizedName = "DOCTOR"
                         });
@@ -465,18 +485,20 @@ namespace Fish_Shield_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8bd343fd-438c-4ca9-b49f-28a4501cc39a",
+                            Id = "32dd9039-cb8e-4e0d-95cb-537f972403d7",
                             AccessFailedCount = 0,
                             BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "b2f3e73f-4304-4744-96ea-5519415eb557",
+                            ConcurrencyStamp = "f06f3e16-60fd-4e77-97ca-e468e3216cfb",
+                            Disabled = false,
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "admin",
                             PhoneNumberConfirmed = false,
                             RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SecurityStamp = "cf5ead63-f75e-467d-83e0-794a0dced4cc",
+                            SecurityStamp = "ec1002ee-4c64-41a8-b1fa-f4ad2f7205c6",
                             TwoFactorEnabled = false,
-                            UserName = "admin"
+                            UserName = "admin",
+                            isDeleted = false
                         });
                 });
 

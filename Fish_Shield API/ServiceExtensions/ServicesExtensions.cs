@@ -12,6 +12,7 @@ using Repositories.Context;
 using Repositories.Contracts;
 using Services;
 using Services.Contracts;
+using Services.EmailService;
 using System.Text;
 
 namespace Fish_Shield_API.ServiceExtensions
@@ -105,6 +106,13 @@ namespace Fish_Shield_API.ServiceExtensions
 
                 };
             });
+        }
+
+        public static void ConfigureEmailSendingToResetPassword(this IServiceCollection services,IConfiguration configuration)
+        {
+            var emailConfig=configuration.GetSection("EmailConfig").Get<EmailConfig>();
+            services.AddSingleton(emailConfig);
+            services.AddScoped<IEmailSender, EmailSender>();  
         }
     }
 }

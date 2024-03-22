@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using CORE.Shared;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
@@ -18,7 +19,12 @@ namespace Presentation
         }
 
         #region Get
-
+        [HttpGet("generateReportData")]
+        public async Task<IActionResult> GetReportData(Guid OwnerId ,[FromQuery]DetectionReportParameters detectionReportParameters)
+        {
+            var result =await serviceManager.detectDiseaseService.GenerateReport(OwnerId.ToString(),detectionReportParameters);
+            return Ok(result);
+        }
         #endregion
         #region post
         [HttpPost]

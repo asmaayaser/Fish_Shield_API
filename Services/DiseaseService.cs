@@ -2,6 +2,7 @@
 using CORE.Contracts;
 using CORE.Exceptions;
 using CORE.Models;
+using CORE.Shared;
 using Microsoft.AspNetCore.Http;
 using Repositories.Contracts;
 using Services.Contracts;
@@ -41,12 +42,12 @@ namespace Services
 
         
 
-        public IEnumerable<DiseaseDto> GetALLDisease(bool track)
+        public (IEnumerable<DiseaseDto> diseases, MetaData meta) GetALLDisease(FishDiseaseParameters fishDiseaseParameters, bool track)
         {
-            var all = manager.Diseases.GetAll(track);
+            var allwithMeta = manager.Diseases.GetAll(fishDiseaseParameters,track);
 
-            var Res= mapper.Map<IEnumerable<DiseaseDto>>(all);
-            return Res;
+            var Res= mapper.Map<IEnumerable<DiseaseDto>>(allwithMeta);
+            return (diseases:Res,meta:allwithMeta.MetaInfo);
         }
 
         public DiseaseDto GetDisease(int id, bool track)

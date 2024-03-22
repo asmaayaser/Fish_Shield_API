@@ -1,14 +1,11 @@
 using Fish_Shield_API.ErrorHandlerMiddleWare;
 using Fish_Shield_API.ServiceExtensions;
+using Microsoft.AspNetCore.Identity;
 using NLog;
 using Presentation;
 using Presentation.ValidationFilter;
 using Services;
 using Services.Contracts;
-using Microsoft.AspNetCore.SignalR;
-
-using Microsoft.AspNetCore.Builder;
-using Services.DTO;
 
 namespace Fish_Shield_API
 {
@@ -43,8 +40,8 @@ namespace Fish_Shield_API
             builder.Services.ConfigureDBContext(builder.Configuration);
             builder.Services.AddAuthentication().AddGoogle(options=>
             {
-                options.ClientId = builder.Configuration["External_Login_Providers:Google:Client_Id"]??"";
-                options.ClientSecret = builder.Configuration["External_Login_Providers:Google:Client_Secret"]??"";
+                options.ClientId = builder.Configuration["External_Login_Providers:Google:Client_Id"];
+                options.ClientSecret = builder.Configuration["External_Login_Providers:Google:Client_Secret"];
             });
             
             builder.Services.ConfigureIdentity();
@@ -53,7 +50,11 @@ namespace Fish_Shield_API
             builder.Services.ConfigureServiceManager();
             builder.Services.AddScoped<ValidationFilterAttribute>();
             builder.Services.AddScoped<IIOService, IOService>();
-
+            builder.Services.ConfigureEmailSendingToResetPassword(builder.Configuration);
+           builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
+            {
+                options.TokenLifespan = TimeSpan.FromHours(1); // Set the desired expiration time
+            });
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

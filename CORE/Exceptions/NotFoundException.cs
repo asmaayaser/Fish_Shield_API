@@ -36,6 +36,12 @@ namespace CORE.Exceptions
         {
         }
     }
+    public class EquipmentNotFoundException : NotFoundException
+    {
+        public EquipmentNotFoundException() : base("No Equipments in Data base Founded")
+        {
+        }
+    }
 }
 
   

@@ -14,6 +14,7 @@ namespace Repositories
         private readonly Lazy<IFarmOwnerRepository> _farmOwnerRepository;
         private readonly Lazy<IFeedbackRepository> _feedbackRepository;
         private readonly Lazy<IAppUser> _appUserRepository;
+        private readonly Lazy<IEquipmentRepository> _equipmentRepository;
         private readonly RepositoryContext context;
 
         public RepositoryManager(RepositoryContext context)
@@ -27,6 +28,7 @@ namespace Repositories
             _farmOwnerRepository=new Lazy<IFarmOwnerRepository>(()=>new FarmOwnerRepository(context));
             _feedbackRepository=new Lazy<IFeedbackRepository>(()=>new FeedbackRepository(context));
             _appUserRepository=new Lazy<IAppUser>(()=>new AppUserRepositiory(context));
+            _equipmentRepository = new Lazy<IEquipmentRepository>(new EquipmentRepository(context));
             this.context = context;
         }
 
@@ -41,7 +43,8 @@ namespace Repositories
         public IFarmOwnerRepository farmOwner => _farmOwnerRepository.Value;
         public IFeedbackRepository feedbackRepository =>_feedbackRepository.Value;
         public IAppUser AppUser=> _appUserRepository.Value;
-
+        public IEquipmentRepository equipment => _equipmentRepository.Value;
+        public RepositoryContext Context => context;
         public async Task SaveAsync()=>await context.SaveChangesAsync();
         
     }

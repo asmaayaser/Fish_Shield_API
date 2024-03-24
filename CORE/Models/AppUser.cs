@@ -22,7 +22,7 @@ namespace CORE.Models
         public string? RefreshToken { get; set; }
         public bool Disabled { get; set; }
         public bool isDeleted {  get; set; }
-        public string Discriminator { get; set; }
+        public string Discriminator { get;  }
         public DateTime RefreshTokenExpiryTime { get; set; }
         public AppUser()
         {

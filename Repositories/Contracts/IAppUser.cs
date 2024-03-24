@@ -13,5 +13,6 @@ namespace Repositories.Contracts
         Task<PagedList<AppUser>> GetAllUsersAsync(AppUserParameters appUserParameters,bool track);
         Task<IEnumerable<AppUser>> DeleteUsers(List<string> usersIDs);
         Task DisableAccounts(List<string> usersIDs);
+        Task<AppUser> GetUserByEmail(string email, bool track);
     }
 }

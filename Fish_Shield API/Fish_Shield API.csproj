@@ -40,6 +40,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\Images\Detects\" />
     <Folder Include="wwwroot\Images\Diseases\" />
+    <Folder Include="wwwroot\Images\Equipment\" />
     <Folder Include="wwwroot\Images\Personal\" />
   </ItemGroup>
 

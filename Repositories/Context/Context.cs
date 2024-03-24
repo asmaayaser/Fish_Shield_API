@@ -5,6 +5,7 @@ using EntityFrameworkCore.EncryptColumn.Util;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace Repositories.Context
 {
@@ -13,6 +14,7 @@ namespace Repositories.Context
         private readonly IEncryptionProvider _encryptionProvider;
         public RepositoryContext(DbContextOptions options) : base(options) 
         { 
+            
             _encryptionProvider = new GenerateEncryptionProvider("GraduationProject123#$"); 
                 //Environment.GetEnvironmentVariable("SecretKey")
         }
@@ -24,15 +26,15 @@ namespace Repositories.Context
         public virtual DbSet<Doctor> Doctors { get; set; }
         public virtual DbSet<DetectDisease> Detects { get; set; }
         public virtual DbSet<FeedBack> FeedBacks { get; set; }
-
+        public virtual DbSet<Equipment> Equipments { get; set; }
 
 
 
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+           // builder.UseEncryption(_encryptionProvider);
             base.OnModelCreating(builder);
-          //  builder.UseEncryption(_encryptionProvider);
             builder.Entity<Treatment>(conf => {
                 conf.HasKey(t => new { t.DiseaseID, t.TreatmentDesc });
                 conf.HasOne(d=>d.FishDisease).WithMany(d=>d.Treatment).IsRequired().OnDelete(deleteBehavior:DeleteBehavior.Cascade);
@@ -104,6 +106,8 @@ namespace Repositories.Context
                     );
                    
             });
+
+
 
             
 

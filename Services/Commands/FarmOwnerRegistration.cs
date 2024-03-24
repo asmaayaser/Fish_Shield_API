@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CORE.Models;
 using Microsoft.AspNetCore.Identity;
+using Repositories.Contracts;
 using Services.Contracts;
 using Services.Contracts.IAuthVarianseBehaviores;
 using Services.DTO;
@@ -12,7 +13,7 @@ namespace Services.Commands
         private readonly IMapper mapper;
         private readonly IIOService ioService;
 
-        public FarmOwnerRegistration(IMapper mapper, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, IIOService ioService) : base(userManager, roleManager, ioService, default)
+        public FarmOwnerRegistration(IMapper mapper, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, IIOService ioService,IRepositoryManager manager) : base(userManager, roleManager, ioService, default,manager)
         {
             this.mapper = mapper;
             this.ioService = ioService;

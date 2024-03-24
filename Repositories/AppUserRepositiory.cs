@@ -58,6 +58,11 @@ namespace Repositories
 
             return PagedList<AppUser>.ToPagedList(result, appUserParameters.PageNumber, appUserParameters.PageSize);
         }
+        public async Task<AppUser> GetUserByEmail(string email,bool track)
+        {
+            var user= await base.FindByCondition(u=>u.Email.Equals(email),track).SingleOrDefaultAsync();
+            return user;
+        }
 
       
     }

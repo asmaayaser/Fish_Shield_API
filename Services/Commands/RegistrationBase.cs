@@ -1,6 +1,8 @@
 ﻿using CORE.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Repositories.Contracts;
 using Services.Contracts;
 using Services.DTO;
 
@@ -12,24 +14,31 @@ namespace Services.Commands
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly IIOService ioService;
         private readonly IHttpContextAccessor httpContextAccessor;
+        private readonly IRepositoryManager manager;
         protected AppUser user;
 
 
 
-        public RegistrationBase(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, IIOService ioService, IHttpContextAccessor httpContextAccessor)
+        public RegistrationBase(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, IIOService ioService, IHttpContextAccessor httpContextAccessor,IRepositoryManager manager)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
             this.ioService = ioService;
             this.httpContextAccessor = httpContextAccessor;
+            this.manager = manager;
+            
         }
 
 
 
         public async Task<IdentityResult> Register(UserForRegestrationDto userForRegistrationDto, Func<UserForRegestrationDto, AppUser> map)
         {
+            #region MyRegion
             user = map.Invoke(userForRegistrationDto);
 
+            //var checkUserEmailForDeletedUser =await manager.AppUser.GetUserByEmail(user.Email,false);
+            //if (checkUserEmailForDeletedUser is not null)
+            //    return IdentityResult.Failed(new IdentityError() { Code = "EmailRegisteredByAnotherUser", Description = "this email is registered by another user" });
             var CreateResult = await userManager.CreateAsync(user, userForRegistrationDto.Password);
             var ActualTypeforUser = user.GetType();
             if (CreateResult.Succeeded)
@@ -47,7 +56,14 @@ namespace Services.Commands
                 }
             }
 
-            return CreateResult;
+            return CreateResult; 
+            #endregion
+
+
+
+
+
+
         }
         protected async Task DeleteUser(AppUser user) => await userManager.DeleteAsync(user);
 

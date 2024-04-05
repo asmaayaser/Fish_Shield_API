@@ -203,6 +203,42 @@ namespace Fish_Shield_API.Migrations
                     b.ToTable("Diagnosis");
                 });
 
+            modelBuilder.Entity("CORE.Models.Equipment", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("OwnerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("PhotoPath")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("OwnerId");
+
+                    b.ToTable("Equipments");
+                });
+
             modelBuilder.Entity("CORE.Models.FeedBack", b =>
                 {
                     b.Property<int>("Id")
@@ -352,19 +388,19 @@ namespace Fish_Shield_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f2374006-bfb2-40de-b29b-8152bfbf327d",
+                            Id = "830f4e46-2b30-4595-b3a6-ec8613d7d768",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "7e092124-43ee-4082-9271-ce7f3214f81d",
+                            Id = "f944a830-265b-4bd9-8db8-f92cdfce0b10",
                             Name = "FarmOwner",
                             NormalizedName = "FARMOWNER"
                         },
                         new
                         {
-                            Id = "64fbc3b4-885b-4e47-9529-425075f445a8",
+                            Id = "9a0c1172-6cfa-4ba9-a34f-81df57677557",
                             Name = "Doctor",
                             NormalizedName = "DOCTOR"
                         });
@@ -485,17 +521,17 @@ namespace Fish_Shield_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "32dd9039-cb8e-4e0d-95cb-537f972403d7",
+                            Id = "d1c23e1a-5951-4cc7-9343-92fe3846dd69",
                             AccessFailedCount = 0,
                             BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "f06f3e16-60fd-4e77-97ca-e468e3216cfb",
+                            ConcurrencyStamp = "8c207c29-fb2e-4d4e-b288-36213afc5edf",
                             Disabled = false,
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "admin",
                             PhoneNumberConfirmed = false,
                             RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SecurityStamp = "ec1002ee-4c64-41a8-b1fa-f4ad2f7205c6",
+                            SecurityStamp = "b68a9401-476f-47e5-9be9-088d6ef4cdfd",
                             TwoFactorEnabled = false,
                             UserName = "admin",
                             isDeleted = false
@@ -577,6 +613,17 @@ namespace Fish_Shield_API.Migrations
                         .IsRequired();
 
                     b.Navigation("FishDisease");
+                });
+
+            modelBuilder.Entity("CORE.Models.Equipment", b =>
+                {
+                    b.HasOne("CORE.Models.FarmOwner", "Owner")
+                        .WithMany()
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Owner");
                 });
 
             modelBuilder.Entity("CORE.Models.ImpactOnAquaculture", b =>

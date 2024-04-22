@@ -55,7 +55,11 @@ namespace Services.EmailService
             emailMessage.To.Add(new MailboxAddress(message.To, message.To));
 
             emailMessage.Subject=message.Subject;
-            emailMessage.Body= new TextPart() { Text=message.Body};
+            
+            BodyBuilder builder = new BodyBuilder();
+            builder.HtmlBody = message.Body;
+           // emailMessage.Body= new TextPart(MimeKit.Text.TextFormat.Html) { Text=message.Body};
+            emailMessage.Body=builder.ToMessageBody();
 
             return emailMessage;
 

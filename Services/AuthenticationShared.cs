@@ -185,13 +185,58 @@ namespace Services
 
         public async Task<bool> ForgotPasswordAsync(ForgetPasswordDto forgetPasswordDto)
         {
+            
+
             user = await userManager.FindByEmailAsync(forgetPasswordDto.Email);
             if(user is null )
                 return false;
             Random random = new Random();
             var UserCode = random.Next(9999).ToString("D4");
             user.Code = UserCode;
-            var message = new Message(forgetPasswordDto.Email, "Reset Password Code", $"use this code to reset your Password in Fish Shield :{UserCode}");
+            #region Card Email Body
+            var CardEmail = @"
+<body style=""font-family: Arial, sans-serif; margin: 0 ;padding: 0;background-color: #f4f4f4;"">
+    <style>
+        /* Media queries for responsive design */
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 100% !important;
+                padding: 10px !important;
+            }
+
+            .logo {
+                width: 80px !important;
+                height: auto !important;
+                margin-bottom: 10px !important;
+            }
+        }
+    </style>
+
+    <table
+        style=""=width: 100%;margin: 0;padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);""
+        cellpadding=""0"" cellspacing=""0"" border=""0"" align=""center"">
+        <tr>
+            <td style=""text-align: center;"">
+                <h1>Password Reset</h1>
+                
+                <div style="" margin-top: 20px; text-align: left;"">
+                    <p style="" text-align: center;"">Hello "+user.Email+@",</p>
+                    <p style="" text-align: center;"">Someone requested that the password for your Fish Shield
+                        account be reset.</p>
+                    <p style="" text-align: center;""><strong>Code:</strong>"+UserCode+@"</p>
+                    <p style=""padding-left: 4%;"">If you didn't request this, you can ignore this email or let us know.
+                        Your
+                        password won't change until you create a new password.</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</body>
+                ";
+            #endregion
+
+            var message = new Message(forgetPasswordDto.Email, "Reset Password Code",CardEmail);
             await  emailSender.SendAsync(message);
             await manager.SaveAsync();
             return true;

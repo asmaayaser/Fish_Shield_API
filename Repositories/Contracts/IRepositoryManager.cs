@@ -16,6 +16,7 @@ namespace Repositories.Contracts
         IFeedbackRepository feedbackRepository { get; }
         IAppUser AppUser { get; }
         IEquipmentRepository equipment { get; }
+        IRatingRepository ratingRepository { get; }
         RepositoryContext Context { get; }// ?
         Task SaveAsync();
     }

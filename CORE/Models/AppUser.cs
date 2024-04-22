@@ -33,11 +33,16 @@ namespace CORE.Models
     {
         [Required]
         public string? FarmAddress { get; set; }
+        public bool isPaid { get; set; }
+
+        public ICollection<Rating> Rates { get; set; }
     }
     public class Doctor:AppUser
     {
    
         public string? MoreInfo { get; set; }
+
+        public ICollection<Rating> Rates {  get; set; }
     }
     public class Admin :AppUser
     {

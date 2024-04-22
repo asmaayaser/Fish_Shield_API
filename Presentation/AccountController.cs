@@ -90,6 +90,12 @@ namespace Presentation
             Response.Headers.Add("X-Pagination",JsonSerializer.Serialize(result.meta));
             return Ok(result.allusers);
         }
+        [HttpPost("IsCodeEnterTrue")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        public async Task<IActionResult> IsEnterdCodeIsValid([FromForm] verifyResetPasswordDto verifyResetPasswordDto)
+        {
+           return Ok(await service.AuthenticationService.IsCodeEnterTrue(verifyResetPasswordDto));
+        }
         #endregion
 
         #region Delete

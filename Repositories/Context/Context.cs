@@ -27,6 +27,7 @@ namespace Repositories.Context
         public virtual DbSet<DetectDisease> Detects { get; set; }
         public virtual DbSet<FeedBack> FeedBacks { get; set; }
         public virtual DbSet<Equipment> Equipments { get; set; }
+        public virtual DbSet<Rating> Ratings { get; set; }
 
 
 
@@ -87,10 +88,13 @@ namespace Repositories.Context
             builder.Entity<FarmOwner>(conf =>
             {
                 conf.HasBaseType(typeof(AppUser));
+                conf.HasMany(e=>e.Rates).WithOne(e=>e.owner).IsRequired().OnDelete(DeleteBehavior.NoAction);
+
             });
             builder.Entity<Doctor>(conf =>
             {
                 conf.HasBaseType(typeof(AppUser));
+                conf.HasMany(e=>e.Rates).WithOne(e=>e.Doctor).IsRequired().OnDelete(DeleteBehavior.Cascade);
             });
             builder.Entity<Admin>(conf =>
             {

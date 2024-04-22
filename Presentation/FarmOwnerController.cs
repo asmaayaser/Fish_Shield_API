@@ -31,6 +31,11 @@ namespace Presentation
             var result= await service.AuthenticationService.GetByIdDerivedTypeAsync(id, track: false);
             return Ok(result);
         }
+        [HttpGet("IsSubscripted")]
+        public async Task<IActionResult> IsSubscripted(Guid id)
+        {
+          return Ok(await service.AuthenticationService.IsThisFarmOwnerAccountSubscriptedMember(id));
+        }
 
         #endregion
         #region post
@@ -52,11 +57,25 @@ namespace Presentation
             return StatusCode(StatusCodes.Status201Created);
 
         }
-        
-        #endregion
-       
-        #region Put
 
+
+        [HttpPost("setDoctorRating")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        public async Task<IActionResult> PostRateForDoctor(RatingDto ratingDto)
+        {
+            await service.AuthenticationService.SetRatingForDoctor(ratingDto);
+            return Ok("rating is set to that doctor thanks..");
+        }
+        #endregion
+
+        #region Put
+        [HttpPut("subscribe")]
+        public async Task<IActionResult> Subscription(Guid id)
+        {
+            await service.AuthenticationService.MakeSubscriptionForFarmOwner(id);
+
+            return Ok("this farm owner now marked as Subscripted user account");
+        }
         #endregion
         #region Delete
 

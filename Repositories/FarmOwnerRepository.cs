@@ -1,5 +1,6 @@
 ﻿using CORE.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using Repositories.Context;
 using Repositories.Contracts;
 
@@ -13,6 +14,7 @@ namespace Repositories
 
         public async Task<FarmOwner> GetFarmOwnerById(Guid id, bool track)
             =>await base.FindByCondition(u=>u.Id==id.ToString(), track).FirstOrDefaultAsync();
+
        
     }
 }

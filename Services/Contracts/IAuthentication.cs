@@ -23,10 +23,17 @@ namespace Services.Contracts
 
         Task<bool> ForgotPasswordAsync(ForgetPasswordDto forgetPasswordDto);
         Task<IdentityResult> ResetPasswordAsync(ResetPasswordDto resetPasswordDto);
+        Task<bool> IsCodeEnterTrue(verifyResetPasswordDto resetPasswordDto);
 
         Task<(IEnumerable<AppuserForReturnPartial> allusers, MetaData meta)> GetAllUsers(AppUserParameters appUserParameters, bool track);
         Task DeleteUsers(List<string> UsersIds);
         Task DisableOrEnableAccounts(List<string> UsersIds);
+
+        Task MakeSubscriptionForFarmOwner(Guid id);
+        Task<bool> IsThisFarmOwnerAccountSubscriptedMember(Guid id);
+        
+        Task SetRatingForDoctor(RatingDto rating);
+        Task<decimal> GetDoctorRate(Guid doctorId);
 
     }
 }

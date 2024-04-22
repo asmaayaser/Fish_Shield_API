@@ -36,6 +36,11 @@ namespace Presentation
 
             return Ok(appUser);
         }
+        [HttpGet("CalcRating/{id:guid}")]
+        public async Task<IActionResult> GetRate(Guid id)
+        {
+          return Ok( await service.AuthenticationService.GetDoctorRate(id));
+        }
         #endregion
         #region post
         [HttpPost]

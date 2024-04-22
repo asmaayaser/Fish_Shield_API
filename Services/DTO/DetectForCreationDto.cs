@@ -2,13 +2,14 @@
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Services.DTO
 {
-   
+
     public record DetectDto
     {
         public string FishPhoto { get; set; }
@@ -19,6 +20,5 @@ namespace Services.DTO
         public DiseaseDto? Disease { get; set; }
         public DateTime DateTime { get; set; }
     }
-
 
 }

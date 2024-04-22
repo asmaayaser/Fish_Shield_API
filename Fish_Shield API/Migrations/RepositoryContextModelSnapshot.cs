@@ -203,6 +203,42 @@ namespace Fish_Shield_API.Migrations
                     b.ToTable("Diagnosis");
                 });
 
+            modelBuilder.Entity("CORE.Models.Equipment", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("OwnerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("PhotoPath")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("OwnerId");
+
+                    b.ToTable("Equipments");
+                });
+
             modelBuilder.Entity("CORE.Models.FeedBack", b =>
                 {
                     b.Property<int>("Id")
@@ -297,6 +333,34 @@ namespace Fish_Shield_API.Migrations
                     b.ToTable("PreventionAndControll");
                 });
 
+            modelBuilder.Entity("CORE.Models.Rating", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("DoctorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<decimal>("Rate")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("ownerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("DoctorId");
+
+                    b.HasIndex("ownerId");
+
+                    b.ToTable("Ratings");
+                });
+
             modelBuilder.Entity("CORE.Models.RecommandationActions", b =>
                 {
                     b.Property<int>("DiseaseID")
@@ -352,19 +416,19 @@ namespace Fish_Shield_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f2374006-bfb2-40de-b29b-8152bfbf327d",
+                            Id = "6e11a495-4dc3-49a0-9568-e51e749d890f",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "7e092124-43ee-4082-9271-ce7f3214f81d",
+                            Id = "0c9ae6d4-0296-4170-a6d1-aba2b1a9a88e",
                             Name = "FarmOwner",
                             NormalizedName = "FARMOWNER"
                         },
                         new
                         {
-                            Id = "64fbc3b4-885b-4e47-9529-425075f445a8",
+                            Id = "16dc3ded-35a5-4c4e-af06-58870d06bbf8",
                             Name = "Doctor",
                             NormalizedName = "DOCTOR"
                         });
@@ -485,17 +549,17 @@ namespace Fish_Shield_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "32dd9039-cb8e-4e0d-95cb-537f972403d7",
+                            Id = "212185de-1501-45b5-9c5d-251359f1c642",
                             AccessFailedCount = 0,
                             BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "f06f3e16-60fd-4e77-97ca-e468e3216cfb",
+                            ConcurrencyStamp = "53ae7155-1f22-4da5-8300-51c68f4cea25",
                             Disabled = false,
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "admin",
                             PhoneNumberConfirmed = false,
                             RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SecurityStamp = "ec1002ee-4c64-41a8-b1fa-f4ad2f7205c6",
+                            SecurityStamp = "be265de9-733d-413b-80c3-b7865eb25509",
                             TwoFactorEnabled = false,
                             UserName = "admin",
                             isDeleted = false
@@ -519,6 +583,9 @@ namespace Fish_Shield_API.Migrations
                     b.Property<string>("FarmAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("isPaid")
+                        .HasColumnType("bit");
 
                     b.HasDiscriminator().HasValue("FarmOwner");
                 });
@@ -579,6 +646,17 @@ namespace Fish_Shield_API.Migrations
                     b.Navigation("FishDisease");
                 });
 
+            modelBuilder.Entity("CORE.Models.Equipment", b =>
+                {
+                    b.HasOne("CORE.Models.FarmOwner", "Owner")
+                        .WithMany()
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Owner");
+                });
+
             modelBuilder.Entity("CORE.Models.ImpactOnAquaculture", b =>
                 {
                     b.HasOne("CORE.Models.FishDisease", "FishDisease")
@@ -599,6 +677,25 @@ namespace Fish_Shield_API.Migrations
                         .IsRequired();
 
                     b.Navigation("FishDisease");
+                });
+
+            modelBuilder.Entity("CORE.Models.Rating", b =>
+                {
+                    b.HasOne("CORE.Models.Doctor", "Doctor")
+                        .WithMany("Rates")
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CORE.Models.FarmOwner", "owner")
+                        .WithMany("Rates")
+                        .HasForeignKey("ownerId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Doctor");
+
+                    b.Navigation("owner");
                 });
 
             modelBuilder.Entity("CORE.Models.RecommandationActions", b =>
@@ -689,6 +786,16 @@ namespace Fish_Shield_API.Migrations
                     b.Navigation("RecommandationActions");
 
                     b.Navigation("Treatment");
+                });
+
+            modelBuilder.Entity("CORE.Models.Doctor", b =>
+                {
+                    b.Navigation("Rates");
+                });
+
+            modelBuilder.Entity("CORE.Models.FarmOwner", b =>
+                {
+                    b.Navigation("Rates");
                 });
 #pragma warning restore 612, 618
         }

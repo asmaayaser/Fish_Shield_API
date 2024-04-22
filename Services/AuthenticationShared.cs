@@ -90,6 +90,7 @@ namespace Services
             return await CreateToken(PopulateExpiration: false);
         }
 
+        #region helper private methods
 
         /// <summary>
         /// get SigningCredentials (Secret Key + Hashing Algorithm)
@@ -109,10 +110,10 @@ namespace Services
         /// <returns></returns>
         private async Task<List<Claim>> GetClaims()
         {
-            var claims = new List<Claim> 
-            { 
+            var claims = new List<Claim>
+            {
                 new Claim(ClaimTypes.Name, user.UserName) ,
-                new Claim(ClaimTypes.NameIdentifier,user.Id) 
+                new Claim(ClaimTypes.NameIdentifier,user.Id)
             };
             var roles = await userManager.GetRolesAsync(user);
             foreach (var role in roles)
@@ -179,7 +180,8 @@ namespace Services
                 throw new SecurityTokenException("Invalid token");
             }
             return principal;
-        }
+        } 
+        #endregion
 
         public async Task<bool> ForgotPasswordAsync(ForgetPasswordDto forgetPasswordDto)
         {
@@ -206,6 +208,14 @@ namespace Services
             await userManager.RemovePasswordAsync(user);
             var Result = await userManager.AddPasswordAsync(user, resetPasswordDto.Pass);
             return Result;
+        }
+        public async Task<bool> IsCodeEnterTrue(verifyResetPasswordDto resetPasswordDto)
+        {
+            var user= await  manager.AppUser.GetUserByEmail(resetPasswordDto.Email, track: false);
+            
+            if(user is null) throw new UserNotFoundException(default);
+
+            return user.Code==resetPasswordDto.Code;
         }
 
         public async Task<(IEnumerable<AppuserForReturnPartial>allusers,MetaData meta)> GetAllUsers(AppUserParameters appUserParameters,bool track)
@@ -252,6 +262,46 @@ namespace Services
         {
            await  manager.AppUser.DisableAccounts(UsersIds);
            await  manager.SaveAsync();
+        }
+
+        public async Task MakeSubscriptionForFarmOwner(Guid id)
+        {
+           var owner=await manager.farmOwner.GetFarmOwnerById(id, track: true);
+            if (owner is null)
+                throw new UserNotFoundException(id);
+            owner.isPaid=true;
+            await manager.SaveAsync();
+        }
+
+        public async Task<bool> IsThisFarmOwnerAccountSubscriptedMember(Guid id)
+        {
+           var owner= await  manager.farmOwner.GetFarmOwnerById(id, track: false);
+            if (owner is null)
+                throw new UserNotFoundException(id);
+            return owner.isPaid;
+        }
+
+        public async Task SetRatingForDoctor(RatingDto rating)
+        {
+          var owner = await   manager.farmOwner.GetFarmOwnerById(rating.ownerId,track:false);
+          var doctor= await manager.Doctors.GetDoctorById(rating.DoctorId,track:false);
+            if (owner is null)
+                throw new UserNotFoundException(rating.ownerId);
+
+            if (doctor is null)
+                throw new UserNotFoundException(rating.DoctorId);
+
+            var rate= mapper.Map<Rating>(rating);
+            manager.ratingRepository.PostRating(rate);
+            await manager.SaveAsync();
+        }
+
+        public async Task<decimal> GetDoctorRate(Guid doctorId)
+        {
+          var doctor=  await  manager.Doctors.GetDoctorById(doctorId,track:false);
+            if(doctor is null)
+                throw new UserNotFoundException(doctorId);
+          return  await manager.ratingRepository.CalculateRating(doctorId);
         }
     }
 

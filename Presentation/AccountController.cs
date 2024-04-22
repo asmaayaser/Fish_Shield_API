@@ -92,7 +92,7 @@ namespace Presentation
         }
         [HttpPost("IsCodeEnterTrue")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        public async Task<IActionResult> IsEnterdCodeIsValid([FromForm] verifyResetPasswordDto verifyResetPasswordDto)
+        public async Task<IActionResult> IsEnterdCodeIsValid([FromBody] verifyResetPasswordDto verifyResetPasswordDto)
         {
            return Ok(await service.AuthenticationService.IsCodeEnterTrue(verifyResetPasswordDto));
         }

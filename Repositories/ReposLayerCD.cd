@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Repositories.DetectDiseaseRepository">
+    <Position X="1.25" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>DetectDiseaseRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Repositories.DiseaseRepository">
+    <Position X="4" Y="2" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAEAQAgAAAAAAAAA=</HashCode>
+      <FileName>DiseaseRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Repositories.Repositorybase&lt;T&gt;">
+    <Position X="8.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAYCAAAAAAAAEAAAAAAQAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositorybase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Repositories.RepositoryManager" BaseTypeListCollapsed="true">
+    <Position X="4.25" Y="7.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAACgAAAAgIAAEBAAACAAUIKAIAEAQAAggAAAEACKAA=</HashCode>
+      <FileName>RepositoryManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Repositories.AdminRepository">
+    <Position X="16.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AdminRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Repositories.AppUserRepositiory">
+    <Position X="9.75" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAgAAAAAAAAAAAAAAAiAAAAAAAAAA=</HashCode>
+      <FileName>AppUserRepositiory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Repositories.DoctorRepository">
+    <Position X="14.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DoctorRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Repositories.EquipmentRepository">
+    <Position X="17.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAAAAAAAAAAAAAAAQAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>EquipmentRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Repositories.FarmOwnerRepository">
+    <Position X="6" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FarmOwnerRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Repositories.FeedbackRepository">
+    <Position X="12.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>FeedbackRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Repositories.Context.RepositoryContext">
+    <Position X="21.75" Y="7.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAEAAAAAgAAAYAAGAAAAAAAAgAAAACAAgA=</HashCode>
+      <FileName>Context\Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext&lt;TUser&gt;" Collapsed="true">
+    <Position X="24" Y="5.25" Width="4" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="Repositories.Contracts.IDetectDiseaseRepository" Collapsed="true">
+    <Position X="24" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IDetectDisease.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Repositories.Contracts.IDiseaseRepository" Collapsed="true">
+    <Position X="25.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAEAQAgAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IDiseaseRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Repositories.Contracts.IRepositorybase&lt;T&gt;" Collapsed="true">
+    <Position X="22.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAEAAAAAAQAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IRepositorybase.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Repositories.Contracts.IRepositoryManager" Collapsed="true">
+    <Position X="24" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAACAAQIAAIAEAAAAggAAAEACCAA=</HashCode>
+      <FileName>Contracts\IRepositoryManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Repositories.Contracts.IAdminRepository" Collapsed="true">
+    <Position X="20.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IAdminRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Repositories.Contracts.IAppUser" Collapsed="true">
+    <Position X="22.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAgAAAAAAAAAAAAAAAiAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IAppUser.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Repositories.Contracts.IDoctorRepository" Collapsed="true">
+    <Position X="20.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IDoctorRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Repositories.Contracts.IEquipmentRepository" Collapsed="true">
+    <Position X="22.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAAAAAAAAAAAAAAAQAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IEquipmentRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Repositories.Contracts.IFarmOwnerRepository" Collapsed="true">
+    <Position X="24" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IFarmOwnerRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Repositories.Contracts.IFeedbackRepository" Collapsed="true">
+    <Position X="25.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Contracts\IFeedback.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Repositories.Contracts.IRatingRepository" Collapsed="true">
+    <Position X="20.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IRatingRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

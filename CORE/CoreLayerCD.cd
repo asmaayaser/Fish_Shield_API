@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CORE.Exceptions.BadRequestException" Collapsed="true">
+    <Position X="21.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\BadRequestException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Exceptions.InvalidDateRangeBadRequest" Collapsed="true">
+    <Position X="21.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\BadRequestException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Exceptions.InvalidCodeException" Collapsed="true">
+    <Position X="19.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\BadRequestException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Exceptions.NotFoundException" Collapsed="true">
+    <Position X="17.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\NotFoundException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Exceptions.NotValidTypeException" Collapsed="true">
+    <Position X="13.75" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\NotFoundException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Exceptions.DiseaseNotFoundException" Collapsed="true">
+    <Position X="18.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\NotFoundException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Exceptions.UserNotFoundException" Collapsed="true">
+    <Position X="11.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\NotFoundException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Exceptions.NoFeedsFoundedInDB" Collapsed="true">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\NotFoundException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Exceptions.EquipmentNotFoundException" Collapsed="true">
+    <Position X="21" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\NotFoundException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Exceptions.RefreshTokenBadRequest" Collapsed="true">
+    <Position X="23.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\RefreshTokenBadRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Services.RoleNotFoundException" Collapsed="true">
+    <Position X="23.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\RoleNotFoundException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.LoggerService.LoggerManager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgAAAAAAAAAAAAAAAAAAAAAAIAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LoggerService\LoggerManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CORE.Models.AppUser" Collapsed="true">
+    <Position X="13.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIQAAAQAAAAECgAAQAAAAAAAADAAAAABAAAAA=</HashCode>
+      <FileName>Models\AppUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Models.FarmOwner">
+    <Position X="13.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Models\AppUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Models.Doctor">
+    <Position X="11.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Models\AppUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Models.Admin">
+    <Position X="15.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AppUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Models.DetectDisease" Collapsed="true">
+    <Position X="29.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAACIAAAEAAggAAAAAAAAMAACAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DetectDisease.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Models.Equipment" Collapsed="true">
+    <Position X="26.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACIAAAggAQAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Equipment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Models.FeedBack" Collapsed="true">
+    <Position X="28" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAAAAAAAAAAQAAAAAAAQBAAAAIAAAAAA=</HashCode>
+      <FileName>Models\FeedBack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Models.FishDisease" Collapsed="true">
+    <Position X="29.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEEAAggBQAAABBAAQACAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\FishDisease.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Models.RecommandationActions" Collapsed="true">
+    <Position X="28" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Models\FishDisease.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Models.CausativeAgents" Collapsed="true">
+    <Position X="26.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAKAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\FishDisease.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Models.ClinicalSigns" Collapsed="true">
+    <Position X="28" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAKAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\FishDisease.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Models.Diagnosis" Collapsed="true">
+    <Position X="31.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Models\FishDisease.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Models.Treatment" Collapsed="true">
+    <Position X="29.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\FishDisease.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Models.PreventionAndControll" Collapsed="true">
+    <Position X="31.5" Y="3" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\FishDisease.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Models.ImpactOnAquaculture" Collapsed="true">
+    <Position X="31.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAKAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\FishDisease.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Models.Rating" Collapsed="true">
+    <Position X="26.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAgAAAAAAAAAgAAAAAAAAAAAAAACAAQAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\Rating.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Shared.FeedbackParameters">
+    <Position X="9.25" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAABAAAAEAAAAA=</HashCode>
+      <FileName>Shared\FeedbackParameters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Shared.DetectionReportParameters">
+    <Position X="16" Y="6.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAABAAAAEAAAAA=</HashCode>
+      <FileName>Shared\FeedbackParameters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Shared.AppUserParameters">
+    <Position X="11.5" Y="6.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAQAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Shared\FeedbackParameters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Shared.FishDiseaseParameters">
+    <Position X="17.75" Y="4.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Shared\FeedbackParameters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Shared.MetaData" Collapsed="true">
+    <Position X="28" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAQEAAAAAAAFAAAAAI=</HashCode>
+      <FileName>Shared\MetaData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Shared.PagedList&lt;T&gt;" Collapsed="true">
+    <Position X="29.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Shared\PagedList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CORE.Shared.RequestFeature">
+    <Position X="13.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAEAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Shared\RequestFeature.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Identity.IdentityUser" Collapsed="true">
+    <Position X="14" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="CORE.Contracts.ILoggerManager" Collapsed="true">
+    <Position X="26.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgAAAAAAAAAAAAAAAAAAAAAAIAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\ILoggerManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -21,9 +21,9 @@
         public string? Discriminator { get; set; }
         public bool IsValidType =>
             Discriminator == null || 
-            Discriminator.Equals("doctor", StringComparison.InvariantCultureIgnoreCase) ||
-            Discriminator.Equals("admin", StringComparison.InvariantCultureIgnoreCase)  || 
-            Discriminator.Equals("farmowner", StringComparison.InvariantCultureIgnoreCase);
+            Discriminator.Equals("doctor", StringComparison.OrdinalIgnoreCase) ||
+            Discriminator.Equals("admin", StringComparison.OrdinalIgnoreCase)  || 
+            Discriminator.Equals("farmowner", StringComparison.OrdinalIgnoreCase);
 
         public string? UsernameSearchTerm { get; set; }
     }

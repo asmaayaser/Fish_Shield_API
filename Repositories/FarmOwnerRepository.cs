@@ -15,6 +15,7 @@ namespace Repositories
         public async Task<FarmOwner> GetFarmOwnerById(Guid id, bool track)
             =>await base.FindByCondition(u=>u.Id==id.ToString(), track).FirstOrDefaultAsync();
 
-       
+        public async Task UpdateFarmOwnerData(FarmOwner farmOwner) =>  base.Update(farmOwner);
+        
     }
 }

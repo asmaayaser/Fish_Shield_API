@@ -37,16 +37,37 @@ namespace Services
 
         public async Task<DetectDto> CreateDetection(string OwnerId,IFormFile detectImage)
         {
-            await EnsurePrincipleIsExists(Guid.Parse(OwnerId));
-            var ImagePath=  await  ioService.uploadImage($"Images/Detects/{OwnerId}", detectImage, Guid.NewGuid().ToString());
-            var PathToStoredInDB = $"{httpContextAccessor.HttpContext.Request.Scheme}://{httpContextAccessor.HttpContext.Request.Host}{ImagePath}";
-            var PathForConsuming= $"{webHostEnvironment.WebRootPath}{ImagePath}";
-            var Result = /*await MakeApiCallToMLTeamModel(PathForConsuming) ?? */ConsumeMLModel(PathForConsuming);
-            var Disease = manager.Diseases.GetDiseaseByName(Result.dname,track: false);
-           var Entity= manager.DetectDisease.Create(OwnerId, new DetectDisease() { FishPhoto = PathToStoredInDB, NameOfDisFromAIModel = Result.dname, Score = Result.score, DiseaseId = Disease.ID});
-            await manager.SaveAsync();
-            Entity.Disease = Disease;
-           return mapper.Map<DetectDto>(Entity);
+           var farmowner= await EnsurePrincipleIsExists(Guid.Parse(OwnerId));
+
+            if (farmowner.HasFreeTrialCount > 0)
+            {
+                // decrement count 1
+                 farmowner.HasFreeTrialCount--;
+                // do detection
+                return await DoDetection();
+            }else if(farmowner.isPaid && farmowner.SubscriptionEndDate >  DateTime.Now) 
+            {
+               return await DoDetection();
+            }
+            else
+            {
+                farmowner.isPaid = false;
+                throw new SubscriptionEndedException();
+            }
+
+            async Task<DetectDto> DoDetection()
+            {
+                var ImagePath = await ioService.uploadImage($"Images/Detects/{OwnerId}", detectImage, Guid.NewGuid().ToString());
+                var PathToStoredInDB = $"{httpContextAccessor.HttpContext.Request.Scheme}://{httpContextAccessor.HttpContext.Request.Host}{ImagePath}";
+                var PathForConsuming = $"{webHostEnvironment.WebRootPath}{ImagePath}";
+
+                var Result = /*await MakeApiCallToMLTeamModel(PathForConsuming) ?? */ConsumeMLModel(PathForConsuming);
+                var Disease = manager.Diseases.GetDiseaseByName(Result.dname, track: false);
+                var Entity = manager.DetectDisease.Create(OwnerId, new DetectDisease() { FishPhoto = PathToStoredInDB, NameOfDisFromAIModel = Result.dname, Score = Result.score, DiseaseId = Disease.ID });
+                await manager.SaveAsync();
+                Entity.Disease = Disease;
+                return mapper.Map<DetectDto>(Entity);
+            }
         }
 
         public async Task<ReportDto> GenerateReport(string OwnerId, DetectionReportParameters detectionReportParameters)
@@ -95,7 +116,7 @@ namespace Services
 
         private async Task<FarmOwner> EnsurePrincipleIsExists(Guid ownerId)
         {
-           var isexists=await manager.farmOwner.GetFarmOwnerById(ownerId,track:false);
+           var isexists=await manager.farmOwner.GetFarmOwnerById(ownerId,track:true);
             if (isexists == null)
                 throw new UserNotFoundException(ownerId);
             return isexists;

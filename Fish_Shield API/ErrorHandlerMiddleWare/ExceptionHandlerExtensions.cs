@@ -2,7 +2,9 @@
 using CORE.Contracts;
 using CORE.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Http;
 using System.Runtime.CompilerServices;
+using System.Text.Json;
 
 namespace Fish_Shield_API.ErrorHandlerMiddleWare
 {
@@ -34,10 +36,12 @@ namespace Fish_Shield_API.ErrorHandlerMiddleWare
                         {
                             NotFoundException => StatusCodes.Status404NotFound,
                             BadRequestException=> StatusCodes.Status400BadRequest,
+                            UnauthorizedAccessException=> StatusCodes.Status401Unauthorized,
                             _                  => StatusCodes.Status500InternalServerError
                         };
+
                       
-                       await Context.Response.WriteAsJsonAsync(new ErrorDetails(Context.Response.StatusCode,ErrorOccurred.Error.Message));
+                       await Context.Response.WriteAsJsonAsync(new ErrorDetails(Context.Response.StatusCode, ErrorOccurred.Error.Message));
                     }
                 });
             });

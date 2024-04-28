@@ -58,32 +58,21 @@ namespace Services.Commands
 
             return CreateResult; 
             #endregion
-
-
-
-
-
-
         }
         protected async Task DeleteUser(AppUser user) => await userManager.DeleteAsync(user);
 
         protected async Task<IdentityResult> HandleUPloadedImageProcess(string FolderNamingStructureInsideWWWRoot, IFormFile image, string NewNameForImage)
         {
-
-
             var imageRelativePath = await ioService.uploadImage(FolderNamingStructureInsideWWWRoot, image, NewNameForImage);
             var HostUrl = httpContextAccessor.HttpContext.Request.Scheme + "://" + httpContextAccessor.HttpContext.Request.Host;
             user.PersonalPhoto = $"{HostUrl}/{imageRelativePath}";
             IdentityResult updated = await userManager.UpdateAsync(user);
-
             if (!updated.Succeeded)
             {
                 await DeleteUser(user);
                 return IdentityResult.Failed();
             }
             return IdentityResult.Success;
-
-
         }
 
 

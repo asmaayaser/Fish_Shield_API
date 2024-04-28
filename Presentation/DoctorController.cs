@@ -58,10 +58,24 @@ namespace Presentation
             }
             return StatusCode(StatusCodes.Status201Created);
         }
-       
+
         #endregion
         #region Put
+        [HttpPut]
+        [ServiceFilter(type: typeof(ValidationFilterAttribute))]
+        public async Task<IActionResult> UpdateData(DoctorForUpdateDto doctorForUpdateDto)
+        {
+            var Result = await service.AuthenticationService.UpdateUserData(doctorForUpdateDto);
+            if (!Result.Succeeded)
+            {
+                foreach (var Error in Result.Errors)
+                    ModelState.TryAddModelError(Error.Code, Error.Description);
 
+                return BadRequest(ModelState);
+            }
+            return StatusCode(StatusCodes.Status202Accepted);
+        }
+        
         #endregion
         #region Delete
 

@@ -17,5 +17,11 @@
         {
         }
     }
+    public class SubscriptionEndedException : BadRequestException
+    {
+        public SubscriptionEndedException() : base("Subscription Ended Try To Recharge your Subscription Plan to Able to do more Detection")
+        {
+        }
+    }
 
 }

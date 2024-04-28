@@ -2,6 +2,7 @@
 using CORE.Shared;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
@@ -116,6 +117,27 @@ namespace Presentation
             var idsConversion=ids.Select(ids=>ids.ToString()).ToList();
             await service.AuthenticationService.DisableOrEnableAccounts(idsConversion);
             return NoContent();
+        }
+
+        [HttpPut("UpdateUserPassword")]
+        [ServiceFilter(typeof (ValidationFilterAttribute))]
+        public async Task<IActionResult> UpdateUserPassword(UpdareUserPasswordDto updareUserPasswordDto)
+        {
+             var Result= await  service.AuthenticationService.ChangeUserPassword(updareUserPasswordDto);
+            if (!Result.Succeeded)
+            {
+                foreach (var Error in Result.Errors)
+                    ModelState.TryAddModelError(Error.Code, Error.Description);
+
+                return BadRequest(ModelState);
+            }
+            return StatusCode(StatusCodes.Status202Accepted);
+        }
+        [HttpPut("updatePersonalPhoto/{id:guid}")]
+        public async Task<IActionResult> UpdatePersonalPhoto(IFormFile photo, Guid id)
+        {
+            await service.AuthenticationService.updateUserImage(photo, id);
+            return StatusCode(StatusCodes.Status202Accepted);
         }
         #endregion
     }

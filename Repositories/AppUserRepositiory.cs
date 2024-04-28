@@ -64,6 +64,8 @@ namespace Repositories
             return user;
         }
 
-      
+        public async Task<AppUser> GetUserById(string id, bool track)
+            => await base.FindByCondition(u => u.Id.Equals(id), TrackChanges: track).SingleOrDefaultAsync();
+        
     }
 }

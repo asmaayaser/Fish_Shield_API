@@ -1,183 +1,221 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="CORE.Exceptions.BadRequestException" Collapsed="true">
-    <Position X="21.5" Y="7" Width="1.5" />
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
+  <Class Name="CORE.Exceptions.BadRequestException">
+    <Position X="19.25" Y="9" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\BadRequestException.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CORE.Exceptions.InvalidDateRangeBadRequest" Collapsed="true">
-    <Position X="21.5" Y="8.5" Width="1.5" />
+  <Class Name="CORE.Exceptions.InvalidDateRangeBadRequest">
+    <Position X="18.25" Y="11" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\BadRequestException.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CORE.Exceptions.InvalidCodeException" Collapsed="true">
-    <Position X="19.25" Y="8.5" Width="1.5" />
+  <Class Name="CORE.Exceptions.InvalidCodeException">
+    <Position X="15.25" Y="11" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\BadRequestException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Exceptions.NotFoundException" Collapsed="true">
-    <Position X="17.25" Y="1" Width="1.5" />
+    <Position X="14" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\NotFoundException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Exceptions.NotValidTypeException" Collapsed="true">
-    <Position X="13.75" Y="2.5" Width="2" />
+    <Position X="10.5" Y="2.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\NotFoundException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Exceptions.DiseaseNotFoundException" Collapsed="true">
-    <Position X="18.75" Y="2.5" Width="1.5" />
+    <Position X="15.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\NotFoundException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Exceptions.UserNotFoundException" Collapsed="true">
-    <Position X="11.5" Y="2.5" Width="1.5" />
+    <Position X="8.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\NotFoundException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Exceptions.NoFeedsFoundedInDB" Collapsed="true">
-    <Position X="16.5" Y="2.5" Width="1.5" />
+    <Position X="13.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\NotFoundException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Exceptions.EquipmentNotFoundException" Collapsed="true">
-    <Position X="21" Y="2.5" Width="1.5" />
+    <Position X="17.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\NotFoundException.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CORE.Exceptions.RefreshTokenBadRequest" Collapsed="true">
-    <Position X="23.75" Y="8.5" Width="1.5" />
+  <Class Name="CORE.Exceptions.RefreshTokenBadRequest">
+    <Position X="21.5" Y="11" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\RefreshTokenBadRequest.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Services.RoleNotFoundException" Collapsed="true">
-    <Position X="23.25" Y="2.5" Width="1.5" />
+    <Position X="20" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\RoleNotFoundException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.LoggerService.LoggerManager" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="26.25" Y="3" Width="1.5" />
+    <Position X="27.5" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CgAAAAAAAAAAAAAAAAAAAAAAIAABAAAAAAAAAAAAAAA=</HashCode>
       <FileName>LoggerService\LoggerManager.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="CORE.Models.AppUser" Collapsed="true">
-    <Position X="13.5" Y="8.5" Width="1.5" />
+  <Class Name="CORE.Models.AppUser">
+    <Position X="9.75" Y="10.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIQAAAQAAAAECgAAQAAAAAAAADAAAAABAAAAA=</HashCode>
       <FileName>Models\AppUser.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Models.FarmOwner">
-    <Position X="13.5" Y="10" Width="1.5" />
+    <Position X="8" Y="14.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAEAAAAAAAA=</HashCode>
       <FileName>Models\AppUser.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Rates" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="CORE.Models.Doctor">
-    <Position X="11.25" Y="10" Width="1.5" />
+    <Position X="12.5" Y="14.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>Models\AppUser.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Rates" />
+    </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="CORE.Models.Admin">
-    <Position X="15.75" Y="10" Width="1.5" />
+  <Class Name="CORE.Models.Admin" Collapsed="true">
+    <Position X="10.25" Y="14.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\AppUser.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CORE.Models.DetectDisease" Collapsed="true">
-    <Position X="29.75" Y="1" Width="1.5" />
+  <Class Name="CORE.Models.DetectDisease">
+    <Position X="7.75" Y="17.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAACIAAAEAAggAAAAAAAAMAACAAQAAAAAAAAAAAA=</HashCode>
       <FileName>Models\DetectDisease.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Disease" />
+      <Property Name="Doctor" />
+      <Property Name="Owner" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="CORE.Models.Equipment" Collapsed="true">
-    <Position X="26.25" Y="2" Width="1.5" />
+  <Class Name="CORE.Models.Equipment">
+    <Position X="9.75" Y="18.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACIAAAggAQAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Equipment.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Owner" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="CORE.Models.FeedBack" Collapsed="true">
-    <Position X="28" Y="2" Width="1.5" />
+    <Position X="25.75" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAACAAAAAAAAAAAAQAAAAAAAQBAAAAIAAAAAA=</HashCode>
       <FileName>Models\FeedBack.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CORE.Models.FishDisease" Collapsed="true">
-    <Position X="29.75" Y="2" Width="1.5" />
+  <Class Name="CORE.Models.FishDisease">
+    <Position X="7" Y="11" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEEAAggBQAAABBAAQACAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>Models\FishDisease.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="CausativeAgents" />
+      <Property Name="ClinicalSigns" />
+      <Property Name="Diagnosis" />
+      <Property Name="ImpactOnAquacultures" />
+      <Property Name="PreventionAndControlls" />
+      <Property Name="RecommandationActions" />
+      <Property Name="Treatment" />
+    </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="CORE.Models.RecommandationActions" Collapsed="true">
-    <Position X="28" Y="4" Width="1.5" />
+  <Class Name="CORE.Models.RecommandationActions">
+    <Position X="2.75" Y="14.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Models\FishDisease.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FishDisease" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="CORE.Models.CausativeAgents" Collapsed="true">
-    <Position X="26.25" Y="1" Width="1.5" />
+  <Class Name="CORE.Models.CausativeAgents">
+    <Position X="4.75" Y="11.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAKAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\FishDisease.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FishDisease" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="CORE.Models.ClinicalSigns" Collapsed="true">
-    <Position X="28" Y="1" Width="1.5" />
+  <Class Name="CORE.Models.ClinicalSigns">
+    <Position X="10.75" Y="16.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAABAAAAAAAAAAKAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\FishDisease.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FishDisease" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="CORE.Models.Diagnosis" Collapsed="true">
-    <Position X="31.5" Y="1" Width="1.5" />
+  <Class Name="CORE.Models.Diagnosis">
+    <Position X="6.75" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAACAA=</HashCode>
       <FileName>Models\FishDisease.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FishDisease" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="CORE.Models.Treatment" Collapsed="true">
-    <Position X="29.75" Y="4" Width="1.5" />
+  <Class Name="CORE.Models.Treatment">
+    <Position X="5.75" Y="14.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAABAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\FishDisease.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FishDisease" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="CORE.Models.PreventionAndControll" Collapsed="true">
-    <Position X="31.5" Y="3" Width="1.5" />
+  <Class Name="CORE.Models.PreventionAndControll">
+    <Position X="3.75" Y="8.25" Width="1.5" />
     <Compartments>
       <Compartment Name="Properties" Collapsed="true" />
     </Compartments>
@@ -185,76 +223,89 @@
       <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\FishDisease.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FishDisease" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="CORE.Models.ImpactOnAquaculture" Collapsed="true">
-    <Position X="31.5" Y="2" Width="1.5" />
+  <Class Name="CORE.Models.ImpactOnAquaculture">
+    <Position X="1.75" Y="11.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAKAAABAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\FishDisease.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FishDisease" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="CORE.Models.Rating" Collapsed="true">
-    <Position X="26.25" Y="4" Width="1.5" />
+  <Class Name="CORE.Models.Rating">
+    <Position X="5.5" Y="17" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAgAAAAAAAAAgAAAAAAAAAAAAAACAAQAAAAAAAAAAgA=</HashCode>
       <FileName>Models\Rating.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="owner" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="CORE.Shared.FeedbackParameters">
-    <Position X="9.25" Y="5.75" Width="1.75" />
+    <Position X="14" Y="6.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAABAAAAEAAAAA=</HashCode>
       <FileName>Shared\FeedbackParameters.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Shared.DetectionReportParameters">
-    <Position X="16" Y="6.5" Width="2.25" />
+    <Position X="19.25" Y="6.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAABAAAAEAAAAA=</HashCode>
       <FileName>Shared\FeedbackParameters.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Shared.AppUserParameters">
-    <Position X="11.5" Y="6.25" Width="2" />
+    <Position X="16.5" Y="6.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIAQAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Shared\FeedbackParameters.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Shared.FishDiseaseParameters">
-    <Position X="17.75" Y="4.5" Width="2.5" />
+    <Position X="22.25" Y="6.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Shared\FeedbackParameters.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Shared.MetaData" Collapsed="true">
-    <Position X="28" Y="3" Width="1.5" />
+    <Position X="25.75" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAQEAAAAAAAFAAAAAI=</HashCode>
       <FileName>Shared\MetaData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Shared.PagedList&lt;T&gt;" Collapsed="true">
-    <Position X="29.75" Y="3" Width="1.5" />
+    <Position X="27.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
       <FileName>Shared\PagedList.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Shared.RequestFeature">
-    <Position X="13.25" Y="3.75" Width="1.5" />
+    <Position X="18.75" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAEAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAEAAAAAA=</HashCode>
       <FileName>Shared\RequestFeature.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Microsoft.AspNetCore.Identity.IdentityUser" Collapsed="true">
-    <Position X="14" Y="7.5" Width="1.5" />
+    <Position X="9.5" Y="9" Width="2.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Identity.IdentityUser&lt;TKey&gt;">
+    <Position X="9.75" Y="4" Width="2.25" />
     <TypeIdentifier />
   </Class>
   <Interface Name="CORE.Contracts.ILoggerManager" Collapsed="true">
-    <Position X="26.25" Y="5.25" Width="1.5" />
+    <Position X="25.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CgAAAAAAAAAAAAAAAAAAAAAAIAABAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Contracts\ILoggerManager.cs</FileName>

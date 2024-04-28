@@ -416,19 +416,19 @@ namespace Fish_Shield_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6e11a495-4dc3-49a0-9568-e51e749d890f",
+                            Id = "95dc71a2-426d-4330-90d1-276c81254676",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "0c9ae6d4-0296-4170-a6d1-aba2b1a9a88e",
+                            Id = "9dfe8076-7899-4fd4-8c51-a38bd832551e",
                             Name = "FarmOwner",
                             NormalizedName = "FARMOWNER"
                         },
                         new
                         {
-                            Id = "16dc3ded-35a5-4c4e-af06-58870d06bbf8",
+                            Id = "71a2040d-4c01-417a-b891-d4e01e3a3406",
                             Name = "Doctor",
                             NormalizedName = "DOCTOR"
                         });
@@ -549,17 +549,17 @@ namespace Fish_Shield_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "212185de-1501-45b5-9c5d-251359f1c642",
+                            Id = "9bd86e10-2300-4b1a-a795-dca4113ad1a5",
                             AccessFailedCount = 0,
                             BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "53ae7155-1f22-4da5-8300-51c68f4cea25",
+                            ConcurrencyStamp = "d772a54e-4011-4237-b1d3-ba2d422994e9",
                             Disabled = false,
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "admin",
                             PhoneNumberConfirmed = false,
                             RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SecurityStamp = "be265de9-733d-413b-80c3-b7865eb25509",
+                            SecurityStamp = "9e53698b-2607-4f2f-9683-5c39d7ae7808",
                             TwoFactorEnabled = false,
                             UserName = "admin",
                             isDeleted = false
@@ -583,6 +583,12 @@ namespace Fish_Shield_API.Migrations
                     b.Property<string>("FarmAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte>("HasFreeTrialCount")
+                        .HasColumnType("tinyint");
+
+                    b.Property<DateTime>("SubscriptionEndDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<bool>("isPaid")
                         .HasColumnType("bit");

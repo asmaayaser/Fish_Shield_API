@@ -63,6 +63,9 @@ namespace Fish_Shield_API.MapperProfile
             CreateMap<Equipment, EquipmentForDeleteDto>();
 
             CreateMap<RatingDto, Rating>();
+
+            CreateMap<FarmOwnerForUpdateDto, FarmOwner>();
+            CreateMap<DoctorForUpdateDto, Doctor>();
         }
     }
 

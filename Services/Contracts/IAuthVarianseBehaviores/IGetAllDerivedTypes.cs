@@ -1,4 +1,5 @@
-﻿using Services.DTO;
+﻿using Microsoft.AspNetCore.Identity;
+using Services.DTO;
 
 namespace Services.Contracts.IAuthVarianseBehaviores
 {
@@ -6,4 +7,9 @@ namespace Services.Contracts.IAuthVarianseBehaviores
     {
         Task<IEnumerable<UserForReturnDto>> GetAllDreivedTypesAsync(bool track);
     }
+    public interface IUpdateUserData
+    {
+        Task<IdentityResult> UpdateUserDataAsync(UserForUpdateDto userForUpdateDto);
+    }
+   
 }

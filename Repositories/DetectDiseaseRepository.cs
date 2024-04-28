@@ -32,7 +32,10 @@ namespace Repositories
                  d => (d.OwnerId.Equals(farmOwnerId)&&
                  (d.DateTime>=detectionReportParameters.StartDate && d.DateTime<=detectionReportParameters.EndDate)), TrackChanges: false).Include(d=>d.Disease).ToListAsync();
            
-            var history =Detections.OrderByDescending(d=>d.DateTime).ToList();
+            var history = await base.FindByCondition(
+                 d => (d.OwnerId.Equals(farmOwnerId) &&
+                 (d.DateTime >= detectionReportParameters.StartDate && d.DateTime <= detectionReportParameters.EndDate)), TrackChanges: false).OrderByDescending(d=>d.DateTime).ToListAsync();
+            
             var numberOfDetections=Detections.Count();
             var LastDetection=history.Select(d=>d.DateTime).FirstOrDefault();
 

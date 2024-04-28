@@ -19,6 +19,8 @@ namespace Repositories
         public async Task<IEnumerable<Doctor>> GetAllDoctors(bool track)=>await base.FindAll(track).ToListAsync() ;
 
         public async Task<Doctor> GetDoctorById(Guid id, bool track) => await base.FindByCondition(d => d.Id.Equals(id.ToString()), track).SingleOrDefaultAsync();
+
+        public async Task UpdateDoctorData(Doctor doctor)=>base.Update(doctor);
        
     }
 }

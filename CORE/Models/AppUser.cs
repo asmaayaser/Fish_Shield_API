@@ -34,7 +34,8 @@ namespace CORE.Models
         [Required]
         public string? FarmAddress { get; set; }
         public bool isPaid { get; set; }
-
+        public DateTime SubscriptionEndDate { get; set; }
+        public byte HasFreeTrialCount { get; set; } = 3;
         public ICollection<Rating> Rates { get; set; }
     }
     public class Doctor:AppUser

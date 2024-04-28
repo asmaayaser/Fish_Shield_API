@@ -11,5 +11,6 @@ namespace Repositories.Contracts
     {
        Task<IEnumerable<Doctor>> GetAllDoctors(bool track); 
         Task<Doctor> GetDoctorById(Guid id,bool track);
+        Task UpdateDoctorData(Doctor doctor);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CORE.Shared;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Services.Contracts.IAuthVarianseBehaviores;
 using Services.DTO;
@@ -16,6 +17,9 @@ namespace Services.Contracts
 
         IGetByIdDerivedTypes getByIdDerivedTypes { get; set; }
         Task<UserForReturnDto> GetByIdDerivedTypeAsync(Guid id, bool track);
+        IUpdateUserData updateUserData { get; set; }
+        Task<IdentityResult> UpdateUserData(UserForUpdateDto userForUpdateDto);
+
 
         Task<bool> ValidateUser(UserForLoginDto userForLogin);
         Task<TokenDto> CreateToken(bool PopulateExpiration);
@@ -34,6 +38,7 @@ namespace Services.Contracts
         
         Task SetRatingForDoctor(RatingDto rating);
         Task<decimal> GetDoctorRate(Guid doctorId);
-
+        Task<IdentityResult> ChangeUserPassword(UpdareUserPasswordDto userPassword);
+        Task updateUserImage(IFormFile photo, Guid doctorId);
     }
 }

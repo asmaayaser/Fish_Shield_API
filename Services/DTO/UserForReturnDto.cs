@@ -7,6 +7,7 @@ namespace Services.DTO
 
         public string Id { get; set; }
         public DateTime BirthDate { get; init; }
+        public string PersonalPhoto { get; init; }
 
         public string Email { get; init; }
 
@@ -30,7 +31,6 @@ namespace Services.DTO
     public record DoctorForReturnDto : UserForReturnDto
     {
 
-        public string PersonalPhoto { get; init; }
         public string? MoreInfo { get; init; }
 
         public string Address { get; init; }
@@ -38,7 +38,7 @@ namespace Services.DTO
     public record AdminForReturnDto : UserForReturnDto
     {
 
-        public string PersonalPhoto { get; init; }
+       
 
         public string Address { get; init; }
     }

@@ -43,4 +43,82 @@ namespace Services.Commands
         }
 
     }
+
+
+   
+
+    public class FarmOwnerUpdateData :IUpdateUserData
+    {
+        private readonly IRepositoryManager manager;
+        private readonly IMapper mapper;
+        private readonly UserManager<AppUser> userManager;
+
+        public FarmOwnerUpdateData(IRepositoryManager manager, IMapper mapper,UserManager<AppUser> userManager)
+            
+        {
+            this.manager = manager;
+            this.mapper = mapper;
+            this.userManager = userManager;
+        }
+
+
+
+        public async Task<IdentityResult> UpdateUserDataAsync(UserForUpdateDto userForupdateDto)
+        {
+            var Result = IdentityResult.Failed(new IdentityError() {Code="", Description="no farm owner Exist with that id"});
+            
+            var newfarmData = userForupdateDto as FarmOwnerForUpdateDto;
+            var oldFarmdata = await manager.farmOwner.GetFarmOwnerById(Guid.Parse(userForupdateDto.Id),track:true);
+            if (oldFarmdata is not null)
+            {
+                
+
+                    oldFarmdata.UserName = newfarmData.UserName;
+                    oldFarmdata.PhoneNumber = newfarmData.PhoneNumber;
+                    oldFarmdata.BirthDate = newfarmData.BirthDate;
+                    oldFarmdata.Email = newfarmData.Email;
+                    oldFarmdata.FarmAddress = newfarmData.FarmAddress;
+                    oldFarmdata.Address = newfarmData.Address;
+                    Result = await userManager.UpdateAsync(oldFarmdata);
+                    await manager.SaveAsync();
+                
+            }
+            return Result;
+
+        }
+    }
+
+    public class DoctorUpdateData : IUpdateUserData
+    {
+        private readonly IRepositoryManager manager;
+        private readonly IMapper mapper;
+        private readonly UserManager<AppUser> userManager;
+
+        public DoctorUpdateData(IRepositoryManager manager, IMapper mapper, UserManager<AppUser> userManager)
+        {
+            this.manager = manager;
+            this.mapper = mapper;
+            this.userManager = userManager;
+        }
+        public async Task<IdentityResult> UpdateUserDataAsync(UserForUpdateDto userForUpdateDto)
+        {
+            var Result = IdentityResult.Failed(new IdentityError() { Code = "", Description = "no doctor  Exist with that id" });
+
+            var newdoctorData = userForUpdateDto as DoctorForUpdateDto;
+            var olddoctordata = await manager.Doctors.GetDoctorById(Guid.Parse(userForUpdateDto.Id), track: true);
+            if (olddoctordata is not null)
+            {
+                olddoctordata.UserName = newdoctorData.UserName;
+                olddoctordata.PhoneNumber = newdoctorData.PhoneNumber;
+                olddoctordata.BirthDate = newdoctorData.BirthDate;
+                olddoctordata.Email = newdoctorData.Email;
+                olddoctordata.Address = newdoctorData.Address;
+                olddoctordata.MoreInfo = newdoctorData.MoreInfo;
+                Result = await userManager.UpdateAsync(olddoctordata);
+                await manager.SaveAsync();
+
+            }
+            return Result;
+        }
+    }
 }

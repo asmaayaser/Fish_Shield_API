@@ -16,12 +16,14 @@ namespace Services
         public IRegistration registration { get; set; }
         public IGetAllDerivedTypes getAll { get; set; }
         public IGetByIdDerivedTypes getByIdDerivedTypes { get; set; }
+        public IUpdateUserData updateUserData { get; set ; }
 
 
         public async Task<IdentityResult> Registration(UserForRegestrationDto userForRegestration) => await registration.Register(userForRegestration);
         public async Task<IEnumerable<UserForReturnDto>> GetAllDreivedTypesAsync(bool track) => await getAll.GetAllDreivedTypesAsync(track);
         public async Task<UserForReturnDto> GetByIdDerivedTypeAsync(Guid id, bool track) => await getByIdDerivedTypes.GetById(id, track);
-
+        public async Task<IdentityResult> UpdateUserData(UserForUpdateDto userForUpdateDto)=>await updateUserData.UpdateUserDataAsync(userForUpdateDto);
+        
 
     }
 }

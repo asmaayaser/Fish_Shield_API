@@ -3,11 +3,14 @@ using CORE.Contracts;
 using CORE.Exceptions;
 using CORE.Models;
 using CORE.Shared;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Repositories.Contracts;
 using Services.Contracts;
+using Services.Contracts.IAuthVarianseBehaviores;
 using Services.DTO;
 using Services.EmailService;
 using System.IdentityModel.Tokens.Jwt;
@@ -26,8 +29,11 @@ namespace Services
         private readonly IConfiguration configuration;
         private readonly IEmailSender emailSender;
         private readonly IIOService iOService;
+        private readonly IHttpContextAccessor httpContextAccessor;
         private AppUser? user;
-        public Authentication(IRepositoryManager manager, UserManager<AppUser> userManager, ILoggerManager logger, IMapper mapper, IConfiguration configuration,IEmailSender emailSender,IIOService iOService)
+
+
+        public Authentication(IRepositoryManager manager, UserManager<AppUser> userManager, ILoggerManager logger, IMapper mapper, IConfiguration configuration,IEmailSender emailSender,IIOService iOService, IHttpContextAccessor httpContextAccessor)
         {
             this.manager = manager;
             this.userManager = userManager;
@@ -36,6 +42,7 @@ namespace Services
             this.configuration = configuration;
             this.emailSender = emailSender;
             this.iOService = iOService;
+            this.httpContextAccessor = httpContextAccessor;
         }
 
      
@@ -43,12 +50,20 @@ namespace Services
         public async Task<bool> ValidateUser(UserForLoginDto userForLogin)
         {
             user = await userManager.FindByNameAsync(userForLogin.Username);
-            var isValidUser = (user is not null && await userManager.CheckPasswordAsync(user, userForLogin.Password));
+
+            if (user is null)
+            {
+                throw new UserNotFoundException(userForLogin.Username);
+            }
+
+
+            var isValidUser =  await userManager.CheckPasswordAsync(user, userForLogin.Password);
 
             if (!isValidUser)
             {
-                logger.LogWarning($"there is no user with this userName :{userForLogin.Username} in Our DB Or Some one try to access this User Account {user?.Email} with inValid Password");
+                logger.LogWarning($" Some one try to access this User Account {user.Id} -- {user.UserName} -- {user.Email} with inValid Password");
             }
+
             if (user.Disabled)
                 throw new UnauthorizedAccessException("your account is panned for some illegal reasons , Contact Admins for more Info in FeedBack form.");
 
@@ -258,7 +273,7 @@ namespace Services
         {
             var user= await  manager.AppUser.GetUserByEmail(resetPasswordDto.Email, track: false);
             
-            if(user is null) throw new UserNotFoundException(default);
+            if(user is null) throw new UserNotFoundException(resetPasswordDto.Email);
 
             return user.Code==resetPasswordDto.Code;
         }
@@ -315,6 +330,7 @@ namespace Services
             if (owner is null)
                 throw new UserNotFoundException(id);
             owner.isPaid=true;
+            owner.SubscriptionEndDate = DateTime.Now.AddMinutes(Double.Parse(configuration["DetectionPlan:minutes"]));
             await manager.SaveAsync();
         }
 
@@ -347,6 +363,27 @@ namespace Services
             if(doctor is null)
                 throw new UserNotFoundException(doctorId);
           return  await manager.ratingRepository.CalculateRating(doctorId);
+        }
+
+        public async Task<IdentityResult> ChangeUserPassword(UpdareUserPasswordDto userPassword)
+        {
+            user = await manager.AppUser.GetUserById(userPassword.Id,track:true);
+            if (user is null)
+                throw new UserNotFoundException(Guid.Parse(userPassword.Id));
+           return   await  userManager.ChangePasswordAsync(user,userPassword.oldPassword,userPassword.newPassword);
+        }
+
+        public async Task updateUserImage(IFormFile photo,Guid userId)
+        {
+           user =  await manager.AppUser.GetUserById(userId.ToString(), track:true);
+            if (user is null)
+                throw new UserNotFoundException(userId);
+
+            var relativePath=   await iOService.uploadImage("Images/Personal", photo, userId.ToString());
+            var PathToStoredInDB = $"{httpContextAccessor.HttpContext.Request.Scheme}://{httpContextAccessor.HttpContext.Request.Host}{relativePath}";
+            user.PersonalPhoto = PathToStoredInDB;
+           await manager.SaveAsync();
+
         }
     }
 

@@ -29,6 +29,10 @@ namespace CORE.Exceptions
         public UserNotFoundException(Guid id) : base($"no user with this id {id} in our database")
         {
         }
+        public UserNotFoundException(string username):base($"no user with this id {username} in our database") 
+        {
+            
+        }
     }
     public class NoFeedsFoundedInDB : NotFoundException
     {

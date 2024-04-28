@@ -41,7 +41,7 @@ namespace Services
             disease=new Lazy<IDiseaseService>(()=>new DiseaseService(manager, logger,mapper,ioService,httpContextAccessor));
             detectDisease=new Lazy<IDetectDiseaseService>(() =>new DetectDiseaseService(manager,logger,mapper,ioService,httpContextAccessor,webHostEnvironment,configuration));
          
-            authentication = new Lazy<IAuthentication>(() => new Authentication(manager,userManager,logger,mapper,configuration,emailSender,ioService));
+            authentication = new Lazy<IAuthentication>(() => new Authentication(manager,userManager,logger,mapper,configuration,emailSender,ioService,httpContextAccessor));
             feedback = new Lazy<IFeedbackService>(() => new FeedbackService(manager, mapper));
             equipment = new Lazy<IEquipmentService>(() => new EquipmentService(manager, logger, mapper,ioService, httpContextAccessor));
             this.manager = manager;
@@ -68,6 +68,7 @@ namespace Services
         {
             AuthenticationService.registration = new FarmOwnerRegistration(mapper, userManager, roleManager, ioService,manager);
             AuthenticationService.getByIdDerivedTypes=new FarmOwnerGetById(manager, mapper);
+            AuthenticationService.updateUserData=new FarmOwnerUpdateData(manager, mapper,userManager);
         }
 
         public void SetAdminStrategy()
@@ -80,6 +81,7 @@ namespace Services
             AuthenticationService.registration = new DoctorRegistration(mapper, userManager, roleManager, ioService, httpContextAccessor,manager);
             AuthenticationService.getAll = new GetAllDoctors(manager, mapper);
             AuthenticationService.getByIdDerivedTypes=new DoctorGetByID(manager, mapper);
+            AuthenticationService.updateUserData=new DoctorUpdateData(manager, mapper,userManager);
         }
         
     }

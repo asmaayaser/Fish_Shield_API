@@ -11,11 +11,11 @@ namespace Repositories.Context
 {
     public class RepositoryContext:IdentityDbContext<AppUser>
     {
-        private readonly IEncryptionProvider _encryptionProvider;
+       // private readonly IEncryptionProvider _encryptionProvider;
         public RepositoryContext(DbContextOptions options) : base(options) 
         { 
             
-            _encryptionProvider = new GenerateEncryptionProvider("GraduationProject123#$"); 
+           // _encryptionProvider = new GenerateEncryptionProvider("GraduationProject123#$"); 
                 //Environment.GetEnvironmentVariable("SecretKey")
         }
 

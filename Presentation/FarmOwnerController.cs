@@ -1,5 +1,6 @@
 ﻿using CORE.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ValidationFilter;
@@ -76,6 +77,22 @@ namespace Presentation
 
             return Ok("this farm owner now marked as Subscripted user account");
         }
+
+        [HttpPut]
+        [ServiceFilter(type: typeof(ValidationFilterAttribute))]
+        public async Task<IActionResult> UpdateData(FarmOwnerForUpdateDto farmOwnerForUpdateDto)
+        {
+           var Result=  await service.AuthenticationService.UpdateUserData(farmOwnerForUpdateDto);
+            if (!Result.Succeeded)
+            {
+                foreach (var Error in Result.Errors)
+                    ModelState.TryAddModelError(Error.Code, Error.Description);
+
+                return BadRequest(ModelState);
+            }
+            return StatusCode(StatusCodes.Status202Accepted);
+        }
+            
         #endregion
         #region Delete
 

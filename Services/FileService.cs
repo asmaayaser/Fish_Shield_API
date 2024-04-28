@@ -21,6 +21,10 @@ namespace Services
 
         public async Task<string> uploadImage(string FolderNameStructureInWWWROOT, IFormFile Image, string ImageNewName)
         {
+            var p = $"{webHostEnvironment.WebRootPath}/{FolderNameStructureInWWWROOT}/";
+            if (!Directory.Exists(p)) 
+                Directory.CreateDirectory(p);
+
             var Extension = Path.GetExtension(Image.FileName);
             var path = $"{webHostEnvironment.WebRootPath}/{FolderNameStructureInWWWROOT}/{ImageNewName}{Extension}";
 

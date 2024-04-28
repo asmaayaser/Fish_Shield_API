@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Fish_Shield_API.Migrations
 {
     /// <inheritdoc />
-    public partial class RatingForDoctors : Migration
+    public partial class alllogic : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -44,6 +44,8 @@ namespace Fish_Shield_API.Migrations
                     MoreInfo = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FarmAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     isPaid = table.Column<bool>(type: "bit", nullable: true),
+                    SubscriptionEndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    HasFreeTrialCount = table.Column<byte>(type: "tinyint", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -418,15 +420,15 @@ namespace Fish_Shield_API.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "0c9ae6d4-0296-4170-a6d1-aba2b1a9a88e", null, "FarmOwner", "FARMOWNER" },
-                    { "16dc3ded-35a5-4c4e-af06-58870d06bbf8", null, "Doctor", "DOCTOR" },
-                    { "6e11a495-4dc3-49a0-9568-e51e749d890f", null, "Admin", "ADMIN" }
+                    { "71a2040d-4c01-417a-b891-d4e01e3a3406", null, "Doctor", "DOCTOR" },
+                    { "95dc71a2-426d-4330-90d1-276c81254676", null, "Admin", "ADMIN" },
+                    { "9dfe8076-7899-4fd4-8c51-a38bd832551e", null, "FarmOwner", "FARMOWNER" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Address", "BirthDate", "Code", "ConcurrencyStamp", "Disabled", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PersonalPhoto", "PhoneNumber", "PhoneNumberConfirmed", "RefreshToken", "RefreshTokenExpiryTime", "SecurityStamp", "TwoFactorEnabled", "UserName", "isDeleted" },
-                values: new object[] { "212185de-1501-45b5-9c5d-251359f1c642", 0, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "53ae7155-1f22-4da5-8300-51c68f4cea25", false, "Admin", null, false, false, null, null, null, "admin", null, null, false, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "be265de9-733d-413b-80c3-b7865eb25509", false, "admin", false });
+                values: new object[] { "9bd86e10-2300-4b1a-a795-dca4113ad1a5", 0, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "d772a54e-4011-4237-b1d3-ba2d422994e9", false, "Admin", null, false, false, null, null, null, "admin", null, null, false, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "9e53698b-2607-4f2f-9683-5c39d7ae7808", false, "admin", false });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

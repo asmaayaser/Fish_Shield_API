@@ -22,4 +22,5 @@ namespace Repositories.Contracts
 
         public List<DetectDisease> DetectionHistory { get; init; }
     }
+   
 }

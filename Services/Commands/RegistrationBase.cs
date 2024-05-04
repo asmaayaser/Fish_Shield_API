@@ -74,6 +74,20 @@ namespace Services.Commands
             }
             return IdentityResult.Success;
         }
+        protected async Task<IdentityResult> HandleUPloadedCertificateImageProcess(string FolderNamingStructureInsideWWWRoot, IFormFile image, string NewNameForImage)
+        {
+            var imageRelativePath = await ioService.uploadImage(FolderNamingStructureInsideWWWRoot, image, NewNameForImage);
+            var HostUrl = httpContextAccessor.HttpContext.Request.Scheme + "://" + httpContextAccessor.HttpContext.Request.Host;
+            var doc = user as Doctor;
+            doc.Certificate = $"{HostUrl}/{imageRelativePath}";
+            IdentityResult updated = await userManager.UpdateAsync(doc);
+            if (!updated.Succeeded)
+            {
+                await DeleteUser(user);
+                return IdentityResult.Failed();
+            }
+            return IdentityResult.Success;
+        }
 
 
     }

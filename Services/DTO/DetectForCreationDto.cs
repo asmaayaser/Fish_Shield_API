@@ -1,19 +1,10 @@
-﻿using CORE.Models;
-using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Services.DTO
+﻿namespace Services.DTO
 {
 
     public record DetectDto
     {
         public string FishPhoto { get; set; }
-        public string OwnerId { get; set; }
+        public string UserId { get; set; }
         public string NameOfDisFromAIModel { get; set; }
         public float Score { get; set; }
         public int? DiseaseId { get; set; }

@@ -33,8 +33,8 @@ namespace Services.Contracts
         Task DeleteUsers(List<string> UsersIds);
         Task DisableOrEnableAccounts(List<string> UsersIds);
 
-        Task MakeSubscriptionForFarmOwner(Guid id);
-        Task<bool> IsThisFarmOwnerAccountSubscriptedMember(Guid id);
+        Task MakeSubscription(Guid id);
+        Task<bool> IsThisAccountSubscriptedMember(Guid id);
         
         Task SetRatingForDoctor(RatingDto rating);
         Task<decimal> GetDoctorRate(Guid doctorId);

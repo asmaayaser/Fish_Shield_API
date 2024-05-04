@@ -295,24 +295,39 @@ namespace Services
            var deletedusersFromDB=  await manager.AppUser.DeleteUsers(UsersIds);
             bool isDeletedSuccessFully;
 
-            foreach (var user in deletedusersFromDB.Where(du => du.Discriminator.Equals("farmowner", StringComparison.InvariantCultureIgnoreCase)).ToList())
+
+
+            foreach(var user in deletedusersFromDB)
             {
-               isDeletedSuccessFully= await iOService.DeleteDirectory(user.Id);
-                if (isDeletedSuccessFully)
-                    continue;
-                logger.LogError($"we are trying delete Farm owner with this id {user.Id} but something wrong accord while deleting his folder");
+                switch (user.Discriminator)
+                {
+                    case "Farmowner":
+                        isDeletedSuccessFully = await iOService.DeleteDirectory(user.Id);
+                        if (isDeletedSuccessFully)
+                            continue;
+                        logger.LogError($"we are trying delete Farm owner with this id {user.Id} but something wrong accord while deleting his folder");
+                        break;
+                    case  "Doctor":
+                        var d = await manager.Doctors.GetDoctorById(Guid.Parse(user.Id),track:false);
+                        isDeletedSuccessFully = await iOService.DeleteDirectory(user.Id);
+                        if (isDeletedSuccessFully)
+                            isDeletedSuccessFully = await iOService.DeleteFile(user.Id, user.PersonalPhoto);
+                        if (isDeletedSuccessFully)
+                            isDeletedSuccessFully = await iOService.DeleteFile(user.Id, d.Certificate);
+                        if (isDeletedSuccessFully)
+                            continue;
+                        logger.LogError($"we are trying delete Farm owner with this id {user.Id} but something wrong accord while deleting his folder");
+                        break;
+                    case "Admin":
+                        isDeletedSuccessFully = await iOService.DeleteFile(user.Id, user.PersonalPhoto);
+                        if (isDeletedSuccessFully)
+                            continue;
+                        logger.LogError($"we are trying delete Admin/Doctor with this id {user.Id} but something wrong accord while deleting his Personal Photo");
+                        break;
+                }
             }
 
-            foreach (var user in deletedusersFromDB.Where(du => du.Discriminator.Equals("doctor", StringComparison.InvariantCultureIgnoreCase)|| du.Discriminator.Equals("admin", StringComparison.InvariantCultureIgnoreCase)).ToList())
-            {
-
-               isDeletedSuccessFully=   await iOService.DeleteFile(user.Id,user.PersonalPhoto);
-                if (isDeletedSuccessFully)
-                    continue;
-                logger.LogError($"we are trying delete Admin/Doctor with this id {user.Id} but something wrong accord while deleting his Personal Photo");
-            }
-
-
+          
 
            await manager.SaveAsync();
 
@@ -324,9 +339,9 @@ namespace Services
            await  manager.SaveAsync();
         }
 
-        public async Task MakeSubscriptionForFarmOwner(Guid id)
+        public async Task MakeSubscription(Guid id)
         {
-           var owner=await manager.farmOwner.GetFarmOwnerById(id, track: true);
+           var owner=await manager.PaymentUserRepository.GetPaymentUserAccountById(id, track: true);
             if (owner is null)
                 throw new UserNotFoundException(id);
             owner.isPaid=true;
@@ -334,11 +349,14 @@ namespace Services
             await manager.SaveAsync();
         }
 
-        public async Task<bool> IsThisFarmOwnerAccountSubscriptedMember(Guid id)
+        public async Task<bool> IsThisAccountSubscriptedMember(Guid id)
         {
-           var owner= await  manager.farmOwner.GetFarmOwnerById(id, track: false);
+           var owner= await  manager.PaymentUserRepository.GetPaymentUserAccountById(id, track: false);
             if (owner is null)
                 throw new UserNotFoundException(id);
+            if(owner.SubscriptionEndDate<=DateTime.Now)
+                owner.isPaid=false;
+            await manager.SaveAsync();
             return owner.isPaid;
         }
 

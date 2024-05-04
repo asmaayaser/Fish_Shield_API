@@ -12,7 +12,7 @@ namespace Services.DTO
         public string Email { get; init; }
 
         public string UserName { get; init; }
-
+        public int Age { get; init; }
         public string PhoneNumber { get; init; }
 
         public bool Disabled { get; init; }
@@ -30,7 +30,7 @@ namespace Services.DTO
 
     public record DoctorForReturnDto : UserForReturnDto
     {
-
+        public string Certificate { get; set; }
         public string? MoreInfo { get; init; }
 
         public string Address { get; init; }

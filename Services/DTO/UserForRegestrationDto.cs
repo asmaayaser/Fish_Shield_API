@@ -36,7 +36,8 @@ namespace Services.DTO
         [Required(ErrorMessage = "Doctor Must Provide us With Personal Photo")]
         public IFormFile PersonalPhoto { get; init; }
         public string? MoreInfo { get; init; }
-
+        [Required(ErrorMessage = "Doctor Must Provide us With Certificate Photo")]
+        public IFormFile Certificate { get; set; }
         public string Address { get; init; }
     }
     public record AdminForRegistrationDto : UserForRegestrationDto

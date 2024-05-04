@@ -38,7 +38,9 @@ namespace Fish_Shield_API.MapperProfile
 
 
             CreateMap<FarmOwnerForRegistrationDto, FarmOwner>();
-            CreateMap<DoctorForRegistrationDto, Doctor>().ForMember(d=>d.PersonalPhoto,s=>s.Ignore());
+            CreateMap<DoctorForRegistrationDto, Doctor>().ForMember(d => d.PersonalPhoto, s => s.Ignore())
+                .ForMember(d => d.Age, s => s.MapFrom((dto, d) => d.Age = DateTime.Now.Year - d.BirthDate.Year));
+            
             CreateMap<AdminForRegistrationDto, Admin>().ForMember(d => d.PersonalPhoto, s => s.Ignore());
 
             CreateMap<Doctor, DoctorForReturnDto>();

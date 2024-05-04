@@ -17,7 +17,7 @@ namespace Repositories.Contracts
         IAppUser AppUser { get; }
         IEquipmentRepository equipment { get; }
         IRatingRepository ratingRepository { get; }
-        RepositoryContext Context { get; }// ?
+        IPaymentUserRepository PaymentUserRepository { get; }
         Task SaveAsync();
     }
 }

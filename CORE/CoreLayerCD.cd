@@ -86,16 +86,16 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="CORE.Models.AppUser">
-    <Position X="9.75" Y="10.25" Width="2.25" />
+    <Position X="10.5" Y="10.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIQAAAQAAAAECgAAQAAAAAAAADAAAAABAAAAA=</HashCode>
       <FileName>Models\AppUser.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Models.FarmOwner">
-    <Position X="8" Y="14.25" Width="1.5" />
+    <Position X="9.25" Y="14" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAEAAAAAAAA=</HashCode>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\AppUser.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -103,9 +103,9 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="CORE.Models.Doctor">
-    <Position X="12.5" Y="14.25" Width="1.5" />
+    <Position X="14.5" Y="15.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAgAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAgAAAAEAAAAA=</HashCode>
       <FileName>Models\AppUser.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -113,7 +113,7 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="CORE.Models.Admin" Collapsed="true">
-    <Position X="10.25" Y="14.25" Width="1.5" />
+    <Position X="14.25" Y="13.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\AppUser.cs</FileName>
@@ -122,13 +122,11 @@
   <Class Name="CORE.Models.DetectDisease">
     <Position X="7.75" Y="17.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAACIAAAEAAggAAAAAAAAMAACAAQAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAADAAAAAAAEAAggAAAAAAgAMAAAAAQAAAAAAAAAAAA=</HashCode>
       <FileName>Models\DetectDisease.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Disease" />
-      <Property Name="Doctor" />
-      <Property Name="Owner" />
     </ShowAsAssociation>
   </Class>
   <Class Name="CORE.Models.Equipment">
@@ -149,19 +147,19 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Models.FishDisease">
-    <Position X="7" Y="11" Width="2" />
+    <Position X="6.25" Y="10.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEEAAggBQAAABBAAQACAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>Models\FishDisease.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
+      <Property Name="RecommandationActions" />
       <Property Name="CausativeAgents" />
       <Property Name="ClinicalSigns" />
       <Property Name="Diagnosis" />
-      <Property Name="ImpactOnAquacultures" />
-      <Property Name="PreventionAndControlls" />
-      <Property Name="RecommandationActions" />
       <Property Name="Treatment" />
+      <Property Name="PreventionAndControlls" />
+      <Property Name="ImpactOnAquacultures" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="CORE.Models.RecommandationActions">

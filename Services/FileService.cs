@@ -70,10 +70,12 @@ namespace Services
         {
             var ext=  Path.GetExtension(filePathWithExtension);
 
-            var path = $"{webHostEnvironment.WebRootPath}/images/Personal/";
-            var old = $"{path}{filename}{ext}";
+            var relativePath=  filePathWithExtension.Substring(filePathWithExtension.IndexOf("/Images"));
+            var path = $"{webHostEnvironment.WebRootPath}{relativePath}";
+
+            var old = $"{path}";
             
-            var @new = $"{path}{filename}[deleted]{ext}";
+            var @new = $"{path}[deleted]";
 
          
             try {

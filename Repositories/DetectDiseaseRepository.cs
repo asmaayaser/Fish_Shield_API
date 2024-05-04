@@ -20,7 +20,7 @@ namespace Repositories
 
         public DetectDisease Create(string farmOwnerId, DetectDisease detect)
         {
-            detect.OwnerId = farmOwnerId;
+            detect.UserId = farmOwnerId;
             base.Add(detect);
             return detect;
         }
@@ -29,11 +29,11 @@ namespace Repositories
         {
           
              var Detections=await base.FindByCondition(
-                 d => (d.OwnerId.Equals(farmOwnerId)&&
+                 d => (d.UserId.Equals(farmOwnerId)&&
                  (d.DateTime>=detectionReportParameters.StartDate && d.DateTime<=detectionReportParameters.EndDate)), TrackChanges: false).Include(d=>d.Disease).ToListAsync();
            
             var history = await base.FindByCondition(
-                 d => (d.OwnerId.Equals(farmOwnerId) &&
+                 d => (d.UserId.Equals(farmOwnerId) &&
                  (d.DateTime >= detectionReportParameters.StartDate && d.DateTime <= detectionReportParameters.EndDate)), TrackChanges: false).OrderByDescending(d=>d.DateTime).ToListAsync();
             
             var numberOfDetections=Detections.Count();
@@ -47,7 +47,7 @@ namespace Repositories
 
             // Other Diseases Appeared
             var otherDiseasesAppeared = Detections
-                .Where(d => d.OwnerId == farmOwnerId && d.Disease.Name != mostCommonDisease.Name)
+                .Where(d => d.UserId == farmOwnerId && d.Disease.Name != mostCommonDisease.Name)
                 .Select(d =>d.Disease.Name)
                 .Distinct()
                 .ToList();

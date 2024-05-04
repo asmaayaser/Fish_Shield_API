@@ -16,6 +16,8 @@ namespace CORE.Models
         public string Email { get; set; }
         [StringLength(450)]
         public string Message { get; set; }
+        [StringLength (11)]
+        public string Phone { get; set; }
         public DateTime DateTime { get; set; }=DateTime.Now;
         public bool isDeleted { get; set; }
     }

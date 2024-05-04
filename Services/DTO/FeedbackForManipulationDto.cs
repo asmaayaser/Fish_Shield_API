@@ -10,6 +10,8 @@ namespace Services.DTO
         public string Email { get; init; }
         [StringLength(450)]
         public string Message { get; init; }
+        [StringLength (11)]
+        public string Phone { get; set; }
     }
 
     public record FeedbackForCreationDto : FeedbackForManipulationDto;

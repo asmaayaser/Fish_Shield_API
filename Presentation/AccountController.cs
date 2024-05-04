@@ -97,6 +97,13 @@ namespace Presentation
         {
            return Ok(await service.AuthenticationService.IsCodeEnterTrue(verifyResetPasswordDto));
         }
+
+        [HttpGet("IsSubscripted")]
+        public async Task<IActionResult> IsSubscripted(Guid id)
+        {
+            return Ok(await service.AuthenticationService.IsThisAccountSubscriptedMember(id));
+        }
+
         #endregion
 
         #region Delete
@@ -138,6 +145,13 @@ namespace Presentation
         {
             await service.AuthenticationService.updateUserImage(photo, id);
             return StatusCode(StatusCodes.Status202Accepted);
+        }
+        [HttpPut("subscribe")]
+        public async Task<IActionResult> Subscription(Guid id)
+        {
+            await service.AuthenticationService.MakeSubscription(id);
+
+            return Ok("this Account now marked as Subscripted user account");
         }
         #endregion
     }

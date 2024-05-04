@@ -78,6 +78,7 @@ namespace Repositories.Context
 
             builder.Entity<AppUser>(conf =>
             {
+               // conf.UseTpcMappingStrategy();
                 conf.HasQueryFilter(u => !u.isDeleted);
             });
             builder.Entity<FeedBack>(conf =>
@@ -87,18 +88,18 @@ namespace Repositories.Context
 
             builder.Entity<FarmOwner>(conf =>
             {
-                conf.HasBaseType(typeof(AppUser));
+                //conf.HasBaseType(typeof(AppUser));
                 conf.HasMany(e=>e.Rates).WithOne(e=>e.owner).IsRequired().OnDelete(DeleteBehavior.NoAction);
 
             });
             builder.Entity<Doctor>(conf =>
             {
-                conf.HasBaseType(typeof(AppUser));
+                //conf.HasBaseType(typeof(AppUser));
                 conf.HasMany(e=>e.Rates).WithOne(e=>e.Doctor).IsRequired().OnDelete(DeleteBehavior.Cascade);
             });
             builder.Entity<Admin>(conf =>
             {
-                conf.HasBaseType(typeof(AppUser));
+                //conf.HasBaseType(typeof(AppUser));
                 conf.HasData(new Admin() { UserName = "admin", PasswordHash = "admin", }) ;
             });
             builder.Entity<IdentityRole>(conf =>

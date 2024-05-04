@@ -29,7 +29,7 @@ namespace Presentation
         #region post
         [HttpPost]
         
-        public async Task<IActionResult> CreateDetectProcess(Guid OwnerId,IFormFile ImageForDetection)
+        public async Task<IActionResult> CreateDetectProcess(Guid OwnerId, IFormFile ImageForDetection)
         {
             var Result = await serviceManager.detectDiseaseService.CreateDetection(OwnerId.ToString(), ImageForDetection);
             return Ok(Result);

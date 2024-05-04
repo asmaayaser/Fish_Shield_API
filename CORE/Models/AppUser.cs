@@ -16,7 +16,7 @@ namespace CORE.Models
         public string? PersonalPhoto { get; set; }
         public string? Address { get; set; }
         public DateTime BirthDate { get; set; }
-        public  int Age { get; }
+        public  int Age { get; set; }
         [EncryptColumn]
         public string? Code { get; set; }
         public string? RefreshToken { get; set; }
@@ -26,21 +26,26 @@ namespace CORE.Models
         public DateTime RefreshTokenExpiryTime { get; set; }
         public AppUser()
         {
-            Age = DateTime.Now.Year-BirthDate.Year;
+          
         }
     }
-    public class FarmOwner:AppUser
+
+    public class PaymentUserAccount:AppUser
     {
-        [Required]
-        public string? FarmAddress { get; set; }
         public bool isPaid { get; set; }
         public DateTime SubscriptionEndDate { get; set; }
         public byte HasFreeTrialCount { get; set; } = 3;
+    }
+    public class FarmOwner:PaymentUserAccount
+    {
+        [Required]
+        public string? FarmAddress { get; set; }
+      
         public ICollection<Rating> Rates { get; set; }
     }
-    public class Doctor:AppUser
+    public class Doctor:PaymentUserAccount
     {
-   
+        public string Certificate { get; set; }
         public string? MoreInfo { get; set; }
 
         public ICollection<Rating> Rates {  get; set; }

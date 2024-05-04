@@ -38,8 +38,10 @@ namespace Services
         public async Task<DetectDto> CreateDetection(string userId,IFormFile detectImage)
         {
            var userAccount= await EnsurePrincipleIsExists(Guid.Parse(userId));
-
-            if (userAccount.HasFreeTrialCount > 0)
+            
+            if (userAccount.Discriminator.Equals("doctor", StringComparison.OrdinalIgnoreCase))
+                 return   await DoDetection();
+            else if (userAccount.HasFreeTrialCount > 0)
             {
                 // decrement count 1
                  userAccount.HasFreeTrialCount--;

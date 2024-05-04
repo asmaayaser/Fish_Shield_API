@@ -71,17 +71,14 @@ namespace Services.Commands
             var oldFarmdata = await manager.farmOwner.GetFarmOwnerById(Guid.Parse(userForupdateDto.Id),track:true);
             if (oldFarmdata is not null)
             {
-                
-
-                    oldFarmdata.UserName = newfarmData.UserName;
-                    oldFarmdata.PhoneNumber = newfarmData.PhoneNumber;
-                    oldFarmdata.BirthDate = newfarmData.BirthDate;
-                    oldFarmdata.Email = newfarmData.Email;
-                    oldFarmdata.FarmAddress = newfarmData.FarmAddress;
-                    oldFarmdata.Address = newfarmData.Address;
-                    Result = await userManager.UpdateAsync(oldFarmdata);
-                    await manager.SaveAsync();
-                
+                //oldFarmdata.UserName = newfarmData.UserName;
+                //oldFarmdata.PhoneNumber = newfarmData.PhoneNumber;
+                //oldFarmdata.BirthDate = newfarmData.BirthDate;
+                //oldFarmdata.Email = newfarmData.Email;
+                //oldFarmdata.FarmAddress = newfarmData.FarmAddress;
+                //oldFarmdata.Address = newfarmData.Address;
+                    var newdata= mapper.Map<FarmOwner>(newfarmData);
+                    Result = await userManager.UpdateAsync(newdata);
             }
             return Result;
 
@@ -108,15 +105,15 @@ namespace Services.Commands
             var olddoctordata = await manager.Doctors.GetDoctorById(Guid.Parse(userForUpdateDto.Id), track: true);
             if (olddoctordata is not null)
             {
-                olddoctordata.UserName = newdoctorData.UserName;
-                olddoctordata.PhoneNumber = newdoctorData.PhoneNumber;
-                olddoctordata.BirthDate = newdoctorData.BirthDate;
-                olddoctordata.Email = newdoctorData.Email;
-                olddoctordata.Address = newdoctorData.Address;
-                olddoctordata.MoreInfo = newdoctorData.MoreInfo;
-                Result = await userManager.UpdateAsync(olddoctordata);
-                await manager.SaveAsync();
+                //olddoctordata.UserName = newdoctorData.UserName;
+                //olddoctordata.PhoneNumber = newdoctorData.PhoneNumber;
+                //olddoctordata.BirthDate = newdoctorData.BirthDate;
+                //olddoctordata.Email = newdoctorData.Email;
+                //olddoctordata.Address = newdoctorData.Address;
+                //olddoctordata.MoreInfo = newdoctorData.MoreInfo;
+                    var newdata= mapper.Map<FarmOwner>(newdoctorData);
 
+                Result = await userManager.UpdateAsync(newdata);
             }
             return Result;
         }

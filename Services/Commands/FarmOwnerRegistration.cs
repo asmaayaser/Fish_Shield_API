@@ -77,8 +77,9 @@ namespace Services.Commands
                 //oldFarmdata.Email = newfarmData.Email;
                 //oldFarmdata.FarmAddress = newfarmData.FarmAddress;
                 //oldFarmdata.Address = newfarmData.Address;
-                    var newdata= mapper.Map<FarmOwner>(newfarmData);
-                    Result = await userManager.UpdateAsync(newdata);
+                    //var newdata= mapper.Map<FarmOwner>(newfarmData);
+                    mapper.Map(newfarmData, oldFarmdata);
+                    Result = await userManager.UpdateAsync(oldFarmdata);
             }
             return Result;
 
@@ -111,9 +112,10 @@ namespace Services.Commands
                 //olddoctordata.Email = newdoctorData.Email;
                 //olddoctordata.Address = newdoctorData.Address;
                 //olddoctordata.MoreInfo = newdoctorData.MoreInfo;
-                    var newdata= mapper.Map<FarmOwner>(newdoctorData);
+                //  var newdata= mapper.Map<FarmOwner>(newdoctorData);
+                mapper.Map(newdoctorData, olddoctordata);
 
-                Result = await userManager.UpdateAsync(newdata);
+                Result = await userManager.UpdateAsync(olddoctordata);
             }
             return Result;
         }

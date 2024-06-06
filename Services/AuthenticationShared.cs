@@ -345,7 +345,7 @@ namespace Services
             if (owner is null)
                 throw new UserNotFoundException(id);
             owner.isPaid=true;
-            owner.SubscriptionEndDate = DateTime.Now.AddMinutes(Double.Parse(configuration["DetectionPlan:minutes"]));
+            owner.SubscriptionEndDate = DateTime.Now.AddMonths(1);
             await manager.SaveAsync();
         }
 

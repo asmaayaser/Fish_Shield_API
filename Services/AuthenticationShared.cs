@@ -363,7 +363,7 @@ namespace Services
         public async Task SetRatingForDoctor(RatingDto rating)
         {
           var owner = await   manager.farmOwner.GetFarmOwnerById(rating.ownerId,track:false);
-          var doctor= await manager.Doctors.GetDoctorById(rating.DoctorId,track:false);
+          var doctor= await manager.Doctors.GetDoctorById(rating.DoctorId,track:true);
             if (owner is null)
                 throw new UserNotFoundException(rating.ownerId);
 
@@ -372,6 +372,7 @@ namespace Services
 
             var rate= mapper.Map<Rating>(rating);
             manager.ratingRepository.PostRating(rate);
+            doctor.Points++;
             await manager.SaveAsync();
         }
 
@@ -383,7 +384,7 @@ namespace Services
           return  await manager.ratingRepository.CalculateRating(doctorId);
         }
 
-        public async Task<IdentityResult> ChangeUserPassword(UpdareUserPasswordDto userPassword)
+        public async Task<IdentityResult> ChangeUserPassword(UpdateUserPasswordDto userPassword)
         {
             user = await manager.AppUser.GetUserById(userPassword.Id,track:true);
             if (user is null)

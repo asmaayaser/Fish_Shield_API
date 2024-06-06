@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CORE.Exceptions
 {
-    public abstract class NotFoundException:Exception
+	public abstract class NotFoundException:Exception
     {
         public NotFoundException(string msg):base(msg) { }
         
@@ -23,7 +22,10 @@ namespace CORE.Exceptions
         public DiseaseNotFoundException(int Id) : base($"No Disease with this ID {Id} Founded in Our Database")
         {
         }
-    }
+		public DiseaseNotFoundException(string name) : base($"this Disease:{name} not Found In Our DB Try Again Later or Contact Specialists")
+		{
+		}
+	}
     public class UserNotFoundException : NotFoundException
     {
         public UserNotFoundException(Guid id) : base($"no user with this id {id} in our database")

@@ -1,5 +1,4 @@
 ﻿
-using EntityFrameworkCore.EncryptColumn.Attribute;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -17,7 +16,7 @@ namespace CORE.Models
         public string? Address { get; set; }
         public DateTime BirthDate { get; set; }
         public  int Age { get; set; }
-        [EncryptColumn]
+       
         public string? Code { get; set; }
         public string? RefreshToken { get; set; }
         public bool Disabled { get; set; }
@@ -45,6 +44,7 @@ namespace CORE.Models
     }
     public class Doctor:PaymentUserAccount
     {
+        public int Points { get; set; }
         public string Certificate { get; set; }
         public string? MoreInfo { get; set; }
 

@@ -24,7 +24,10 @@ namespace Repositories
             base.Add(detect);
             return detect;
         }
-
+       
+        public async Task<DetectDisease> GetById(int id,bool track)
+            =>await base.FindByCondition(d=>d.Id==id,TrackChanges:track)
+            .SingleOrDefaultAsync();
         public async Task<ReportDto> GetReportAnalysis(string farmOwnerId, DetectionReportParameters detectionReportParameters)
         {
           

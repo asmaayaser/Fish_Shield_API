@@ -46,7 +46,7 @@ namespace Repositories
 
 
 
-        public FishDisease GetDisease(int id,bool track)
+        public FishDisease? GetDisease(int id,bool track)
             => base.FindByCondition(d=>d.ID==id,track).Include(d => d.ImpactOnAquacultures)
             .Include(d => d.PreventionAndControlls)
             .Include(d => d.CausativeAgents)
@@ -55,7 +55,7 @@ namespace Repositories
             .Include(d => d.RecommandationActions)
             .Include(d => d.Treatment).SingleOrDefault();
 
-        public FishDisease GetDiseaseByName(string name,bool track)
+        public FishDisease? GetDiseaseByName(string name,bool track)
          => base.FindByCondition(d => d.Name.Trim().ToLower().Equals(name.Trim().ToLower()), track).Include(d => d.ImpactOnAquacultures)
             .Include(d => d.PreventionAndControlls)
             .Include(d => d.CausativeAgents)

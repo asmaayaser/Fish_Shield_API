@@ -24,15 +24,15 @@ namespace Services
         private readonly IRepositoryManager manager;
 
         // set 
-        private readonly ILoggerManager logger;
+       // private readonly ILoggerManager logger;
         private readonly IMapper mapper;
-        private readonly IConfiguration configuration;
+      //  private readonly IConfiguration configuration;
         private readonly UserManager<AppUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly IHttpContextAccessor httpContextAccessor;
         private readonly IIOService ioService;
-        private readonly IWebHostEnvironment webHostEnvironment;
-        private readonly IEmailSender emailSender;
+      //  private readonly IWebHostEnvironment webHostEnvironment;
+       // private readonly IEmailSender emailSender;
         private readonly Lazy<IEquipmentService> equipment;
 
         public ServiceManager(IRepositoryManager manager,ILoggerManager logger,IMapper mapper,IConfiguration configuration, UserManager<AppUser> userManager,RoleManager<IdentityRole> roleManager,IHttpContextAccessor httpContextAccessor,IIOService ioService,IWebHostEnvironment webHostEnvironment,IEmailSender emailSender)
@@ -45,15 +45,15 @@ namespace Services
             feedback = new Lazy<IFeedbackService>(() => new FeedbackService(manager, mapper));
             equipment = new Lazy<IEquipmentService>(() => new EquipmentService(manager, logger, mapper,ioService, httpContextAccessor));
             this.manager = manager;
-            this.logger = logger;
+            //this.logger = logger;
             this.mapper = mapper;
-            this.configuration = configuration;
+           // this.configuration = configuration;
             this.userManager = userManager;
             this.roleManager = roleManager;
             this.httpContextAccessor = httpContextAccessor;
             this.ioService = ioService;
-            this.webHostEnvironment = webHostEnvironment;
-            this.emailSender = emailSender;
+            //this.webHostEnvironment = webHostEnvironment;
+          //  this.emailSender = emailSender;
         }
         
         public IDiseaseService diseaseService => disease.Value;

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="Repositories.Context.RepositoryContext">
-    <Position X="44.75" Y="21.5" Width="3.5" />
+    <Position X="45" Y="19" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAAABAAAAAAAAAAAAgAAAYAAGAAAAAAAAgAAAACAAgA=</HashCode>
+      <HashCode>AAAABAAAAQAAAAACAgAAAYAAGAAAAAAAAgAAAACAAgA=</HashCode>
       <FileName>Context\Context.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -96,64 +96,64 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Repositories.RepositoryManager" BaseTypeListCollapsed="true">
-    <Position X="44.5" Y="13.25" Width="4" />
-    <AssociationLine Name="Admins" Type="Repositories.Contracts.IAdminRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="44.5" Y="16.062" />
-        <Point X="38.395" Y="16.062" />
-        <Point X="38.395" Y="16.2" />
-        <Point X="26" Y="16.2" />
-        <Point X="26" Y="8.353" />
-      </Path>
-    </AssociationLine>
+    <Position X="44.5" Y="10.75" Width="4" />
     <AssociationLine Name="Diseases" Type="Repositories.Contracts.IDiseaseRepository" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="48.5" Y="15.312" />
-        <Point X="55.375" Y="15.312" />
+        <Point X="48.5" Y="12.812" />
+        <Point X="55.375" Y="12.812" />
         <Point X="55.375" Y="8.93" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="Doctors" Type="Repositories.Contracts.IDoctorRepository" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="45.094" Y="13.25" />
+        <Point X="45.094" Y="10.75" />
         <Point X="45.094" Y="8.613" />
         <Point X="44.312" Y="8.613" />
         <Point X="44.312" Y="8.238" />
       </Path>
     </AssociationLine>
-    <AssociationLine Name="equipment" Type="Repositories.Contracts.IEquipmentRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="Admins" Type="Repositories.Contracts.IAdminRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="44.5" Y="16.75" />
-        <Point X="20.938" Y="16.75" />
-        <Point X="20.938" Y="9.815" />
+        <Point X="44.5" Y="13.562" />
+        <Point X="38.395" Y="13.562" />
+        <Point X="38.395" Y="13.32" />
+        <Point X="26" Y="13.32" />
+        <Point X="26" Y="8.353" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="farmOwner" Type="Repositories.Contracts.IFarmOwnerRepository" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="44.5" Y="15.438" />
-        <Point X="30.25" Y="15.438" />
+        <Point X="44.5" Y="12.938" />
+        <Point X="30.25" Y="12.938" />
         <Point X="30.25" Y="8.796" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="feedbackRepository" Type="Repositories.Contracts.IFeedbackRepository" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="48.5" Y="15.812" />
-        <Point X="66.125" Y="15.812" />
+        <Point X="48.5" Y="13.312" />
+        <Point X="66.125" Y="13.312" />
         <Point X="66.125" Y="8.488" />
       </Path>
     </AssociationLine>
-    <AssociationLine Name="PaymentUserRepository" Type="Repositories.Contracts.IPaymentUserRepository" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="equipment" Type="Repositories.Contracts.IEquipmentRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="48.5" Y="16.188" />
-        <Point X="70.125" Y="16.188" />
-        <Point X="70.125" Y="7.796" />
+        <Point X="44.5" Y="14.25" />
+        <Point X="20.938" Y="14.25" />
+        <Point X="20.938" Y="9.815" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="ratingRepository" Type="Repositories.Contracts.IRatingRepository" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="48.5" Y="15.625" />
-        <Point X="60.75" Y="15.625" />
+        <Point X="48.5" Y="13.125" />
+        <Point X="60.75" Y="13.125" />
         <Point X="60.75" Y="8.796" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="PaymentUserRepository" Type="Repositories.Contracts.IPaymentUserRepository" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="48.5" Y="13.688" />
+        <Point X="70.125" Y="13.688" />
+        <Point X="70.125" Y="7.796" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -161,16 +161,16 @@
       <FileName>RepositoryManager.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Admins" />
-      <Property Name="AppUser" />
       <Property Name="DetectDisease" />
       <Property Name="Diseases" />
       <Property Name="Doctors" />
-      <Property Name="equipment" />
+      <Property Name="Admins" />
       <Property Name="farmOwner" />
       <Property Name="feedbackRepository" />
-      <Property Name="PaymentUserRepository" />
+      <Property Name="AppUser" />
+      <Property Name="equipment" />
       <Property Name="ratingRepository" />
+      <Property Name="PaymentUserRepository" />
     </ShowAsAssociation>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
@@ -252,7 +252,7 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="Repositories.Contracts.IRepositoryManager">
-    <Position X="44.5" Y="17.5" Width="3.75" />
+    <Position X="44.75" Y="15" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAACAAQIAAIAEAAAAggACAEACCAA=</HashCode>
       <FileName>Contracts\IRepositoryManager.cs</FileName>

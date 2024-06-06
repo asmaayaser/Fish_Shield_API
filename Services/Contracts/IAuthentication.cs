@@ -38,7 +38,7 @@ namespace Services.Contracts
         
         Task SetRatingForDoctor(RatingDto rating);
         Task<decimal> GetDoctorRate(Guid doctorId);
-        Task<IdentityResult> ChangeUserPassword(UpdareUserPasswordDto userPassword);
+        Task<IdentityResult> ChangeUserPassword(UpdateUserPasswordDto userPassword);
         Task updateUserImage(IFormFile photo, Guid doctorId);
     }
 }

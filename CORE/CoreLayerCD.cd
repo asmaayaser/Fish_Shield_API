@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="NameAndType">
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="FullSignature">
   <Class Name="CORE.LoggerService.LoggerManager">
-    <Position X="40.5" Y="3.5" Width="2" />
+    <Position X="40.5" Y="3.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>CgAAAAAAAAAAAAAAAAAAAAAAIAABAAAAAAAAAAAAAAA=</HashCode>
       <FileName>LoggerService\LoggerManager.cs</FileName>
@@ -9,35 +9,35 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="CORE.Exceptions.BadRequestException">
-    <Position X="28" Y="5.25" Width="2" />
+    <Position X="28" Y="5.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\BadRequestException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Exceptions.InvalidDateRangeBadRequest">
-    <Position X="29.5" Y="6.75" Width="2.5" />
+    <Position X="29.5" Y="7" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\BadRequestException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Exceptions.InvalidCodeException">
-    <Position X="27" Y="6.75" Width="2" />
+    <Position X="25.75" Y="7" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\BadRequestException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Exceptions.SubscriptionEndedException">
-    <Position X="32.25" Y="6.75" Width="2.25" />
+    <Position X="32.75" Y="7" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\BadRequestException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Exceptions.NotFoundException">
-    <Position X="30.25" Y="1.75" Width="1.75" />
+    <Position X="30.25" Y="1.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\NotFoundException.cs</FileName>
@@ -51,7 +51,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Exceptions.DiseaseNotFoundException">
-    <Position X="33.5" Y="3.75" Width="2.25" />
+    <Position X="33.5" Y="3.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\NotFoundException.cs</FileName>
@@ -79,7 +79,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Exceptions.RefreshTokenBadRequest">
-    <Position X="24.25" Y="6.75" Width="2.25" />
+    <Position X="22.5" Y="7" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Exceptions\RefreshTokenBadRequest.cs</FileName>
@@ -93,34 +93,34 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Models.AppUser">
-    <Position X="18.25" Y="15" Width="2.75" />
+    <Position X="18.25" Y="15" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIQAAAQAAAAECgAAQAAAAAAAADAAAAABAAAAA=</HashCode>
       <FileName>Models\AppUser.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Models.PaymentUserAccount">
-    <Position X="22.5" Y="16.25" Width="2.5" />
+    <Position X="22.5" Y="16.25" Width="3" />
     <TypeIdentifier>
       <HashCode>AAABAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
       <FileName>Models\AppUser.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Models.FarmOwner">
-    <Position X="25" Y="18.75" Width="2.25" />
+    <Position X="25" Y="18.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\AppUser.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Models.Doctor">
-    <Position X="18.75" Y="19.75" Width="2.25" />
+    <Position X="18.75" Y="19.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAgAAAAEAAAAA=</HashCode>
       <FileName>Models\AppUser.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CORE.Models.Admin">
+  <Class Name="CORE.Models.Admin" Collapsed="true">
     <Position X="14.75" Y="18.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -128,13 +128,13 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Models.DetectDisease">
-    <Position X="28.5" Y="15.5" Width="2.5" />
+    <Position X="28.5" Y="15.5" Width="3" />
     <AssociationLine Name="User" Type="CORE.Models.PaymentUserAccount" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="28.5" Y="16.625" />
         <Point X="28.125" Y="16.625" />
         <Point X="28.125" Y="16.969" />
-        <Point X="25" Y="16.969" />
+        <Point X="25.5" Y="16.969" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -147,7 +147,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="CORE.Models.Equipment">
-    <Position X="25.5" Y="21" Width="1.75" />
+    <Position X="25.5" Y="21" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAACIAAAggAQAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Equipment.cs</FileName>
@@ -157,50 +157,33 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="CORE.Models.FeedBack">
-    <Position X="25.75" Y="26.25" Width="1.75" />
+    <Position X="25.75" Y="26.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAACAAAAAAAAAAAAQAAAAAAAQBAAAAIAAAAAA=</HashCode>
       <FileName>Models\FeedBack.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Models.FishDisease">
-    <Position X="37" Y="18" Width="1.75" />
-    <AssociationLine Name="CausativeAgents" Type="CORE.Models.CausativeAgents" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="37" Y="19.188" />
-        <Point X="35" Y="19.188" />
-        <Point X="35" Y="23" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="PreventionAndControlls" Type="CORE.Models.PreventionAndControll" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="38.021" Y="18" />
-        <Point X="38.021" Y="17.375" />
-        <Point X="38.333" Y="17.375" Type="JumpStart" />
-        <Point X="38.5" Y="17.375" Type="JumpEnd" />
-        <Point X="45.75" Y="17.375" />
-      </Path>
-    </AssociationLine>
+    <Position X="37" Y="18" Width="2.25" />
     <AssociationLine Name="RecommandationActions" Type="CORE.Models.RecommandationActions" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="38.385" Y="19.873" />
-        <Point X="38.385" Y="24.295" />
+        <Point X="38.781" Y="19.873" />
+        <Point X="38.781" Y="24.295" />
         <Point X="40.899" Y="24.295" />
         <Point X="40.899" Y="24.375" />
         <Point X="41.5" Y="24.375" />
       </Path>
     </AssociationLine>
-    <AssociationLine Name="Treatment" Type="CORE.Models.Treatment" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="CausativeAgents" Type="CORE.Models.CausativeAgents" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="38.75" Y="19.188" />
-        <Point X="44.651" Y="19.188" />
-        <Point X="44.651" Y="21.125" />
-        <Point X="46.25" Y="21.125" />
+        <Point X="37" Y="19.188" />
+        <Point X="35.333" Y="19.188" />
+        <Point X="35.333" Y="23" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="Diagnosis" Type="CORE.Models.Diagnosis" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="38.604" Y="19.873" />
+        <Point X="39.062" Y="19.873" />
         <Point X="39.044" Y="19.873" />
         <Point X="39.044" Y="21.274" />
         <Point X="40.15" Y="21.274" />
@@ -210,18 +193,35 @@
         <Point X="45.25" Y="23.292" />
       </Path>
     </AssociationLine>
+    <AssociationLine Name="Treatment" Type="CORE.Models.Treatment" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="39.25" Y="19.188" />
+        <Point X="44.651" Y="19.188" />
+        <Point X="44.651" Y="21.125" />
+        <Point X="46.25" Y="21.125" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="PreventionAndControlls" Type="CORE.Models.PreventionAndControll" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="38.313" Y="18" />
+        <Point X="38.313" Y="17.375" />
+        <Point X="38.729" Y="17.375" Type="JumpStart" />
+        <Point X="38.896" Y="17.375" Type="JumpEnd" />
+        <Point X="45.75" Y="17.375" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAEEAAggBQAAABBAAQACAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>Models\FishDisease.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
+      <Property Name="RecommandationActions" />
       <Property Name="CausativeAgents" />
       <Property Name="ClinicalSigns" />
-      <Property Name="ImpactOnAquacultures" />
-      <Property Name="PreventionAndControlls" />
-      <Property Name="RecommandationActions" />
-      <Property Name="Treatment" />
       <Property Name="Diagnosis" />
+      <Property Name="Treatment" />
+      <Property Name="PreventionAndControlls" />
+      <Property Name="ImpactOnAquacultures" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="CORE.Models.RecommandationActions">
@@ -230,8 +230,8 @@
       <Path>
         <Point X="41.625" Y="24.25" />
         <Point X="41.625" Y="23.89" />
-        <Point X="38.604" Y="23.89" />
-        <Point X="38.604" Y="19.873" />
+        <Point X="39.062" Y="23.89" />
+        <Point X="39.062" Y="19.873" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -243,7 +243,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="CORE.Models.CausativeAgents">
-    <Position X="34" Y="23" Width="1.5" />
+    <Position X="34" Y="23" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAKAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\FishDisease.cs</FileName>
@@ -253,7 +253,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="CORE.Models.ClinicalSigns">
-    <Position X="45.75" Y="18.25" Width="1.5" />
+    <Position X="45.75" Y="18.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAABAAAAAAAAAAKAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\FishDisease.cs</FileName>
@@ -263,7 +263,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="CORE.Models.Diagnosis">
-    <Position X="45.25" Y="22.75" Width="1.5" />
+    <Position X="45.25" Y="22.75" Width="2.25" />
     <AssociationLine Name="FishDisease" Type="CORE.Models.FishDisease" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="45.25" Y="23" />
@@ -272,7 +272,7 @@
         <Point X="43.782" Y="21.021" />
         <Point X="39.324" Y="21.021" />
         <Point X="39.324" Y="19.75" />
-        <Point X="38.75" Y="19.75" />
+        <Point X="39.25" Y="19.75" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -284,13 +284,13 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="CORE.Models.Treatment">
-    <Position X="46.25" Y="20.5" Width="2" />
+    <Position X="46.25" Y="20.5" Width="2.5" />
     <AssociationLine Name="FishDisease" Type="CORE.Models.FishDisease" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="46.25" Y="21.293" />
         <Point X="44.279" Y="21.293" />
         <Point X="44.279" Y="19.438" />
-        <Point X="38.75" Y="19.438" />
+        <Point X="39.25" Y="19.438" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -302,7 +302,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="CORE.Models.PreventionAndControll">
-    <Position X="45.75" Y="16.5" Width="2" />
+    <Position X="45.75" Y="16.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\FishDisease.cs</FileName>
@@ -312,7 +312,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="CORE.Models.ImpactOnAquaculture">
-    <Position X="36" Y="24.25" Width="2.25" />
+    <Position X="35.75" Y="25" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAKAAABAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\FishDisease.cs</FileName>
@@ -322,18 +322,11 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="CORE.Models.Rating">
-    <Position X="21.75" Y="23.25" Width="1.5" />
-    <AssociationLine Name="Doctor" Type="CORE.Models.Doctor" ManuallyRouted="true">
-      <Path>
-        <Point X="22.297" Y="23.25" />
-        <Point X="22.297" Y="20.559" />
-        <Point X="21" Y="20.559" />
-      </Path>
-    </AssociationLine>
+    <Position X="21.75" Y="23.25" Width="2.25" />
     <AssociationLine Name="owner" Type="CORE.Models.FarmOwner" ManuallyRouted="true">
       <Path>
-        <Point X="22.906" Y="23.25" />
-        <Point X="22.906" Y="22.872" />
+        <Point X="23.484" Y="23.25" />
+        <Point X="23.484" Y="22.872" />
         <Point X="23.142" Y="22.872" />
         <Point X="23.142" Y="22.103" />
         <Point X="23.31" Y="22.103" />
@@ -341,13 +334,20 @@
         <Point X="25" Y="19.775" />
       </Path>
     </AssociationLine>
+    <AssociationLine Name="Doctor" Type="CORE.Models.Doctor" ManuallyRouted="true">
+      <Path>
+        <Point X="22.571" Y="23.25" />
+        <Point X="22.571" Y="20.559" />
+        <Point X="21.5" Y="20.559" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>QAgAAAAAAAAAgAAAAAAAAAAAAAACAAQAAAAAAAAAAgA=</HashCode>
       <FileName>Models\Rating.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Doctor" />
       <Property Name="owner" />
+      <Property Name="Doctor" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Microsoft.AspNetCore.Identity.IdentityUser" Collapsed="true">
@@ -355,46 +355,46 @@
     <TypeIdentifier />
   </Class>
   <Class Name="Microsoft.AspNetCore.Identity.IdentityUser&lt;TKey&gt;">
-    <Position X="17.75" Y="9.25" Width="2.5" />
+    <Position X="17.75" Y="9.25" Width="3" />
     <TypeIdentifier />
   </Class>
   <Class Name="CORE.Shared.FeedbackParameters">
-    <Position X="51.25" Y="13" Width="2" />
+    <Position X="50" Y="13" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAABAAAAEAAAAA=</HashCode>
       <FileName>Shared\FeedbackParameters.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Shared.DetectionReportParameters">
-    <Position X="59.25" Y="12.75" Width="2.25" />
+    <Position X="61.25" Y="12.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAABAAAAEAAAAA=</HashCode>
       <FileName>Shared\FeedbackParameters.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Shared.AppUserParameters">
-    <Position X="56.75" Y="12.75" Width="2.25" />
+    <Position X="56.75" Y="12.75" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIAQAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Shared\FeedbackParameters.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Shared.FishDiseaseParameters">
-    <Position X="54" Y="13" Width="2.5" />
+    <Position X="53" Y="13" Width="3" />
     <TypeIdentifier>
       <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Shared\FeedbackParameters.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Shared.MetaData">
-    <Position X="57.75" Y="9" Width="1.75" />
+    <Position X="57.75" Y="9" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAQEAAAAAAAFAAAAAI=</HashCode>
       <FileName>Shared\MetaData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CORE.Shared.PagedList&lt;T&gt;">
-    <Position X="57.75" Y="6" Width="2.25" />
+    <Position X="57.75" Y="6" Width="4.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
       <FileName>Shared\PagedList.cs</FileName>
@@ -404,14 +404,14 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="CORE.Shared.RequestFeature">
-    <Position X="54.75" Y="10" Width="1.75" />
+    <Position X="54.75" Y="10" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AACAAEAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAEAAAAAA=</HashCode>
       <FileName>Shared\RequestFeature.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="CORE.Contracts.ILoggerManager">
-    <Position X="40.25" Y="0.75" Width="2" />
+    <Position X="40.25" Y="0.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>CgAAAAAAAAAAAAAAAAAAAAAAIAABAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Contracts\ILoggerManager.cs</FileName>

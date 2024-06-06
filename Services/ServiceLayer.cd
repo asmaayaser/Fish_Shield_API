@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Services.Commands.AdminRegistration">
+    <Position X="13.5" Y="28" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\AdminRegistration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Services.Commands.DoctorRegistration">
+    <Position X="21" Y="27.75" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAABAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Commands\DoctorRegistration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Services.Commands.FarmOwnerRegistration">
+    <Position X="28" Y="27.75" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAABAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Commands\FarmOwnerRegistration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Services.Commands.FarmOwnerUpdateData" BaseTypeListCollapsed="true">
+    <Position X="34" Y="40.5" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAIAAAAAAAAAQAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\FarmOwnerRegistration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Services.Commands.DoctorUpdateData" BaseTypeListCollapsed="true">
+    <Position X="26.75" Y="40.5" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAIAAAAAAAAAQAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\FarmOwnerRegistration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Services.Commands.RegistrationBase">
+    <Position X="20.5" Y="23.75" Width="9.5" />
+    <AssociationLine Name="ioService" Type="Services.Contracts.IIOService" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="24.875" Y="23.75" />
+        <Point X="24.875" Y="23.419" />
+        <Point X="24.956" Y="23.419" />
+        <Point X="24.956" Y="22.746" />
+        <Point X="26.137" Y="22.746" />
+        <Point X="26.137" Y="22.889" />
+        <Point X="56.361" Y="22.889" Type="JumpStart" />
+        <Point X="56.528" Y="22.889" Type="JumpEnd" />
+        <Point X="67.417" Y="22.889" Type="JumpStart" />
+        <Point X="67.583" Y="22.889" Type="JumpEnd" />
+        <Point X="68.823" Y="22.889" Type="JumpStart" />
+        <Point X="68.99" Y="22.889" Type="JumpEnd" />
+        <Point X="75.635" Y="22.889" Type="JumpStart" />
+        <Point X="75.802" Y="22.889" Type="JumpEnd" />
+        <Point X="76.25" Y="22.889" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAkAAAAAAAkAAABAAAAgEAAAABAAQA=</HashCode>
+      <FileName>Commands\RegistrationBase.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="ioService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Services.EmailService.EmailConfig">
+    <Position X="33" Y="52.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAACAAAAAAAAAAAAAACACAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>EmailService\EmailConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Services.EmailService.Message">
+    <Position X="28.75" Y="52.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIABAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EmailService\EmailConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Services.EmailService.EmailSender" BaseTypeListCollapsed="true">
+    <Position X="30.5" Y="57.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AQBAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>EmailService\EmailConfig.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Services.Queries.GetAll.GetAllDoctors" BaseTypeListCollapsed="true">
+    <Position X="28" Y="46.25" Width="5.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAEAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Queries\GetAll\GetAllDoctors.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Services.Queries.GetById.DoctorGetByID" BaseTypeListCollapsed="true">
+    <Position X="31.25" Y="34.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAEAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Queries\GetById\DoctorGetByID.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Services.Authentication" BaseTypeListCollapsed="true">
+    <Position X="53" Y="28.75" Width="8.5" />
+    <AssociationLine Name="iOService" Type="Services.Contracts.IIOService" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="59.951" Y="28.75" />
+        <Point X="59.951" Y="23.34" />
+        <Point X="67.417" Y="23.34" Type="JumpStart" />
+        <Point X="67.583" Y="23.34" Type="JumpEnd" />
+        <Point X="68.823" Y="23.34" Type="JumpStart" />
+        <Point X="68.99" Y="23.34" Type="JumpEnd" />
+        <Point X="75.635" Y="23.34" Type="JumpStart" />
+        <Point X="75.802" Y="23.34" Type="JumpEnd" />
+        <Point X="76.25" Y="23.34" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="getAll" Type="Services.Contracts.IAuthVarianseBehaviores.IGetAllDerivedTypes" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="53" Y="35.573" />
+        <Point X="52.625" Y="35.573" />
+        <Point X="52.625" Y="44.802" />
+        <Point X="36" Y="44.802" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="getByIdDerivedTypes" Type="Services.Contracts.IAuthVarianseBehaviores.IGetByIdDerivedTypes" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="53" Y="32.508" />
+        <Point X="31.125" Y="32.508" />
+        <Point X="31.125" Y="32.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="updateUserData" Type="Services.Contracts.IAuthVarianseBehaviores.IUpdateUserData" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="53" Y="33.954" />
+        <Point X="48.18" Y="33.954" />
+        <Point X="48.18" Y="33.93" />
+        <Point X="45.5" Y="33.93" />
+        <Point X="45.5" Y="38.552" />
+        <Point X="35.25" Y="38.552" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AIAAAAEAQAAICAAioAgIAABsCACABABAqAUAghOMAQA=</HashCode>
+      <FileName>AuthenticationShared.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="manager" />
+      <Field Name="emailSender" />
+      <Field Name="iOService" />
+      <Property Name="registration" />
+      <Property Name="getAll" />
+      <Property Name="getByIdDerivedTypes" />
+      <Property Name="updateUserData" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Services.DetectDiseaseService" BaseTypeListCollapsed="true">
+    <Position X="75.25" Y="29.25" Width="7" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAIEAACAgAAAAAkCICAAAAAggAAAAAAAAA=</HashCode>
+      <FileName>DetectDiseaseService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="manager" />
+      <Field Name="ioService" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Services.DiseaseService" BaseTypeListCollapsed="true">
+    <Position X="89.75" Y="29.5" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAIAAACIAAAAAAkAAAAAEAAgAAAAAAAAAA=</HashCode>
+      <FileName>DiseaseService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="manager" />
+      <Field Name="ioService" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.1" />
+  </Class>
+  <Class Name="Services.EquipmentService" BaseTypeListCollapsed="true">
+    <Position X="64.75" Y="29" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAIAAACAAQAAgAkAEAAABAAgiAAAAAAAAA=</HashCode>
+      <FileName>EquipmentService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="manager" />
+      <Field Name="ioService" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.1" />
+  </Class>
+  <Class Name="Services.FeedbackService" BaseTypeListCollapsed="true">
+    <Position X="100" Y="29.5" Width="9" />
+    <TypeIdentifier>
+      <HashCode>DIAAAAAAAAAIAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FeedbackService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="manager" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Services.IOService" BaseTypeListCollapsed="true">
+    <Position X="76.25" Y="25.5" Width="7" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAQAAAAAAgEAAAAAAQA=</HashCode>
+      <FileName>FileService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Services.ServiceManager" BaseTypeListCollapsed="true">
+    <Position X="71.25" Y="41" Width="3.25" />
+    <AssociationLine Name="diseaseService" Type="Services.Contracts.IDiseaseService" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="74.338" Y="41" />
+        <Point X="74.338" Y="33.469" />
+        <Point X="91" Y="33.469" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="AuthenticationService" Type="Services.Contracts.IAuthentication" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="71.25" Y="41" />
+        <Point X="70.875" Y="41" />
+        <Point X="70.875" Y="39.797" />
+        <Point X="61.75" Y="39.797" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="feedbackService" Type="Services.Contracts.IFeedbackService" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="74.5" Y="41.63" />
+        <Point X="99.625" Y="41.63" />
+        <Point X="99.625" Y="33.085" />
+        <Point X="100" Y="33.085" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AIAAAAQAAAAIAgogAIAAAQAkAAAFAAEAgRBAAAABAAA=</HashCode>
+      <FileName>ServiceManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="diseaseService" />
+      <Property Name="detectDiseaseService" />
+      <Property Name="AuthenticationService" />
+      <Property Name="feedbackService" />
+      <Property Name="equipmentService" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Services.Queries.GetById.FarmOwnerGetById" BaseTypeListCollapsed="true">
+    <Position X="35.75" Y="34.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAEAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Queries\GetById\FarmOwnerGetById.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Services.Queries.GetById.AdminGetById" BaseTypeListCollapsed="true">
+    <Position X="26.75" Y="34.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAEAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Queries\GetById\AdminGetById.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Services.Contracts.IAuthVarianseBehaviores.IGetAllDerivedTypes">
+    <Position X="31.5" Y="44.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IAuthVarianseBehaviores\IGetAllDerivedTypes.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Services.Contracts.IAuthVarianseBehaviores.IUpdateUserData">
+    <Position X="31.25" Y="38" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IAuthVarianseBehaviores\IGetAllDerivedTypes.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Services.Contracts.IAuthVarianseBehaviores.IGetByIdDerivedTypes">
+    <Position X="30.25" Y="32.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Contracts\IAuthVarianseBehaviores\IGetByIdDerivedTypes.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Services.Contracts.IAuthVarianseBehaviores.IRegistration">
+    <Position X="28.5" Y="30.25" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IAuthVarianseBehaviores\IRegistration.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Services.Contracts.IAuthentication">
+    <Position X="54.25" Y="37" Width="7.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAQAAACAAgIAAAAABMAAAABABAqAUAAhMMAAA=</HashCode>
+      <FileName>Contracts\IAuthentication.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Services.Contracts.IDetectDiseaseService">
+    <Position X="77.5" Y="33.75" Width="6.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IDetectDiseaseService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Services.Contracts.IDiseaseService">
+    <Position X="91" Y="33.25" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAIAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IDiseaseService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Services.Contracts.IEquipmentService">
+    <Position X="64.75" Y="33" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAQAAgAAAEAAABAAACAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IEquipmentService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Services.Contracts.IFeedbackService">
+    <Position X="100" Y="32.75" Width="7.75" />
+    <TypeIdentifier>
+      <HashCode>DIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IFeedbackService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Services.Contracts.IIOService">
+    <Position X="76.25" Y="22.5" Width="7" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAQAAAAAAAEAAAAAAQA=</HashCode>
+      <FileName>Contracts\IFileService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Services.Contracts.IServiceManager">
+    <Position X="71.25" Y="46.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAIAAAQAAAAABAAEAAQBAAAABAAA=</HashCode>
+      <FileName>Contracts\IServiceManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Services.EmailService.IEmailSender">
+    <Position X="30.75" Y="56" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EmailService\EmailConfig.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Repositories.Contracts.IRepositoryManager">
+    <Position X="73.5" Y="13.25" Width="4" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

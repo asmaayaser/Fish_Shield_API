@@ -1,10 +1,14 @@
 ﻿using CORE.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Contracts;
 using Services.Contracts;
 using Services.DTO;
+using System.Text.Encodings.Web;
+using System.Text;
+using System;
 
 namespace Services.Commands
 {
@@ -31,14 +35,12 @@ namespace Services.Commands
 
 
 
-        public async Task<IdentityResult> Register(UserForRegestrationDto userForRegistrationDto, Func<UserForRegestrationDto, AppUser> map)
+        public async Task<IdentityResult> Register(UserForRegestrationDto userForRegistrationDto,Func<UserForRegestrationDto, AppUser> map)
         {
             #region MyRegion
             user = map.Invoke(userForRegistrationDto);
 
-            //var checkUserEmailForDeletedUser =await manager.AppUser.GetUserByEmail(user.Email,false);
-            //if (checkUserEmailForDeletedUser is not null)
-            //    return IdentityResult.Failed(new IdentityError() { Code = "EmailRegisteredByAnotherUser", Description = "this email is registered by another user" });
+
             var CreateResult = await userManager.CreateAsync(user, userForRegistrationDto.Password);
             var ActualTypeforUser = user.GetType();
             if (CreateResult.Succeeded)
@@ -55,7 +57,6 @@ namespace Services.Commands
                     throw new RoleNotFoundException();
                 }
             }
-
             return CreateResult; 
             #endregion
         }

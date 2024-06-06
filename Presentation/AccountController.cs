@@ -128,7 +128,7 @@ namespace Presentation
 
         [HttpPut("UpdateUserPassword")]
         [ServiceFilter(typeof (ValidationFilterAttribute))]
-        public async Task<IActionResult> UpdateUserPassword(UpdareUserPasswordDto updareUserPasswordDto)
+        public async Task<IActionResult> UpdateUserPassword(UpdateUserPasswordDto updareUserPasswordDto)
         {
              var Result= await  service.AuthenticationService.ChangeUserPassword(updareUserPasswordDto);
             if (!Result.Succeeded)

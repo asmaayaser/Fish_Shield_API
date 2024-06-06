@@ -17,13 +17,13 @@ namespace Repositories
             #region old code fashion
             //  var Rates= await base.FindByCondition(r => r.DoctorId == id.ToString(),TrackChanges:false).ToListAsync();
             //  var RatingCount= Rates.Count();
-        
-            if(RatingCount == 0) 
-                return 0;
-            
-            decimal sum = 0;
-            foreach (var Rating in Rates)
-                sum += Rating.Rate;
+
+            //    if(RatingCount == 0) 
+            //        return 0;
+
+            //    decimal sum = 0;
+            //    foreach (var Rating in Rates)
+            //        sum += Rating.Rate;
 
             //    return Math.Round(sum / RatingCount); 
             #endregion

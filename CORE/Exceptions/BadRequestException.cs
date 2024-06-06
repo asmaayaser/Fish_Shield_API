@@ -23,5 +23,13 @@
         {
         }
     }
+	public class NoFishDetectedInImageBadRequestException : BadRequestException
+	{
+        public NoFishDetectedInImageBadRequestException():base("Please Upload An Image Of Fish")
+        {
+            
+        }
+      
+	}
 
 }

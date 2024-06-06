@@ -11,7 +11,9 @@ namespace Repositories.Contracts
     {
         DetectDisease Create(string farmOwnerId, DetectDisease detect);
         Task<ReportDto> GetReportAnalysis(string farmOwnerId, DetectionReportParameters detectionReportParameters);
-    }
+        Task<DetectDisease> GetById(int id, bool track);
+
+	}
 
     public record ReportDto
     {

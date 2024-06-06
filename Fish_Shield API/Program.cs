@@ -38,11 +38,7 @@ namespace Fish_Shield_API
             builder.Services.ConfigureIISIntegration();
             builder.Services.ConfigureLogging();
             builder.Services.ConfigureDBContext(builder.Configuration);
-            builder.Services.AddAuthentication().AddGoogle(options=>
-            {
-                options.ClientId = builder.Configuration["External_Login_Providers:Google:Client_Id"];
-                options.ClientSecret = builder.Configuration["External_Login_Providers:Google:Client_Secret"];
-            });
+            builder.Services.AddAuthentication();
             
             builder.Services.ConfigureIdentity();
             builder.Services.ConfigureJWT(builder.Configuration);

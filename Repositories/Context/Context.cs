@@ -1,22 +1,22 @@
-﻿using CORE.Models;
-using EntityFrameworkCore.EncryptColumn.Extension;
-using EntityFrameworkCore.EncryptColumn.Interfaces;
-using EntityFrameworkCore.EncryptColumn.Util;
+﻿using CORE.Contracts;
+using CORE.Models;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
+using Repositories.Configrations;
 
 namespace Repositories.Context
 {
     public class RepositoryContext:IdentityDbContext<AppUser>
     {
-       // private readonly IEncryptionProvider _encryptionProvider;
-        public RepositoryContext(DbContextOptions options) : base(options) 
-        { 
-            
-           // _encryptionProvider = new GenerateEncryptionProvider("GraduationProject123#$"); 
-                //Environment.GetEnvironmentVariable("SecretKey")
+        private readonly ILoggerManager logger;
+
+        public RepositoryContext(DbContextOptions options,ILoggerManager logger) : base(options) 
+        {
+            this.logger = logger;
+
         }
 
 
@@ -30,53 +30,53 @@ namespace Repositories.Context
         public virtual DbSet<Rating> Ratings { get; set; }
 
 
-
+     
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
            // builder.UseEncryption(_encryptionProvider);
             base.OnModelCreating(builder);
             builder.Entity<Treatment>(conf => {
-                conf.HasKey(t => new { t.DiseaseID, t.TreatmentDesc });
+                //conf.HasKey(t => new { t.DiseaseID, t.TreatmentDesc });
                 conf.HasOne(d=>d.FishDisease).WithMany(d=>d.Treatment).IsRequired().OnDelete(deleteBehavior:DeleteBehavior.Cascade);
             
             });
 
             builder.Entity<RecommandationActions>(conf => {
-                conf.HasKey(r => new { r.DiseaseID, r.Action });
+                //conf.HasKey(r => new { r.DiseaseID, r.Action });
                 conf.HasOne(r => r.FishDisease).WithMany(r => r.RecommandationActions).IsRequired().OnDelete(deleteBehavior: DeleteBehavior.Cascade);
 
             });
 
             builder.Entity<ImpactOnAquaculture>(conf => {
-                conf.HasKey(i => new { i.DiseaseID, i.ImpactOnAquaculturee });
+                //conf.HasKey(i => new { i.DiseaseID, i.ImpactOnAquaculturee });
                 conf.HasOne(i => i.FishDisease).WithMany(i => i.ImpactOnAquacultures).IsRequired().OnDelete(deleteBehavior: DeleteBehavior.Cascade);
 
             });
 
             builder.Entity<Diagnosis>(conf => {
-                conf.HasKey(d => new {d.DiseaseID, d.Diagones });
+                //conf.HasKey(d => new {d.DiseaseID, d.Diagones });
                 conf.HasOne(d =>d.FishDisease).WithMany(d => d.Diagnosis).IsRequired().OnDelete(deleteBehavior: DeleteBehavior.Cascade);
 
             });
             builder.Entity<ClinicalSigns>(conf => {
-                conf.HasKey(cs => new { cs.DiseaseID, cs.Sign });
+                //conf.HasKey(cs => new { cs.DiseaseID, cs.Sign });
                 conf.HasOne(cs => cs.FishDisease).WithMany(cs =>cs.ClinicalSigns).IsRequired().OnDelete(deleteBehavior: DeleteBehavior.Cascade);
 
             });
             builder.Entity<CausativeAgents>(conf => {
-                conf.HasKey(ca => new { ca.DiseaseID, ca.Agents });
+                //conf.HasKey(ca => new { ca.DiseaseID, ca.Agents });
                 conf.HasOne(ca => ca.FishDisease).WithMany(ca => ca.CausativeAgents).IsRequired().OnDelete(deleteBehavior: DeleteBehavior.Cascade);
 
             });
             builder.Entity<PreventionAndControll>(conf => {
-                conf.HasKey(P => new { P.DiseaseID,P.Prevention });
+                //conf.HasKey(P => new { P.DiseaseID,P.Prevention });
                 conf.HasOne(P => P.FishDisease).WithMany(P => P.PreventionAndControlls).IsRequired().OnDelete(deleteBehavior: DeleteBehavior.Cascade);
 
             });
 
-
-            builder.Entity<AppUser>(conf =>
+          
+			builder.Entity<AppUser>(conf =>
             {
                // conf.UseTpcMappingStrategy();
                 conf.HasQueryFilter(u => !u.isDeleted);
@@ -113,10 +113,19 @@ namespace Repositories.Context
             });
 
 
+			new FishDiseaseSeedData()
+			  .Configure(builder.Entity<FishDisease>());
+			new TreatmentSeeds().Configure(builder.Entity<Treatment>());
+			new RecommandationActionsSeeds().Configure(builder.Entity<RecommandationActions>());
+			new ImpactOnAquacultureSeeds().Configure(builder.Entity<ImpactOnAquaculture>());
+			new DiagnosisSeeds().Configure(builder.Entity<Diagnosis>());
+			new ClinicalSignsSeeds().Configure(builder.Entity<ClinicalSigns>());
+			new PrventionAndControllSeeds().Configure(builder.Entity<PreventionAndControll>());
+			new CausativeAgentsSeeds().Configure(builder.Entity<CausativeAgents>());
 
-            
 
-        }
 
-    }
+		}
+
+	}
 }

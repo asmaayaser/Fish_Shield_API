@@ -19,7 +19,7 @@ namespace CORE.Models
         public string Type { get; set; }
         [StringLength(100)]
         public string? PhotoPath { get; set; }
-        [StringLength(500)]
+        
         public string Description { get; set; }
         public ICollection<RecommandationActions> RecommandationActions { get; set; }
         public ICollection<CausativeAgents> CausativeAgents { get; set; }
@@ -32,6 +32,7 @@ namespace CORE.Models
   
     public class RecommandationActions
     {
+        public int ID { get; set; }
         [ForeignKey("FishDisease")]
         public  int  DiseaseID { get; set; }
         public string Action { get; set; }
@@ -40,6 +41,7 @@ namespace CORE.Models
 
     public class CausativeAgents
     {
+        public int ID { get; set; }
         [ForeignKey("FishDisease")]
         public int DiseaseID { get; set; }
         public string? Agents { get; set; }
@@ -47,6 +49,7 @@ namespace CORE.Models
     }
     public class ClinicalSigns
     {
+        public int ID { get; set; }
         [ForeignKey("FishDisease")]
         public int DiseaseID { get; set; }
         public string? Sign { get; set; }
@@ -54,6 +57,7 @@ namespace CORE.Models
     }
     public class Diagnosis
     {
+        public int ID { get; set; }
         [ForeignKey("FishDisease")]
         public int DiseaseID { get; set; }
         public string Diagones { get; set; }
@@ -61,6 +65,7 @@ namespace CORE.Models
     }
     public class Treatment
     {
+        public int ID { get; set; }
         [ForeignKey("FishDisease")]
         public int DiseaseID { get; set; }
         public string TreatmentDesc { get; set; }
@@ -68,14 +73,17 @@ namespace CORE.Models
     }
     public class PreventionAndControll
     {
+        public int ID { get; set; }
         [ForeignKey("FishDisease")]
         public int DiseaseID { get; set; }
+        
         public string Prevention { get; set; }
         public FishDisease FishDisease { get; set; }
     }
 
     public class ImpactOnAquaculture
     {
+        public int ID { get; set; }
         [ForeignKey("FishDisease")]
         public int DiseaseID { get; set; }
         public string ImpactOnAquaculturee { get; set; }

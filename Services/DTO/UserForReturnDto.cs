@@ -30,7 +30,8 @@ namespace Services.DTO
 
     public record DoctorForReturnDto : UserForReturnDto
     {
-        public string Certificate { get; set; }
+		public int Points { get; set; }
+		public string Certificate { get; init; }
         public string? MoreInfo { get; init; }
 
         public string Address { get; init; }
@@ -41,16 +42,6 @@ namespace Services.DTO
        
 
         public string Address { get; init; }
-    }
-
-    public record AppuserForReturnPartial
-    {
-        public string Id { get; init; }
-        public string UserName { get; init; }
-        public string Email { get; init; }
-        public string PhoneNumber { get; init; }
-        public string Discriminator { get; init; }
-        public bool Disabled { get; init; }
     }
 }
 

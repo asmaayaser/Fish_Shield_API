@@ -10,7 +10,7 @@ namespace Services.DTO
         public string Email { get; init; }
         [StringLength(450)]
         public string Message { get; init; }
-        [StringLength (11)]
+        [StringLength (11),DataType(DataType.PhoneNumber)]
         public string Phone { get; set; }
     }
 

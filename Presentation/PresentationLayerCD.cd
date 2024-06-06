@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Presentation.ValidationFilter.ValidationFilterAttribute" BaseTypeListCollapsed="true">
+    <Position X="29.75" Y="7.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ValidationFilter\ValidationFilterAttribute.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Presentation.AccountController">
+    <Position X="2.75" Y="1.75" Width="6" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAICAAAAAEAAAAAABAAAABAAQAkUQAAAAAAA=</HashCode>
+      <FileName>AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Presentation.AdminController">
+    <Position X="12" Y="6.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAEAAAAAAAIA=</HashCode>
+      <FileName>AdminController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Presentation.DetectDiseaseController">
+    <Position X="16.75" Y="10.5" Width="6.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>DetectDiseaseController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Presentation.DiseaseController">
+    <Position X="5.25" Y="10.75" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAACAAAAAAAAkAAAAAAAAA=</HashCode>
+      <FileName>DiseaseController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Presentation.DoctorController">
+    <Position X="6.5" Y="6.25" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAQAAAABAAAAABAAAAAEAAAAAAAIA=</HashCode>
+      <FileName>DoctorController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Presentation.EquipmentController">
+    <Position X="12" Y="10.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAACAEAAAAAAkAAAAQAAAA=</HashCode>
+      <FileName>EquipmentController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Presentation.FarmOwnerController">
+    <Position X="0.5" Y="6.25" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAABAAAAAEAAAAAAAYA=</HashCode>
+      <FileName>FarmOwnerController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Presentation.FeedBacksController">
+    <Position X="17.25" Y="6.5" Width="5.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAKAAAAAAAAEAAAEAAAAAAAAA=</HashCode>
+      <FileName>FeedBacksController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Presentation.TokensController">
+    <Position X="0.5" Y="10.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>TokensController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

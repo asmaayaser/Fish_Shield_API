@@ -13,8 +13,10 @@ namespace Repositories
 
         public async Task<decimal> CalculateRating(Guid id)
         {
-          var Rates= await base.FindByCondition(r => r.DoctorId == id.ToString(),TrackChanges:false).ToListAsync();
-          var RatingCount= Rates.Count();
+            var rate = await base.FindByCondition(r => r.DoctorId.Equals(id.ToString()), TrackChanges: false).AverageAsync(a=>a.Rate);
+            #region old code fashion
+            //  var Rates= await base.FindByCondition(r => r.DoctorId == id.ToString(),TrackChanges:false).ToListAsync();
+            //  var RatingCount= Rates.Count();
         
             if(RatingCount == 0) 
                 return 0;
@@ -23,7 +25,9 @@ namespace Repositories
             foreach (var Rating in Rates)
                 sum += Rating.Rate;
 
-            return Math.Round(sum / RatingCount);
+            //    return Math.Round(sum / RatingCount); 
+            #endregion
+            return rate;
         }
 
         public void PostRating(Rating newRate) => Add(newRate);

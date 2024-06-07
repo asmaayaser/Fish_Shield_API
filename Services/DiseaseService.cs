@@ -50,7 +50,15 @@ namespace Services
             return (diseases:Res,meta:allwithMeta.MetaInfo);
         }
 
-        public DiseaseDto GetDisease(int id, bool track)
+		public (IEnumerable<DiseaseDto> diseases, MetaData meta) GetALLDiseasePartial(FishDiseaseParameters fishDiseaseParameters, bool track)
+		{
+			var allwithMeta = manager.Diseases.GetAllPartial(fishDiseaseParameters, track);
+
+			var Res = mapper.Map<IEnumerable<DiseaseDto>>(allwithMeta);
+			return (diseases: Res, meta: allwithMeta.MetaInfo);
+		}
+
+		public DiseaseDto GetDisease(int id, bool track)
         {
             var FDisease= manager.Diseases.GetDisease(id, track);
             

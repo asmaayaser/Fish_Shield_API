@@ -12,7 +12,9 @@ namespace Services.Contracts
     public interface IDiseaseService
     {
         (IEnumerable<DiseaseDto>diseases,MetaData meta) GetALLDisease(FishDiseaseParameters fishDiseaseParameters,bool track);
-        DiseaseDto GetDisease(int id,bool track); 
+        (IEnumerable<DiseaseDto> diseases, MetaData meta) GetALLDiseasePartial(FishDiseaseParameters fishDiseaseParameters, bool track);
+
+		DiseaseDto GetDisease(int id,bool track); 
         Task<DiseaseDto> Create(DiseaseForCreationDto dto);
     }
 

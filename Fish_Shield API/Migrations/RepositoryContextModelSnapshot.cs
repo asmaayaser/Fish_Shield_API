@@ -597,13 +597,15 @@ namespace Fish_Shield_API.Migrations
                             ID = 1,
                             Description = "Streptococcosis is a systemic bacterial infection affecting tilapia, primarily caused by Streptococcus iniae. It poses a significant threat to tilapia aquaculture globally, leading to morbidity and mortality in affected populations.",
                             Name = "Streptococcosis Disease",
+                            PhotoPath = "https://localhost:7289/images/Detects/1.jpg",
                             Type = "Bacterial Disease"
                         },
                         new
                         {
                             ID = 2,
                             Description = "Epizootic Ulcerative Syndrome (EUS) is a devastating infectious disease that primarily affects freshwater and estuarine fish species. It is caused by the fungus Aphanomyces invadans. EUS is characterized by the development of ulcerative lesions on the skin and fins of affected fish, which can lead to tissue necrosis and systemic infection. The disease is often associated with warm water temperatures and environmental stressors. EUS outbreaks can result in high mortality rates, significant economic losses for aquaculture operations, and ecological impacts on wild fish populations.",
-                            Name = "Epizootic ulcerative syndrome (EUS)",
+                            Name = "EUS Disease",
+                            PhotoPath = "https://localhost:7289/images/Detects/2.jpg",
                             Type = "Fungal disease"
                         },
                         new
@@ -611,6 +613,7 @@ namespace Fish_Shield_API.Migrations
                             ID = 3,
                             Description = "Columnaris disease, also known as cotton wool disease or saddleback disease, is a common bacterial infection affecting tilapia. It is caused by the bacterium Flavobacterium columnare. Columnaris disease typically presents as a systemic infection, primarily affecting the skin and gills of tilapia, although it can also impact other organs.",
                             Name = "Columnaris Disease",
+                            PhotoPath = "https://localhost:7289/images/Detects/3.jpg",
                             Type = "Bacterial Disease"
                         },
                         new
@@ -618,6 +621,7 @@ namespace Fish_Shield_API.Migrations
                             ID = 4,
                             Description = "(BGD) is a common external infection of hatchery reared salmonids and occasionally of warm water species reared under intensive conditions. As defined by Wood (1974), the name of the disease describes the clinical signs of bacterial infections on the gills. The etiological agent of the disease is considered to be one or more species of filamentous bacteria including Flavobacterium sp. as most recently described by Wakabayashi et al. (1980). BGD is characterized by the presence of large numbers of filamentous bacteria on the gills accompanied by fusing and clubbing of the gill filaments. Acute or chronic forms of the disease may occur and acute outbreaks may involve daily mortality rates approaching 20% (Warren 1981). The onset of bacterial gill disease usually follows a deterioration of environmental conditions associated with overcrowding and increases in toxic metabolic waste products. According to Wood (1979), fish smaller than 90-100/lb are most susceptible to the disease. Successful treatment can only be accomplished through prompt therapy and alleviation of poor environmental conditions.",
                             Name = "Gill Disease",
+                            PhotoPath = "https://localhost:7289/images/Detects/4.jpg",
                             Type = "bacterial, viral, or parasitic Disease"
                         });
                 });
@@ -1327,19 +1331,19 @@ namespace Fish_Shield_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "08ea9d75-045b-4287-8fc3-2c7c42fd281a",
+                            Id = "85705ba5-ec88-4881-8d2c-eb7ce123fabe",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "4cbd6819-24d5-454b-a5ae-de77db5f6b02",
+                            Id = "f54b86f6-3893-4d64-bfe9-23355b48083d",
                             Name = "FarmOwner",
                             NormalizedName = "FARMOWNER"
                         },
                         new
                         {
-                            Id = "5dcbe0e4-c81c-409b-95e5-a2f49b7b15c5",
+                            Id = "00130047-1c96-4729-a703-f227aebc419d",
                             Name = "Doctor",
                             NormalizedName = "DOCTOR"
                         });
@@ -1460,18 +1464,18 @@ namespace Fish_Shield_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c92e94ba-e685-4c00-a040-282606ee9e34",
+                            Id = "90e579bd-33cd-4479-b311-c07e13c5901d",
                             AccessFailedCount = 0,
                             Age = 0,
                             BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "7f410cec-2fde-4326-89c3-90aaeecdd101",
+                            ConcurrencyStamp = "1438a72d-7c6d-41b8-aa5c-ad1943661e7c",
                             Disabled = false,
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "admin",
                             PhoneNumberConfirmed = false,
                             RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SecurityStamp = "db2fd7f5-e6d1-4fa6-a29d-b909a42fd83b",
+                            SecurityStamp = "7d42d9be-02f9-4c33-8e3d-0928572255ce",
                             TwoFactorEnabled = false,
                             UserName = "admin",
                             isDeleted = false

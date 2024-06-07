@@ -44,9 +44,19 @@ namespace Repositories
             return PagedList<FishDisease>.ToPagedList(All,fishDiseaseParameters.PageNumber,fishDiseaseParameters.PageSize);
         }
 
+		public PagedList<FishDisease> GetAllPartial(FishDiseaseParameters fishDiseaseParameters, bool track)
+		{
+			List<FishDisease> All=new();
+            if (!string.IsNullOrWhiteSpace(fishDiseaseParameters.diseaseNameSearchTerm))
+                All = base.FindByCondition(d => d.Name.Contains(fishDiseaseParameters.diseaseNameSearchTerm), track).ToList();
+            else
+                All = base.FindAll(track).ToList();
 
+			return PagedList<FishDisease>.ToPagedList(All, fishDiseaseParameters.PageNumber, fishDiseaseParameters.PageSize);
 
-        public FishDisease? GetDisease(int id,bool track)
+		}
+
+		public FishDisease? GetDisease(int id,bool track)
             => base.FindByCondition(d=>d.ID==id,track).Include(d => d.ImpactOnAquacultures)
             .Include(d => d.PreventionAndControlls)
             .Include(d => d.CausativeAgents)

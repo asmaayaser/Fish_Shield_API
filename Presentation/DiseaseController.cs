@@ -33,8 +33,14 @@ namespace Presentation
             Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(res.meta));
             return Ok(res.diseases);
         }
-
-        [HttpGet("{id:int}",Name ="GetById")]
+		[HttpGet("GetAllPartial")]
+		public IActionResult GetAllPartial([FromQuery] FishDiseaseParameters fishDiseaseParameters)
+		{
+			var res = service.diseaseService.GetALLDiseasePartial(fishDiseaseParameters, track: false);
+			Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(res.meta));
+			return Ok(res.diseases);
+		}
+		[HttpGet("{id:int}",Name ="GetById")]
         public IActionResult Get(int id)
         {
            var Res= service.diseaseService.GetDisease(track: false, id: id);

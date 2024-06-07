@@ -37,8 +37,9 @@ namespace Services.DTO
         public ICollection<string> ImpactOnAquacultures { get; init; }
 
     }
+   
 
-    public record DiseaseForCreationDto : DiseaseForManipulationDto { 
+		public record DiseaseForCreationDto : DiseaseForManipulationDto { 
         public IFormFile PhotoPath { get; init; }
     }
 

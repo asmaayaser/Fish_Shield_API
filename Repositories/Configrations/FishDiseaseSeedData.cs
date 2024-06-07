@@ -18,13 +18,15 @@ namespace Repositories.Configrations
 				{
 					ID=1,
 					Name = "Streptococcosis Disease",
+					PhotoPath="https://localhost:7289/images/Detects/1.jpg",
 					Type = "Bacterial Disease",
 					Description = "Streptococcosis is a systemic bacterial infection affecting tilapia, primarily caused by Streptococcus iniae. It poses a significant threat to tilapia aquaculture globally, leading to morbidity and mortality in affected populations.",
 				},
 				new FishDisease()
 				{
 					ID = 2,
-					Name = "Epizootic ulcerative syndrome (EUS)",
+					Name = "EUS Disease",
+					PhotoPath = "https://localhost:7289/images/Detects/2.jpg",
 					Type = "Fungal disease",
 					Description = "Epizootic Ulcerative Syndrome (EUS) is a devastating infectious disease that primarily affects freshwater and estuarine fish species. It is caused by the fungus Aphanomyces invadans. EUS is characterized by the development of ulcerative lesions on the skin and fins of affected fish, which can lead to tissue necrosis and systemic infection. The disease is often associated with warm water temperatures and environmental stressors. EUS outbreaks can result in high mortality rates, significant economic losses for aquaculture operations, and ecological impacts on wild fish populations.",
 				},
@@ -32,6 +34,7 @@ namespace Repositories.Configrations
 				{
 					ID = 3,
 					Name = "Columnaris Disease",
+					PhotoPath = "https://localhost:7289/images/Detects/3.jpg",
 					Type = "Bacterial Disease",
 					Description = "Columnaris disease, also known as cotton wool disease or saddleback disease, is a common bacterial infection affecting tilapia. It is caused by the bacterium Flavobacterium columnare. Columnaris disease typically presents as a systemic infection, primarily affecting the skin and gills of tilapia, although it can also impact other organs.",
 				},
@@ -39,6 +42,7 @@ namespace Repositories.Configrations
 				{
 					ID = 4,
 					Name = "Gill Disease",
+					PhotoPath = "https://localhost:7289/images/Detects/4.jpg",
 					Type = "bacterial, viral, or parasitic Disease",
 					Description = "(BGD) is a common external infection of hatchery reared salmonids and occasionally of warm water species reared under intensive conditions. As defined by Wood (1974), the name of the disease describes the clinical signs of bacterial infections on the gills. The etiological agent of the disease is considered to be one or more species of filamentous bacteria including Flavobacterium sp. as most recently described by Wakabayashi et al. (1980). BGD is characterized by the presence of large numbers of filamentous bacteria on the gills accompanied by fusing and clubbing of the gill filaments. Acute or chronic forms of the disease may occur and acute outbreaks may involve daily mortality rates approaching 20% (Warren 1981). The onset of bacterial gill disease usually follows a deterioration of environmental conditions associated with overcrowding and increases in toxic metabolic waste products. According to Wood (1979), fish smaller than 90-100/lb are most susceptible to the disease. Successful treatment can only be accomplished through prompt therapy and alleviation of poor environmental conditions.",
 				}

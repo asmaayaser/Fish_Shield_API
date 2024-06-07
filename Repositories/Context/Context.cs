@@ -28,7 +28,7 @@ namespace Repositories.Context
         public virtual DbSet<FeedBack> FeedBacks { get; set; }
         public virtual DbSet<Equipment> Equipments { get; set; }
         public virtual DbSet<Rating> Ratings { get; set; }
-
+        public virtual DbSet<PaymentRecord> StripePaymentRecords {  get; set; } 
 
      
 

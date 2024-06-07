@@ -17,6 +17,7 @@ namespace Repositories
         private readonly Lazy<IEquipmentRepository> _equipmentRepository;
         private readonly Lazy<IRatingRepository> _ratingRepository;
         private readonly Lazy<IPaymentUserRepository> _paymentUserRepository;
+        private readonly Lazy<IPaymentRepository> _paymentRepository;
         private readonly RepositoryContext context;
 
         public RepositoryManager(RepositoryContext context)
@@ -33,6 +34,7 @@ namespace Repositories
             _equipmentRepository = new Lazy<IEquipmentRepository>(new EquipmentRepository(context));
             _ratingRepository=new Lazy<IRatingRepository>(()=>new RatingRepository(context));
             _paymentUserRepository = new Lazy<IPaymentUserRepository> (() => new PaymentUserAccountRepositiory(context));
+            _paymentRepository=new Lazy<IPaymentRepository> (() => new PaymentRepository(context));
             this.context = context;
         }
 
@@ -52,7 +54,9 @@ namespace Repositories
 
         public IPaymentUserRepository PaymentUserRepository =>_paymentUserRepository.Value;
 
-        public async Task SaveAsync()=>await context.SaveChangesAsync();
+		public IPaymentRepository paymentRepository => _paymentRepository.Value;
+
+		public async Task SaveAsync()=>await context.SaveChangesAsync();
         
     }
 }

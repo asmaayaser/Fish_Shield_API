@@ -18,6 +18,7 @@ namespace Repositories.Contracts
         IEquipmentRepository equipment { get; }
         IRatingRepository ratingRepository { get; }
         IPaymentUserRepository PaymentUserRepository { get; }
-        Task SaveAsync();
+		IPaymentRepository paymentRepository { get; }
+		Task SaveAsync();
     }
 }

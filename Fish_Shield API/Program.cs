@@ -29,8 +29,11 @@ namespace Fish_Shield_API
             builder.Services.AddAutoMapper(typeof(Program));
             builder.Services.AddSignalR();
 
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
+			Stripe.StripeConfiguration.ApiKey = builder.Configuration["StripeSettings:SecretKey"];
+			builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("StripeSettings"));
+			builder.Services.AddScoped<StripePaymentService>();
+			// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+			builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             // Adding Custom Services

@@ -20,7 +20,8 @@ namespace Services.Contracts
         IAuthentication AuthenticationService {  get; }
         IFeedbackService feedbackService { get; }
         IEquipmentService equipmentService { get; }
-        void SetFarmOwnerStrategy();
+		IStripePaymentService PaymentService { get; }
+		void SetFarmOwnerStrategy();
         void SetAdminStrategy();
         void SetDoctorStrategy();
     }

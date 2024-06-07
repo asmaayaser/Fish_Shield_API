@@ -766,6 +766,36 @@ namespace Fish_Shield_API.Migrations
                         });
                 });
 
+            modelBuilder.Entity("CORE.Models.PaymentRecord", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("OwnerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StripeSessionId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OwnerId");
+
+                    b.ToTable("StripePaymentRecords");
+                });
+
             modelBuilder.Entity("CORE.Models.PreventionAndControll", b =>
                 {
                     b.Property<int>("ID")
@@ -1297,19 +1327,19 @@ namespace Fish_Shield_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "48ffee42-ec24-4ab5-81ad-3ce49017e9d9",
+                            Id = "08ea9d75-045b-4287-8fc3-2c7c42fd281a",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "2c66f11c-53ce-41bb-8bcb-ab70563699b2",
+                            Id = "4cbd6819-24d5-454b-a5ae-de77db5f6b02",
                             Name = "FarmOwner",
                             NormalizedName = "FARMOWNER"
                         },
                         new
                         {
-                            Id = "d938b33d-b433-4a33-a519-a15412cfb9bf",
+                            Id = "5dcbe0e4-c81c-409b-95e5-a2f49b7b15c5",
                             Name = "Doctor",
                             NormalizedName = "DOCTOR"
                         });
@@ -1430,18 +1460,18 @@ namespace Fish_Shield_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e4f90f5b-7be9-4263-b821-5d6ddd06900d",
+                            Id = "c92e94ba-e685-4c00-a040-282606ee9e34",
                             AccessFailedCount = 0,
                             Age = 0,
                             BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "93d5ad9e-5971-4d55-8a36-595b7064b51d",
+                            ConcurrencyStamp = "7f410cec-2fde-4326-89c3-90aaeecdd101",
                             Disabled = false,
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "admin",
                             PhoneNumberConfirmed = false,
                             RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SecurityStamp = "3d3b8e78-d7f5-449a-a220-73a2b6bde0e3",
+                            SecurityStamp = "db2fd7f5-e6d1-4fa6-a29d-b909a42fd83b",
                             TwoFactorEnabled = false,
                             UserName = "admin",
                             isDeleted = false
@@ -1562,6 +1592,17 @@ namespace Fish_Shield_API.Migrations
                         .IsRequired();
 
                     b.Navigation("FishDisease");
+                });
+
+            modelBuilder.Entity("CORE.Models.PaymentRecord", b =>
+                {
+                    b.HasOne("CORE.Models.FarmOwner", "Owner")
+                        .WithMany()
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Owner");
                 });
 
             modelBuilder.Entity("CORE.Models.PreventionAndControll", b =>

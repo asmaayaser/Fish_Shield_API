@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using Repositories.Contracts;
 using Services.Commands;
 using Services.Contracts;
@@ -34,8 +35,8 @@ namespace Services
       //  private readonly IWebHostEnvironment webHostEnvironment;
        // private readonly IEmailSender emailSender;
         private readonly Lazy<IEquipmentService> equipment;
-
-        public ServiceManager(IRepositoryManager manager,ILoggerManager logger,IMapper mapper,IConfiguration configuration, UserManager<AppUser> userManager,RoleManager<IdentityRole> roleManager,IHttpContextAccessor httpContextAccessor,IIOService ioService,IWebHostEnvironment webHostEnvironment,IEmailSender emailSender)
+        private readonly Lazy<IStripePaymentService> _paymentService;
+        public ServiceManager(IRepositoryManager manager,ILoggerManager logger,IMapper mapper,IConfiguration configuration, UserManager<AppUser> userManager,RoleManager<IdentityRole> roleManager,IHttpContextAccessor httpContextAccessor,IIOService ioService,IWebHostEnvironment webHostEnvironment,IEmailSender emailSender,IOptions<StripeSettings> stripeSettings)
         {
            
             disease=new Lazy<IDiseaseService>(()=>new DiseaseService(manager, logger,mapper,ioService,httpContextAccessor));
@@ -54,6 +55,8 @@ namespace Services
             this.ioService = ioService;
             //this.webHostEnvironment = webHostEnvironment;
           //  this.emailSender = emailSender;
+
+            _paymentService=new Lazy<IStripePaymentService>(()=> new StripePaymentService(stripeSettings,manager));
         }
         
         public IDiseaseService diseaseService => disease.Value;
@@ -64,7 +67,10 @@ namespace Services
 
         public IFeedbackService feedbackService => feedback.Value;
         public IEquipmentService equipmentService => equipment.Value;
-        public void SetFarmOwnerStrategy()
+
+		public IStripePaymentService PaymentService => _paymentService.Value;
+
+		public void SetFarmOwnerStrategy()
         {
             AuthenticationService.registration = new FarmOwnerRegistration(mapper, userManager, roleManager, ioService,manager);
             AuthenticationService.getByIdDerivedTypes=new FarmOwnerGetById(manager, mapper);

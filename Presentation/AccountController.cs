@@ -153,8 +153,39 @@ namespace Presentation
 
             return Ok("this Account now marked as Subscripted user account");
         }
-        #endregion
-    }
+		#endregion
+
+
+		#region PAyment
+		[HttpPost("create-checkout-session")]
+		public async Task<IActionResult> CreateCheckoutSession(Guid ownerId)
+		{
+
+			var sessionUrl =await service.PaymentService.CreateCheckoutSession(ownerId.ToString(),
+			   "https://localhost:7289/api/Accounts/success?sessionId={CHECKOUT_SESSION_ID}",
+			   "https://localhost:7289/api/Accounts/cancel?sessionId={CHECKOUT_SESSION_ID}"
+			);
+
+			return Ok (sessionUrl );
+		}
+
+		[HttpGet("success")]
+		public async Task<IActionResult> Success(string sessionId)
+		{
+		    await service.PaymentService.SuccessPayment(sessionId);
+			// Redirect to a success page or return success response
+			return Ok("Payment successful.");
+		}
+
+		[HttpGet("cancel")]
+		public async Task<IActionResult> Cancel(string sessionId)
+		{
+            await service.PaymentService.CancelledPayment(sessionId);
+			// Redirect to a cancel page or return cancel response
+			return Ok("Payment cancelled.");
+		}
+		#endregion
+	}
 
     
 

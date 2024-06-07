@@ -1,14 +1,78 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
-  <Class Name="Repositories.Context.RepositoryContext">
-    <Position X="45" Y="19" Width="3.5" />
+  <Class Name="Repositories.Configrations.FishDiseaseSeedData" BaseTypeListCollapsed="true">
+    <Position X="71.5" Y="24.25" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAABAAAAQAAAAACAgAAAYAAGAAAAAAAAgAAAACAAgA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Configrations\FishDiseaseSeedData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Repositories.Configrations.PrventionAndControllSeeds" BaseTypeListCollapsed="true">
+    <Position X="65.75" Y="27.75" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Configrations\FishDiseaseSeedData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Repositories.Configrations.RecommandationActionsSeeds" BaseTypeListCollapsed="true">
+    <Position X="65.75" Y="24.75" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Configrations\FishDiseaseSeedData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Repositories.Configrations.CausativeAgentsSeeds" BaseTypeListCollapsed="true">
+    <Position X="65.75" Y="29.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Configrations\FishDiseaseSeedData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Repositories.Configrations.ClinicalSignsSeeds" BaseTypeListCollapsed="true">
+    <Position X="71.5" Y="29" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Configrations\FishDiseaseSeedData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.568" />
+  </Class>
+  <Class Name="Repositories.Configrations.DiagnosisSeeds" BaseTypeListCollapsed="true">
+    <Position X="71.5" Y="26" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Configrations\FishDiseaseSeedData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Repositories.Configrations.TreatmentSeeds" BaseTypeListCollapsed="true">
+    <Position X="71.5" Y="27.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Configrations\FishDiseaseSeedData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Repositories.Configrations.ImpactOnAquacultureSeeds" BaseTypeListCollapsed="true">
+    <Position X="65.75" Y="26.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Configrations\FishDiseaseSeedData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Repositories.Context.RepositoryContext">
+    <Position X="78.25" Y="24.25" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAACAgEAAYAAGAAAAAAAAgAAAACAAgA=</HashCode>
       <FileName>Context\Context.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Repositories.AdminRepository">
-    <Position X="24" Y="4" Width="3.5" />
+    <Position X="88" Y="9.25" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AdminRepository.cs</FileName>
@@ -16,7 +80,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Repositories.AppUserRepositiory">
-    <Position X="45.5" Y="4" Width="6.25" />
+    <Position X="97" Y="9.25" Width="6.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIAAAAEAAAgAAAAAAAAAAAAAAAiAAAAAAAAAA=</HashCode>
       <FileName>AppUserRepositiory.cs</FileName>
@@ -24,15 +88,15 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Repositories.DetectDiseaseRepository">
-    <Position X="33" Y="4" Width="7.25" />
+    <Position X="48.75" Y="9.25" Width="7.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAIA=</HashCode>
       <FileName>DetectDiseaseRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Repositories.DiseaseRepository">
-    <Position X="52.5" Y="4" Width="5.75" />
+    <Position X="62" Y="9.25" Width="5.75" />
     <TypeIdentifier>
       <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAEAQAgAAAAAAAAA=</HashCode>
       <FileName>DiseaseRepository.cs</FileName>
@@ -40,7 +104,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Repositories.DoctorRepository">
-    <Position X="41" Y="4" Width="3.75" />
+    <Position X="74.5" Y="9.25" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAACEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DoctorRepository.cs</FileName>
@@ -48,7 +112,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Repositories.EquipmentRepository">
-    <Position X="19" Y="4" Width="4.25" />
+    <Position X="83" Y="9.25" Width="4.25" />
     <TypeIdentifier>
       <HashCode>CAQAAAAAAAAAAAAAAAQAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
       <FileName>EquipmentRepository.cs</FileName>
@@ -56,7 +120,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Repositories.FarmOwnerRepository">
-    <Position X="28.25" Y="4" Width="4" />
+    <Position X="92.25" Y="9.25" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
       <FileName>FarmOwnerRepository.cs</FileName>
@@ -64,15 +128,23 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Repositories.FeedbackRepository">
-    <Position X="63" Y="4" Width="6.25" />
+    <Position X="104" Y="9.25" Width="6.25" />
     <TypeIdentifier>
       <HashCode>AAAAAACAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>FeedbackRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
+  <Class Name="Repositories.PaymentRepository">
+    <Position X="56.75" Y="9.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAIA=</HashCode>
+      <FileName>PaymentRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
   <Class Name="Repositories.PaymentUserAccountRepositiory">
-    <Position X="70" Y="4" Width="5.25" />
+    <Position X="68.5" Y="9.25" Width="5.25" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>PaymentUserAccount.cs</FileName>
@@ -80,7 +152,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Repositories.RatingRepository">
-    <Position X="59" Y="4" Width="3.25" />
+    <Position X="79" Y="9.25" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>RatingRepository.cs</FileName>
@@ -88,7 +160,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Repositories.Repositorybase&lt;T&gt;">
-    <Position X="44" Y="0.75" Width="6" />
+    <Position X="76.5" Y="6" Width="6" />
     <TypeIdentifier>
       <HashCode>AAYCAAAAAAAAEAAAAAAQAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Repositorybase.cs</FileName>
@@ -96,165 +168,180 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Repositories.RepositoryManager" BaseTypeListCollapsed="true">
-    <Position X="44.5" Y="10.75" Width="4" />
+    <Position X="75.25" Y="17.75" Width="4" />
+    <AssociationLine Name="Admins" Type="Repositories.Contracts.IAdminRepository" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="79.25" Y="18" />
+        <Point X="89.75" Y="18" />
+        <Point X="89.75" Y="13.603" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="AppUser" Type="Repositories.Contracts.IAppUser" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="79.25" Y="18.938" />
+        <Point X="97.5" Y="18.938" />
+        <Point X="97.5" Y="14.123" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="DetectDisease" Type="Repositories.Contracts.IDetectDiseaseRepository" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="75.25" Y="19.375" />
+        <Point X="59.083" Y="19.375" Type="JumpStart" />
+        <Point X="58.917" Y="19.375" Type="JumpEnd" />
+        <Point X="52.125" Y="19.375" />
+        <Point X="52.125" Y="13.738" />
+      </Path>
+    </AssociationLine>
     <AssociationLine Name="Diseases" Type="Repositories.Contracts.IDiseaseRepository" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="48.5" Y="12.812" />
-        <Point X="55.375" Y="12.812" />
-        <Point X="55.375" Y="8.93" />
+        <Point X="75.25" Y="18.125" />
+        <Point X="65.125" Y="18.125" />
+        <Point X="65.125" Y="13.68" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="Doctors" Type="Repositories.Contracts.IDoctorRepository" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="45.094" Y="10.75" />
-        <Point X="45.094" Y="8.613" />
-        <Point X="44.312" Y="8.613" />
-        <Point X="44.312" Y="8.238" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="Admins" Type="Repositories.Contracts.IAdminRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="44.5" Y="13.562" />
-        <Point X="38.395" Y="13.562" />
-        <Point X="38.395" Y="13.32" />
-        <Point X="26" Y="13.32" />
-        <Point X="26" Y="8.353" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="farmOwner" Type="Repositories.Contracts.IFarmOwnerRepository" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="44.5" Y="12.938" />
-        <Point X="30.25" Y="12.938" />
-        <Point X="30.25" Y="8.796" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="feedbackRepository" Type="Repositories.Contracts.IFeedbackRepository" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="48.5" Y="13.312" />
-        <Point X="66.125" Y="13.312" />
-        <Point X="66.125" Y="8.488" />
+        <Point X="77.312" Y="17.75" />
+        <Point X="77.312" Y="17.375" />
+        <Point X="76.438" Y="17.375" />
+        <Point X="76.438" Y="13.738" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="equipment" Type="Repositories.Contracts.IEquipmentRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="44.5" Y="14.25" />
-        <Point X="20.938" Y="14.25" />
-        <Point X="20.938" Y="9.815" />
+        <Point X="79.25" Y="17.875" />
+        <Point X="83.375" Y="17.875" />
+        <Point X="83.375" Y="14.565" />
       </Path>
     </AssociationLine>
-    <AssociationLine Name="ratingRepository" Type="Repositories.Contracts.IRatingRepository" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="farmOwner" Type="Repositories.Contracts.IFarmOwnerRepository" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="48.5" Y="13.125" />
-        <Point X="60.75" Y="13.125" />
-        <Point X="60.75" Y="8.796" />
+        <Point X="79.25" Y="18.375" />
+        <Point X="94.25" Y="18.375" />
+        <Point X="94.25" Y="13.796" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="feedbackRepository" Type="Repositories.Contracts.IFeedbackRepository" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="79.25" Y="19.75" />
+        <Point X="104.5" Y="19.75" />
+        <Point X="104.5" Y="13.488" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="PaymentUserRepository" Type="Repositories.Contracts.IPaymentUserRepository" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="48.5" Y="13.688" />
-        <Point X="70.125" Y="13.688" />
-        <Point X="70.125" Y="7.796" />
+        <Point X="75.25" Y="18" />
+        <Point X="72.562" Y="18" />
+        <Point X="72.562" Y="13.296" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAACwAAAAAIAAEBAAACAAUIKAIAEAQAAggACAEACKAA=</HashCode>
+      <HashCode>AAACwAAAAAIAAMBAEACAAUIKAIAEAQAAggACAEACKAA=</HashCode>
       <FileName>RepositoryManager.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
+      <Property Name="Admins" />
+      <Property Name="AppUser" />
       <Property Name="DetectDisease" />
       <Property Name="Diseases" />
       <Property Name="Doctors" />
-      <Property Name="Admins" />
+      <Property Name="equipment" />
       <Property Name="farmOwner" />
       <Property Name="feedbackRepository" />
-      <Property Name="AppUser" />
-      <Property Name="equipment" />
-      <Property Name="ratingRepository" />
+      <Property Name="paymentRepository" />
       <Property Name="PaymentUserRepository" />
+      <Property Name="ratingRepository" />
     </ShowAsAssociation>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="Repositories.Contracts.IAdminRepository">
-    <Position X="24.25" Y="7.25" Width="3.5" />
+    <Position X="88" Y="12.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Contracts\IAdminRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Repositories.Contracts.IAppUser">
-    <Position X="45.5" Y="7" Width="6.25" />
+    <Position X="97" Y="12.25" Width="6.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIAAAAEAAAgAAAAAAAAAAAAAAAiAAAAAAAAAA=</HashCode>
       <FileName>Contracts\IAppUser.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Repositories.Contracts.IDetectDiseaseRepository">
-    <Position X="33" Y="6.75" Width="7.25" />
+    <Position X="48.5" Y="12.25" Width="7.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAIA=</HashCode>
       <FileName>Contracts\IDetectDisease.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Repositories.Contracts.IDiseaseRepository">
-    <Position X="52.5" Y="7.25" Width="5.75" />
+    <Position X="62.25" Y="12" Width="5.75" />
     <TypeIdentifier>
       <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAEAQAgAAAAAAAAA=</HashCode>
       <FileName>Contracts\IDiseaseRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Repositories.Contracts.IDoctorRepository">
-    <Position X="41" Y="6.75" Width="3.75" />
+    <Position X="74.25" Y="12.25" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAACEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Contracts\IDoctorRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Repositories.Contracts.IEquipmentRepository">
-    <Position X="18.75" Y="7.75" Width="4.25" />
+    <Position X="82.75" Y="12.5" Width="4.25" />
     <TypeIdentifier>
       <HashCode>CAQAAAAAAAAAAAAAAAQAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
       <FileName>Contracts\IEquipmentRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Repositories.Contracts.IFarmOwnerRepository">
-    <Position X="28.25" Y="7.5" Width="4" />
+    <Position X="92.25" Y="12.5" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
       <FileName>Contracts\IFarmOwnerRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Repositories.Contracts.IFeedbackRepository">
-    <Position X="63" Y="7" Width="6.25" />
+    <Position X="104.25" Y="12" Width="6.25" />
     <TypeIdentifier>
       <HashCode>AAAAAACAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>Contracts\IFeedback.cs</FileName>
     </TypeIdentifier>
   </Interface>
+  <Interface Name="Repositories.Contracts.IPaymentRepository">
+    <Position X="56.75" Y="12.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Contracts\IPaymentRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Interface Name="Repositories.Contracts.IPaymentUserRepository">
-    <Position X="70" Y="6.5" Width="5.25" />
+    <Position X="68.75" Y="12" Width="5.25" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>Contracts\IPaymentUserRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Repositories.Contracts.IRatingRepository">
-    <Position X="59.25" Y="7.5" Width="3" />
+    <Position X="79.25" Y="12.75" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>Contracts\IRatingRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Repositories.Contracts.IRepositorybase&lt;T&gt;">
-    <Position X="51.25" Y="1" Width="6" />
+    <Position X="69.5" Y="6.25" Width="6" />
     <TypeIdentifier>
       <HashCode>AAYAAAAAAAAAEAAAAAAQAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Contracts\IRepositorybase.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Repositories.Contracts.IRepositoryManager">
-    <Position X="44.75" Y="15" Width="3.75" />
+    <Position X="80" Y="20" Width="4" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAACAAQIAAIAEAAAAggACAEACCAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAEACAAQIAAIAEAAAAggACAEACCAA=</HashCode>
       <FileName>Contracts\IRepositoryManager.cs</FileName>
     </TypeIdentifier>
   </Interface>

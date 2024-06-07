@@ -13,7 +13,13 @@ namespace Repositories
 
         public async Task<decimal> CalculateRating(Guid id)
         {
-            var rate = await base.FindByCondition(r => r.DoctorId.Equals(id.ToString()), TrackChanges: false).AverageAsync(a=>a.Rate);
+
+            var AllRates =  base.FindByCondition(r => r.DoctorId.Equals(id.ToString()), TrackChanges: false);
+            if(AllRates.Count()==0)
+            {
+                return 0;
+            }
+			var rate =await AllRates.AverageAsync(a=>a.Rate);
             #region old code fashion
             //  var Rates= await base.FindByCondition(r => r.DoctorId == id.ToString(),TrackChanges:false).ToListAsync();
             //  var RatingCount= Rates.Count();
